@@ -27,7 +27,7 @@ vous pouvez également installer Raspberry Pi Imager en exécutant la commande `
 ## Flasher une image
 
 Commencez par insérer votre micro SD dans votre ordinateur (à l'aide d'un
-[adaptateur SD](https://www.amazon.fr/dp/B07FCMKK5X) par exemple).
+[adaptateur SD](https://amzn.to/3uLhnaB) par exemple).
 Puis, vous pouvez démarrer Raspberry Pi Imager.
 
 ![Raspberry Pi Imager](/images/articles/maitriser-raspberry-pi-imager/raspberry-pi-imager.png)
