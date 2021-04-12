@@ -4,7 +4,7 @@
       <preview-image :article="article" />
     </template>
     <template #content>
-      <span class="date d-block text-muted w-100">{{ formatDate(article.createdAt) }}</span>
+      <span class="date d-block text-muted w-100" v-text="publicationDate" />
       <h2 v-text="article.title" />
       <p class="description" v-text="article.description" />
       <b-button class="mt-1 mt-lg-3" variant="red" :to="getArticleAddress(article)">
@@ -19,7 +19,7 @@ import { BIconReplyFill } from 'bootstrap-vue'
 import PreviewImage from './PreviewImage'
 import BigCard from './BigCard'
 import SmallCard from './SmallCard'
-import { getArticleAddress } from '~/utils/article'
+import { getArticlePublicationDate, getArticleAddress } from '~/utils/article'
 import { formatDate } from '~/utils/date'
 
 export default {
@@ -45,6 +45,11 @@ export default {
   },
   beforeMount () {
     window.addEventListener('resize', this.updateTag)
+  },
+  computed: {
+    publicationDate () {
+      return formatDate(getArticlePublicationDate(this.article))
+    }
   },
   async mounted () {
     await this.$nextTick()

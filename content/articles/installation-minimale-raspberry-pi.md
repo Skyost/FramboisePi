@@ -1,6 +1,7 @@
 ---
 title: Installation minimale d'un Raspberry Pi
 categories: [tutoriels]
+date: 2021-04-12
 ---
 
 _Flasher une image, activer SSH, se connecter au Wi-Fi, afficher l'écran de votre Raspberry sur votre PC, ...

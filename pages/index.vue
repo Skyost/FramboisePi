@@ -33,7 +33,7 @@ export default {
   },
   async fetch () {
     const firstArticles = await this.$content('articles')
-      .sortBy('createdAt', 'desc')
+      .sortBy('date', 'desc')
       .limit(2)
       .fetch()
     if (firstArticles.length > 0) {

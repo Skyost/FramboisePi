@@ -1,6 +1,7 @@
 ---
 title: Maîtriser Raspberry Pi Imager
 categories: [tutoriels]
+date: 2021-04-12
 ---
 
 _Raspberry Pi Imager est un petit logiciel mis à disposition par la fondation Raspberry Pi. Mis à disposition des

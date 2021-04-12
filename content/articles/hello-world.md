@@ -1,6 +1,7 @@
 ---
 title: Hello world !
 categories: [annonces]
+date: 2021-04-11
 ---
 
 _Ceci est le premier billet de mon blog consacré au Raspberry Pi. Sobrement intitulé <q>Framboise Pi</q>, vous trouverez

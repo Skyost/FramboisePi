@@ -1,6 +1,7 @@
 ---
 title: Créer une horloge avec une matrice de LEDs
 categories: [tutoriels, projets]
+date: 2021-04-12
 ---
 
 _Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable

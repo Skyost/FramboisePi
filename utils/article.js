@@ -1,3 +1,7 @@
+function getArticlePublicationDate (article) {
+  return new Date(article.date ?? article.createdAt)
+}
+
 function getArticleImage (article) {
   return article.image ?? `/images/articles/${article.slug}/preview.png`
 }
@@ -13,4 +17,4 @@ function getArticleAuthor (article) {
   }
 }
 
-export { getArticleImage, getArticleAddress, getArticleAuthor }
+export { getArticlePublicationDate, getArticleImage, getArticleAddress, getArticleAuthor }

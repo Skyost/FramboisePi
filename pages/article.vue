@@ -7,10 +7,9 @@
     <social-head :title="article.title" :description="article.description" />
     <img :src="getArticleImage(article)" :alt="article.title" class="w-100 mt-5">
     <page-header :title="article.title">
-      Écrit par <a :href="author.link" v-text="author.name" /> le {{ formatDate(article.createdAt) }} à
-      {{ formatHour(article.createdAt) }}.
-      <span v-if="article.updatedAt">
-        Mis à jour le {{ formatDate(article.updatedAt) }} à {{ formatHour(article.updatedAt) }}.
+      Écrit par <a :href="author.link" v-text="author.name" /> le {{ publicationDate }}.
+      <span v-if="updateDate">
+        Mis à jour le {{ updateDate }}.
       </span>
       <span v-if="article.categories.length > 0">
         <br>Posté dans
@@ -36,9 +35,9 @@
 </template>
 
 <script>
-import { getArticleImage, getArticleAuthor } from '~/utils/article'
+import { getArticlePublicationDate, getArticleImage, getArticleAuthor } from '~/utils/article'
 import { getCategoryAddress } from '~/utils/categorie'
-import { formatDate, formatHour } from '~/utils/date'
+import { formatDate } from '~/utils/date'
 import Comments from '~/components/Article/Comments'
 import SocialIcons from '~/components/Article/SocialIcons'
 
@@ -62,11 +61,21 @@ export default {
       title: this.article ? this.article.title : "Lecture d'un article"
     }
   },
+  computed: {
+    publicationDate () {
+      return formatDate(getArticlePublicationDate(this.article))
+    },
+    updateDate () {
+      const publicationDate = getArticlePublicationDate(this.article)
+      const updateDate = new Date(this.article.updatedAt)
+      const diffTime = Math.abs(updateDate - publicationDate)
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+      return diffDays === 0 ? null : formatDate(updateDate)
+    }
+  },
   methods: {
     getArticleImage,
-    getCategoryAddress,
-    formatDate,
-    formatHour
+    getCategoryAddress
   }
 }
 </script>

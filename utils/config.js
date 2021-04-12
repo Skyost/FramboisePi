@@ -1,6 +1,5 @@
 import { HOST_NAME, SITE_DESCRIPTION, SITE_NAME } from './site'
-import { getArticleAddress, getArticleImage, getArticleAuthor } from './article'
-const { $content } = require('@nuxt/content')
+import { getArticlePublicationDate, getArticleAddress, getArticleImage, getArticleAuthor } from './article'
 
 async function createFeed (feed) {
   feed.options = {
@@ -21,6 +20,7 @@ async function createFeed (feed) {
   feed.addCategory('Electronic')
   feed.addCategory('Technology')
 
+  const { $content } = require('@nuxt/content')
   const articles = await $content('articles')
     .fetch()
   for (const article of articles) {
@@ -29,7 +29,7 @@ async function createFeed (feed) {
       title: article.title,
       id: url,
       link: url,
-      date: new Date(article.createdAt),
+      date: getArticlePublicationDate(article),
       description: article.description,
       content: `<p>${article.description}</p><p>Lire l'article en entier sur <a href="${url}">${SITE_NAME}</a>.</p>`,
       author: [
@@ -41,6 +41,7 @@ async function createFeed (feed) {
 }
 
 async function createRoutes () {
+  const { $content } = require('@nuxt/content')
   const articles = await $content('articles')
     .fetch()
   return articles.map(article => getArticleAddress(article))
