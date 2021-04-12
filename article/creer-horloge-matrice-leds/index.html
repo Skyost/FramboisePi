@@ -1,0 +1,195 @@
+<!doctype html>
+<html data-n-head-ssr lang="fr" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22fr%22%7D%7D">
+  <head>
+    <title>Créer une horloge avec une matrice de LEDs | Framboise Pi</title><meta data-n-head="ssr" charset="utf-8"><meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1"><meta data-n-head="ssr" data-hid="description" name="description" content="Blog consacré au Raspberry Pi. Au programme : des actualités, des tutoriels en français, des conseils, des projets, et bien plus pour exploiter le maximum de votre framboise !"><meta data-n-head="ssr" name="theme-color" content="#c51d4a"><meta data-n-head="ssr" property="og:title" content="Créer une horloge avec une matrice de LEDs"><meta data-n-head="ssr" property="og:description" content="Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
+qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs."><meta data-n-head="ssr" property="og:type" content="website"><meta data-n-head="ssr" property="og:site_name" content="Framboise Pi"><meta data-n-head="ssr" property="og:url" content="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds"><meta data-n-head="ssr" property="og:image" content="/images/social/open-graph.png"><meta data-n-head="ssr" property="og:locale" content="fr_FR"><meta data-n-head="ssr" name="twitter:card" content="summary"><meta data-n-head="ssr" name="twitter:title" content="Créer une horloge avec une matrice de LEDs"><meta data-n-head="ssr" name="twitter:description" content="Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
+qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs."><meta data-n-head="ssr" name="twitter:site" content="@Skyost"><meta data-n-head="ssr" name="twitter:creator" content="@Skyost"><meta data-n-head="ssr" name="twitter:url" content="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds"><meta data-n-head="ssr" name="twitter:image" content="/images/social/twitter.png"><link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico"><link data-n-head="ssr" rel="alternate" type="application/rss+xml" href="/feed.xml" title="Flux RSS de Framboise Pi"><link data-n-head="ssr" data-hid="gf-prefetch" rel="dns-prefetch" href="https://fonts.gstatic.com/"><link data-n-head="ssr" data-hid="gf-preconnect" rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><link data-n-head="ssr" data-hid="gf-preload" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap"><link data-n-head="ssr" rel="canonical" href="/article/creer-horloge-matrice-leds"><script data-n-head="ssr" data-hid="gf-script">!function(){var e=document.createElement("link");e.rel="stylesheet",e.href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap",document.querySelector("head").appendChild(e)}()</script><noscript data-n-head="ssr" data-hid="gf-noscript"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap"></noscript><link rel="preload" href="/_nuxt/4e961d1.js" as="script"><link rel="preload" href="/_nuxt/9b50707.js" as="script"><link rel="preload" href="/_nuxt/css/fb702ca.css" as="style"><link rel="preload" href="/_nuxt/5aed441.js" as="script"><link rel="preload" href="/_nuxt/css/9c9ae1d.css" as="style"><link rel="preload" href="/_nuxt/cf75c19.js" as="script"><link rel="preload" href="/_nuxt/css/bd14adf.css" as="style"><link rel="preload" href="/_nuxt/0a4f826.js" as="script"><link rel="preload" href="/_nuxt/css/5b6a068.css" as="style"><link rel="preload" href="/_nuxt/f1c05c3.js" as="script"><link rel="stylesheet" href="/_nuxt/css/fb702ca.css"><link rel="stylesheet" href="/_nuxt/css/9c9ae1d.css"><link rel="stylesheet" href="/_nuxt/css/bd14adf.css"><link rel="stylesheet" href="/_nuxt/css/5b6a068.css"><link rel="preload" href="/_nuxt/static/1618236899/article/creer-horloge-matrice-leds/state.js" as="script"><link rel="preload" href="/_nuxt/static/1618236899/article/creer-horloge-matrice-leds/payload.js" as="script"><link rel="preload" href="/_nuxt/static/1618236899/manifest.js" as="script">
+  </head>
+  <body>
+    <div data-server-rendered="true" id="__nuxt"><!----><div id="__layout"><div><nav data-fetch-key="data-v-37386b08:0" class="navbar navbar-light navbar-expand-lg" data-v-37386b08><a href="/" target="_self" class="navbar-brand nuxt-link-active" data-v-37386b08><img src="/_nuxt/img/pi.d29fd8c.svg" alt="Pi" class="logo" data-v-37386b08></a> <button type="button" aria-label="Toggle navigation" class="navbar-toggler" data-v-37386b08><span class="navbar-toggler-icon"></span></button> <div id="nav-collapse" class="navbar-collapse collapse" style="display:none" data-v-37386b08><ul class="navbar-nav ml-auto" data-v-37386b08><ul class="navbar-nav" data-v-37386b08><li class="nav-item" data-v-37386b08><a href="/" target="_self" class="nav-link nuxt-link-active" data-v-37386b08><svg viewBox="0 0 16 16" width="1em" height="1em" focusable="false" role="img" aria-label="pen" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-pen b-icon bi" data-v-37386b08><g data-v-37386b08><path d="M13.498.795l.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/></g></svg> Articles
+        </a></li> <li class="nav-item" data-v-37386b08><a href="#" target="_self" class="nav-link"><svg viewBox="0 0 16 16" width="1em" height="1em" focusable="false" role="img" aria-label="search" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-search b-icon bi"><g><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></g></svg> Rechercher
+  <!----></a></li> <li class="nav-item b-nav-dropdown dropdown" data-v-37386b08><a role="button" aria-haspopup="true" aria-expanded="false" href="#" target="_self" class="nav-link dropdown-toggle"><svg viewBox="0 0 16 16" width="1em" height="1em" focusable="false" role="img" aria-label="list ul" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-list-ul b-icon bi" data-v-37386b08><g data-v-37386b08><path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></g></svg> Catégories
+          </a><ul tabindex="-1" class="dropdown-menu dropdown-menu-right"> <li role="presentation" data-v-37386b08><a href="/categorie/annonces" role="menuitem" target="_self" class="dropdown-item">
+            annonces
+          </a></li><li role="presentation" data-v-37386b08><a href="/categorie/projets" role="menuitem" target="_self" class="dropdown-item">
+            projets
+          </a></li><li role="presentation" data-v-37386b08><a href="/categorie/tutoriels" role="menuitem" target="_self" class="dropdown-item">
+            tutoriels
+          </a></li></ul></li> <li class="nav-item" data-v-37386b08><a href="https://skyost.eu" target="_self" class="nav-link" data-v-37386b08><svg viewBox="0 0 16 16" width="1em" height="1em" focusable="false" role="img" aria-label="question" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-question b-icon bi" data-v-37386b08><g data-v-37386b08><path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/></g></svg> À propos
+        </a></li></ul></ul></div></nav> <div class="container"><div data-fetch-key="0"><!----> <img src="/images/articles/creer-horloge-matrice-leds/preview.png" alt="Créer une horloge avec une matrice de LEDs" class="w-100 mt-5"> <header class="pt-5 pb-5" data-v-75ff8836><h1 class="title" data-v-75ff8836><span data-v-75ff8836>Créer une horloge avec une matrice de LEDs</span></h1> <span class="d-block text-muted tagline" data-v-75ff8836>
+    Écrit par <a href="https://skyost.eu" data-v-75ff8836>Skyost</a> le 12/04/2021 à
+    14:13.
+    <span data-v-75ff8836>
+      Mis à jour le 12/04/2021 à 14:13.
+    </span> <span data-v-75ff8836><br data-v-75ff8836>Posté dans
+      <span data-v-75ff8836>
+        les catégories :
+      </span> <span data-v-75ff8836><q data-v-75ff8836><a href="/categorie/tutoriels" class="text-capitalize">tutoriels</a></q><span data-v-75ff8836>, </span></span><span data-v-75ff8836><q data-v-75ff8836><a href="/categorie/projets" class="text-capitalize">projets</a></q><span data-v-75ff8836>.</span></span></span></span></header> <article data-v-57e3944e><div class="nuxt-content" data-v-57e3944e data-v-57e3944e><p data-v-57e3944e data-v-57e3944e><em data-v-57e3944e data-v-57e3944e>Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
+qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.</em></p>
+
+<iframe width="100%" height="590" src="https://www.youtube.com/embed/VBNRIcA_Ppg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="youtube-frame" data-v-7c706b1b data-v-57e3944e></iframe>
+<h2 id="matériel-nécessaire" data-v-57e3944e data-v-57e3944e>Matériel nécessaire<a href="#mat%C3%A9riel-n%C3%A9cessaire" aria-hidden="true" tabindex="-1" data-v-57e3944e data-v-57e3944e><span class="anchor" data-v-57e3944e data-v-57e3944e></span></a></h2>
+<p data-v-57e3944e data-v-57e3944e>Le projet est très accessible mais nécessite pas mal de matériel. Vous aurez besoin de :</p>
+<ul data-v-57e3944e data-v-57e3944e>
+<li data-v-57e3944e data-v-57e3944e>1 <strong data-v-57e3944e data-v-57e3944e>Raspberry Pi Zero WH</strong> [<a href="https://www.amazon.fr/dp/B07C7YB1H3" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>Amazon</a>,
+<a href="https://fr.aliexpress.com/item/1005001993063894.html" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>AliExpress</a>]
+(n'importe quel Raspberry Pi muni de ports GPIO devrait suffire, mais cette solution me semble être la moins
+chère).</li>
+<li data-v-57e3944e data-v-57e3944e>1 <strong data-v-57e3944e data-v-57e3944e>Matrice de LEDs</strong> [<a href="https://www.amazon.fr/dp/B079HVW652/" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>Amazon</a>,
+<a href="https://fr.aliexpress.com/item/32834030893.html" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>AliExpress</a>] (je vous conseille celle d'AZ-Delivery,
+abordable et de bonne qualité).</li>
+<li data-v-57e3944e data-v-57e3944e>1 <strong data-v-57e3944e data-v-57e3944e>Touchpad USB</strong> [<a href="https://www.amazon.fr/dp/B001CX85I8/" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>Amazon</a>,
+<a href="https://fr.aliexpress.com/item/32981629578.html" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>AliExpress</a>] (cela a l'avantage d'être généralement moins couteux
+que l'achat d'un détecteur de mouvements et de boutons).</li>
+<li data-v-57e3944e data-v-57e3944e>1 <strong data-v-57e3944e data-v-57e3944e>Câble micro USB - USB OTG</strong> [<a href="https://www.amazon.fr/dp/B00LN3LQKQ/" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>Amazon</a>,
+<a href="https://fr.aliexpress.com/item/1005001586058974.html" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>AliExpress</a>].</li>
+<li data-v-57e3944e data-v-57e3944e>1 <strong data-v-57e3944e data-v-57e3944e>Chargeur secteur USB</strong>.</li>
+<li data-v-57e3944e data-v-57e3944e>1 <strong data-v-57e3944e data-v-57e3944e>Câble d'alimentation USB - micro USB</strong>.</li>
+<li data-v-57e3944e data-v-57e3944e>1 <strong data-v-57e3944e data-v-57e3944e>Micro SD</strong> (prévoyez minimum 8Go pour n'importe quel projet).</li>
+<li data-v-57e3944e data-v-57e3944e>1 <strong data-v-57e3944e data-v-57e3944e>Adaptateur SD</strong>.</li>
+</ul>
+<p data-v-57e3944e data-v-57e3944e>Tout cela pour un coût total d'environ 60€ (si vous ne possédez rien).</p>
+<h2 id="effectuer-les-branchements" data-v-57e3944e data-v-57e3944e>Effectuer les branchements<a href="#effectuer-les-branchements" aria-hidden="true" tabindex="-1" data-v-57e3944e data-v-57e3944e><span class="anchor" data-v-57e3944e data-v-57e3944e></span></a></h2>
+<p data-v-57e3944e data-v-57e3944e>On va effectuer les branchements à l'aide du tableau suivant :</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table data-v-57e3944e data-v-57e3944e><thead data-v-57e3944e data-v-57e3944e><tr data-v-57e3944e data-v-57e3944e><th data-v-57e3944e data-v-57e3944e>Pin Matrice</th><th data-v-57e3944e data-v-57e3944e>Nom</th><th data-v-57e3944e data-v-57e3944e>Signification</th><th data-v-57e3944e data-v-57e3944e>Pin RPi</th><th data-v-57e3944e data-v-57e3944e>Fonction</th></tr></thead><tbody data-v-57e3944e data-v-57e3944e><tr data-v-57e3944e data-v-57e3944e><td data-v-57e3944e data-v-57e3944e>1</td><td data-v-57e3944e data-v-57e3944e>VCC</td><td data-v-57e3944e data-v-57e3944e>+5V Power</td><td data-v-57e3944e data-v-57e3944e>2</td><td data-v-57e3944e data-v-57e3944e>5V0</td></tr><tr data-v-57e3944e data-v-57e3944e><td data-v-57e3944e data-v-57e3944e>2</td><td data-v-57e3944e data-v-57e3944e>GND</td><td data-v-57e3944e data-v-57e3944e>Ground</td><td data-v-57e3944e data-v-57e3944e>6</td><td data-v-57e3944e data-v-57e3944e>GND</td></tr><tr data-v-57e3944e data-v-57e3944e><td data-v-57e3944e data-v-57e3944e>3</td><td data-v-57e3944e data-v-57e3944e>DIN</td><td data-v-57e3944e data-v-57e3944e>Data In</td><td data-v-57e3944e data-v-57e3944e>19</td><td data-v-57e3944e data-v-57e3944e>GPIO 10 (MOSI)</td></tr><tr data-v-57e3944e data-v-57e3944e><td data-v-57e3944e data-v-57e3944e>4</td><td data-v-57e3944e data-v-57e3944e>CS</td><td data-v-57e3944e data-v-57e3944e>Chip Select</td><td data-v-57e3944e data-v-57e3944e>24</td><td data-v-57e3944e data-v-57e3944e>GPIO 8 (SPI CE0)</td></tr><tr data-v-57e3944e data-v-57e3944e><td data-v-57e3944e data-v-57e3944e>5</td><td data-v-57e3944e data-v-57e3944e>CLK</td><td data-v-57e3944e data-v-57e3944e>Clock</td><td data-v-57e3944e data-v-57e3944e>23</td><td data-v-57e3944e data-v-57e3944e>GPIO 11 (SPI CLK)</td></tr></tbody></table>
+<p data-v-57e3944e data-v-57e3944e><a href="https://luma-led-matrix.readthedocs.io/en/latest/install.html#max7219-devices-spi" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>Source</a>.</p>
+<p data-v-57e3944e data-v-57e3944e>Chaque port de la matrice de LEDs doit être relié au port correspondant sur le Raspberry.
+Voici la carte des ports GPIO sur les modèles les plus récents :</p>
+<p data-v-57e3944e data-v-57e3944e><img alt="Carte des ports GPIO" src="/images/articles/creer-horloge-matrice-leds/gpio-pinout.png" data-v-57e3944e data-v-57e3944e></p>
+<p data-v-57e3944e data-v-57e3944e><a href="https://www.raspberrypi.org/documentation/usage/gpio/" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>Source</a>.</p>
+<p data-v-57e3944e data-v-57e3944e>Ce qui devrait vous donner quelque-chose comme ça :</p>
+<p data-v-57e3944e data-v-57e3944e><img alt="Branchements" src="/images/articles/creer-horloge-matrice-leds/branchements.png" data-v-57e3944e data-v-57e3944e></p>
+<p data-v-57e3944e data-v-57e3944e>Branchez ensuite le touchpad à l'aide du câble micro USB - USB.</p>
+<h2 id="mettre-en-place-le-script" data-v-57e3944e data-v-57e3944e>Mettre en place le script<a href="#mettre-en-place-le-script" aria-hidden="true" tabindex="-1" data-v-57e3944e data-v-57e3944e><span class="anchor" data-v-57e3944e data-v-57e3944e></span></a></h2>
+<p data-v-57e3944e data-v-57e3944e>Insérez votre micro SD dans votre ordinateur et flashez Raspberry Pi OS dessus (un tutoriel a été rédigé à ce sujet,
+il est disponible <a href="/article/installation-minimale-raspberry-pi#t%C3%A9l%C3%A9charger-et-flasher-raspberry-os" data-v-57e3944e>ici</a>). Activez SSH
+et le Wi-Fi en suivant les étapes disponibles <a href="/article/installation-minimale-raspberry-pi#activer-ssh-et-se-connecter-au-wi-fi" data-v-57e3944e>ici</a>.
+Enlevez votre carte de l'ordinateur, et insérez-la dans le Raspberry que vous pouvez désormais mettre sous tension.</p>
+<p data-v-57e3944e data-v-57e3944e>Commencez par vous connecter en SSH. On va activer l'interface SPI en lançant l'utilitaire <code data-v-57e3944e data-v-57e3944e>raspi-config</code>
+(il suffit pour cela d'exécuter la commande <code data-v-57e3944e data-v-57e3944e>sudo raspi-config</code>). Sélectionnez <em data-v-57e3944e data-v-57e3944e>Interfacing Options</em>, puis <em data-v-57e3944e data-v-57e3944e>SPI</em>,
+et <em data-v-57e3944e data-v-57e3944e>Yes</em>. Sortez de l'utilitaire et redémarrez (si <code data-v-57e3944e data-v-57e3944e>raspi-config</code> ne vous propose pas de redémarrer,
+la commande <code data-v-57e3944e data-v-57e3944e>sudo reboot now</code> fera l'affaire).</p>
+<p data-v-57e3944e data-v-57e3944e>J'ai créé un petit script Python pour ce projet qui nécessite cependant quelques commandes pour fonctionner.
+Tout d'abord, il faut s'assurer que la version de Python utilisée par défaut soit la version 3 :</p>
+<div class="nuxt-content-highlight" data-v-57e3944e data-v-57e3944e><pre class="line-numbers language-shell" data-v-57e3944e data-v-57e3944e><code data-v-57e3944e data-v-57e3944e><span class="token function" data-v-57e3944e data-v-57e3944e>sudo</span> update-alternatives --install /usr/bin/python python /usr/bin/python3.7 <span class="token number" data-v-57e3944e data-v-57e3944e>2</span>
+</code></pre></div>
+<p data-v-57e3944e data-v-57e3944e>La commande <code data-v-57e3944e data-v-57e3944e>python --version</code> doit maintenant vous renvoyer <code data-v-57e3944e data-v-57e3944e>Python 3.7.x</code>. On va maintenant pouvoir installer les
+dépendances :</p>
+<div class="nuxt-content-highlight" data-v-57e3944e data-v-57e3944e><pre class="line-numbers language-shell" data-v-57e3944e data-v-57e3944e><code data-v-57e3944e data-v-57e3944e><span class="token function" data-v-57e3944e data-v-57e3944e>sudo</span> <span class="token function" data-v-57e3944e data-v-57e3944e>usermod</span> -a -G spi,gpio pi
+<span class="token function" data-v-57e3944e data-v-57e3944e>sudo</span> <span class="token function" data-v-57e3944e data-v-57e3944e>apt</span> <span class="token function" data-v-57e3944e data-v-57e3944e>install</span> build-essential libfreetype6-dev libjpeg-dev libopenjp2-7 libtiff5
+<span class="token function" data-v-57e3944e data-v-57e3944e>sudo</span> pip3 <span class="token function" data-v-57e3944e data-v-57e3944e>install</span> luma.led_matrix
+<span class="token function" data-v-57e3944e data-v-57e3944e>sudo</span> <span class="token function" data-v-57e3944e data-v-57e3944e>apt</span> <span class="token function" data-v-57e3944e data-v-57e3944e>install</span> libsdl-dev libportmidi-dev libsdl-ttf2.0-dev libsdl-mixer1.2-dev libsdl-image1.2-dev
+<span class="token function" data-v-57e3944e data-v-57e3944e>sudo</span> pip3 <span class="token function" data-v-57e3944e data-v-57e3944e>install</span> pygame
+<span class="token function" data-v-57e3944e data-v-57e3944e>sudo</span> pip3 <span class="token function" data-v-57e3944e data-v-57e3944e>install</span> luma.emulator
+<span class="token function" data-v-57e3944e data-v-57e3944e>sudo</span> pip3 <span class="token function" data-v-57e3944e data-v-57e3944e>install</span> pynput
+</code></pre></div>
+<p data-v-57e3944e data-v-57e3944e>(Il s'agit d'un condensé des informations d'installation de
+<a href="https://luma-led-matrix.readthedocs.io/en/latest/install.html" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>Luma LED Matrix</a>,
+<a href="https://luma-emulator.readthedocs.io/en/latest/install.html" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>Luma Emulator</a>, et
+<a href="https://pypi.org/project/pynput/" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>Pynput</a>). Vous pouvez maintenant télécharger le script directement depuis Github :</p>
+<div class="nuxt-content-highlight" data-v-57e3944e data-v-57e3944e><pre class="line-numbers language-shell" data-v-57e3944e data-v-57e3944e><code data-v-57e3944e data-v-57e3944e><span class="token function" data-v-57e3944e data-v-57e3944e>sudo</span> <span class="token function" data-v-57e3944e data-v-57e3944e>apt</span> <span class="token function" data-v-57e3944e data-v-57e3944e>install</span> <span class="token function" data-v-57e3944e data-v-57e3944e>git</span>
+<span class="token function" data-v-57e3944e data-v-57e3944e>git</span> clone https://github.com/Skyost/Anaclock.git
+</code></pre></div>
+<p data-v-57e3944e data-v-57e3944e>On va désactiver toutes les interactions possibles avec Raspberry Pi OS à la souris (pour éviter qu'un mauvais clic
+vienne éteindre le système, voire pire). Pour cela, on va éditer le fichier <code data-v-57e3944e data-v-57e3944e>~/.config/lxsession/LXDE-pi/autostart</code> à
+l'aide de Nano :</p>
+<div class="nuxt-content-highlight" data-v-57e3944e data-v-57e3944e><pre class="line-numbers language-shell" data-v-57e3944e data-v-57e3944e><code data-v-57e3944e data-v-57e3944e><span class="token function" data-v-57e3944e data-v-57e3944e>sudo</span> <span class="token function" data-v-57e3944e data-v-57e3944e>nano</span> ~/.config/lxsession/LXDE-pi/autostart
+</code></pre></div>
+<p data-v-57e3944e data-v-57e3944e>Cherchez la ligne commençant par <code data-v-57e3944e data-v-57e3944e>@lxpanel</code> et éditez le fichier comme suit :</p>
+<div class="nuxt-content-highlight" data-v-57e3944e data-v-57e3944e><pre class="line-numbers language-shell" data-v-57e3944e data-v-57e3944e><code data-v-57e3944e data-v-57e3944e><span class="token comment" data-v-57e3944e data-v-57e3944e># @lxpanel --profile LXDE-pi # Désactive lxpanel.</span>
+<span class="token comment" data-v-57e3944e data-v-57e3944e># @pcmanfm --desktop --profile LXDE-pi # Désactive PCManFM.</span>
+<span class="token comment" data-v-57e3944e data-v-57e3944e># @xscreensaver -no-splash # Désactive xscreensaver.</span>
+@xset s off <span class="token comment" data-v-57e3944e data-v-57e3944e># Désactive l’économiseur d’écran.</span>
+@xset -dpms <span class="token comment" data-v-57e3944e data-v-57e3944e># Désactive DPMS.</span>
+@xset s noblank <span class="token comment" data-v-57e3944e data-v-57e3944e># Empêche l'écran de devenir blanc.</span>
+@point-rpi <span class="token comment" data-v-57e3944e data-v-57e3944e># Positionne la souris sur le bouton du menu.</span>
+</code></pre></div>
+<p data-v-57e3944e data-v-57e3944e>Faîtes <em data-v-57e3944e data-v-57e3944e>CTRL + X</em> pour enregistrer le fichier, puis <em data-v-57e3944e data-v-57e3944e>Y</em> pour valider. On va maintenant supprimer le menu contextuel
+d'OpenBox. Éditez le fichier <code data-v-57e3944e data-v-57e3944e>~/.config/openbox/lxde-pi-rc.xml</code> avec Nano :</p>
+<div class="nuxt-content-highlight" data-v-57e3944e data-v-57e3944e><pre class="line-numbers language-shell" data-v-57e3944e data-v-57e3944e><code data-v-57e3944e data-v-57e3944e><span class="token function" data-v-57e3944e data-v-57e3944e>sudo</span> <span class="token function" data-v-57e3944e data-v-57e3944e>nano</span> ~/.config/openbox/lxde-pi-rc.xml
+</code></pre></div>
+<p data-v-57e3944e data-v-57e3944e>Et supprimez les lignes qui sont responsables du clic droit :</p>
+<div class="nuxt-content-highlight" data-v-57e3944e data-v-57e3944e><pre class="line-numbers language-xml" data-v-57e3944e data-v-57e3944e><code data-v-57e3944e data-v-57e3944e><span class="token comment" data-v-57e3944e data-v-57e3944e>&lt;!-- Supprimez ou commentez ce qui se trouve entre cette balise... --></span>
+<span class="token tag" data-v-57e3944e data-v-57e3944e><span class="token tag" data-v-57e3944e data-v-57e3944e><span class="token punctuation" data-v-57e3944e data-v-57e3944e>&lt;</span>mousebind</span> <span class="token attr-name" data-v-57e3944e data-v-57e3944e>button</span><span class="token attr-value" data-v-57e3944e data-v-57e3944e><span class="token punctuation attr-equals" data-v-57e3944e data-v-57e3944e>=</span><span class="token punctuation" data-v-57e3944e data-v-57e3944e>"</span>Right<span class="token punctuation" data-v-57e3944e data-v-57e3944e>"</span></span> <span class="token attr-name" data-v-57e3944e data-v-57e3944e>action</span><span class="token attr-value" data-v-57e3944e data-v-57e3944e><span class="token punctuation attr-equals" data-v-57e3944e data-v-57e3944e>=</span><span class="token punctuation" data-v-57e3944e data-v-57e3944e>"</span>Press<span class="token punctuation" data-v-57e3944e data-v-57e3944e>"</span></span><span class="token punctuation" data-v-57e3944e data-v-57e3944e>></span></span>
+  <span class="token comment" data-v-57e3944e data-v-57e3944e>&lt;!-- ... --></span>
+<span class="token tag" data-v-57e3944e data-v-57e3944e><span class="token tag" data-v-57e3944e data-v-57e3944e><span class="token punctuation" data-v-57e3944e data-v-57e3944e>&lt;/</span>mousebind</span><span class="token punctuation" data-v-57e3944e data-v-57e3944e>></span></span> 
+<span class="token comment" data-v-57e3944e data-v-57e3944e>&lt;!-- ... Et cette balise. --></span>
+</code></pre></div>
+<p data-v-57e3944e data-v-57e3944e>Au lieu de faire tout cela, une autre possibilité aurait été de lancer Chromium en mode kiosk au démarrage
+(les étapes pour faire ceci sont disponibles <a href="https://gist.github.com/jongrover/6831346" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>ici</a>).
+De même, faîtes <em data-v-57e3944e data-v-57e3944e>CTRL + X</em> pour enregistrer le fichier, et validez avec <em data-v-57e3944e data-v-57e3944e>Y</em>. On peut maintenant redémarrer le système
+avec <code data-v-57e3944e data-v-57e3944e>sudo reboot now</code>.</p>
+<h2 id="faire-fonctionner-lhorloge" data-v-57e3944e data-v-57e3944e>Faire fonctionner l'horloge<a href="#faire-fonctionner-lhorloge" aria-hidden="true" tabindex="-1" data-v-57e3944e data-v-57e3944e><span class="anchor" data-v-57e3944e data-v-57e3944e></span></a></h2>
+<p data-v-57e3944e data-v-57e3944e>Une fois le système redémarré, on se dirige dans le répertoire du script, et on l'exécute en fond :</p>
+<div class="nuxt-content-highlight" data-v-57e3944e data-v-57e3944e><pre class="line-numbers language-shell" data-v-57e3944e data-v-57e3944e><code data-v-57e3944e data-v-57e3944e><span class="token builtin class-name" data-v-57e3944e data-v-57e3944e>cd</span> Anaclock
+<span class="token builtin class-name" data-v-57e3944e data-v-57e3944e>export</span> <span class="token assign-left variable" data-v-57e3944e data-v-57e3944e><span class="token environment constant" data-v-57e3944e data-v-57e3944e>DISPLAY</span></span><span class="token operator" data-v-57e3944e data-v-57e3944e>=</span>:0.0
+<span class="token function" data-v-57e3944e data-v-57e3944e>nohup</span> python ./anaclock.py <span class="token operator" data-v-57e3944e data-v-57e3944e>></span>/dev/null <span class="token operator" data-v-57e3944e data-v-57e3944e><span class="token file-descriptor important" data-v-57e3944e data-v-57e3944e>2</span>></span><span class="token file-descriptor important" data-v-57e3944e data-v-57e3944e>&1</span> <span class="token operator" data-v-57e3944e data-v-57e3944e>&</span>
+</code></pre></div>
+<p data-v-57e3944e data-v-57e3944e>N'hésitez pas à mettre ceci dans un petit script qui se lance automatiquement, cela peut toujours faire gagner du temps.
+Et voilà, normalement si vous bougez la souris en effectuant un mouvement sur le touchpad... La matrice de LEDs
+devrait s'animer !</p>
+<p data-v-57e3944e data-v-57e3944e><img alt="Résultat" src="/images/articles/creer-horloge-matrice-leds/resultat.gif" data-v-57e3944e data-v-57e3944e></p>
+<p data-v-57e3944e data-v-57e3944e>Voici les commandes programmées :</p>
+<ul data-v-57e3944e data-v-57e3944e>
+<li data-v-57e3944e data-v-57e3944e><strong data-v-57e3944e data-v-57e3944e>Clic gauche / mouvement</strong> : affiche l'heure.</li>
+<li data-v-57e3944e data-v-57e3944e><strong data-v-57e3944e data-v-57e3944e>Clic droit</strong> : affiche la date.</li>
+<li data-v-57e3944e data-v-57e3944e><strong data-v-57e3944e data-v-57e3944e>Appui consécutif d'au moins 5 secondes sur le clic gauche</strong> : éteint l'appareil.</li>
+</ul>
+<p data-v-57e3944e data-v-57e3944e>C'est terminé ! En espérant que ce petit projet vous ait plu, n'hésitez pas à m'envoyer vos retours 😉</p></div></article> <div class="red-box social-icons mt-5 mb-5" data-v-5d69f4e0 data-v-26e20ce8><span class="title" data-v-5d69f4e0>Partager l'article</span> <a page-url="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds" button-design="flat" title-social="Facebook" has-icon="true" has-square-edges="true" class="button-social button-social__square_edges facebook__design__flat" data-v-3814ea60 data-v-26e20ce8><i class="icon-facebook" data-v-3814ea60></i> <span class="title-social" data-v-3814ea60>
+    Facebook
+  </span> <!----></a> <a page-url="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds" page-title="Créer une horloge avec une matrice de LEDs" button-design="flat" title-social="Twitter" has-icon="true" has-square-edges="true" class="button-social button-social__square_edges twitter__design__flat" data-v-2dcfd48e data-v-26e20ce8><i class="icon-twitter" data-v-2dcfd48e></i> <span class="title-social" data-v-2dcfd48e>Twitter</span></a> <a page-url="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds" page-title="Créer une horloge avec une matrice de LEDs" button-design="flat" title-social="Reddit" has-icon="true" has-square-edges="true" class="button-social button-social__square_edges reddit__design__flat" data-v-46e6c976 data-v-26e20ce8><i class="icon-reddit" data-v-46e6c976></i> <span class="title-social" data-v-46e6c976>
+    Reddit
+  </span> <!----></a> <a page-url="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds" button-design="flat" title-social="Email" mail-subject="Créer une horloge avec une matrice de LEDs" has-icon="true" has-square-edges="true" class="button-social button-social__square_edges email__design__flat" data-v-5b8ea2b3 data-v-26e20ce8><i class="icon-email" data-v-5b8ea2b3></i> <span class="title-social" data-v-5b8ea2b3>Email</span></a></div> <div class="comments" data-v-11d2c600><script src="https://utteranc.es/client.js" repo="Skyost/FramboisePi" issue-term="pathname" label="comments" theme="boxy-light" crossorigin="anonymous" async data-v-11d2c600></script></div></div></div> <footer data-v-352c3246><img src="/_nuxt/img/raspberrypi.4d9f5c1.svg" alt="Raspberry Pi" class="raspberrypi" data-v-352c3246>
+  Copyright © 2021 - Hugo Delaunay <q data-v-352c3246>Skyost</q>.
+  Tous droits réservés.
+  <a href="#" data-v-352c3246>Mentions légales</a>.
+  <!----></footer></div></div></div><script defer src="/_nuxt/static/1618236899/article/creer-horloge-matrice-leds/state.js"></script><script src="/_nuxt/4e961d1.js" defer></script><script src="/_nuxt/0a4f826.js" defer></script><script src="/_nuxt/f1c05c3.js" defer></script><script src="/_nuxt/9b50707.js" defer></script><script src="/_nuxt/5aed441.js" defer></script><script src="/_nuxt/cf75c19.js" defer></script>
+  </body>
+</html>

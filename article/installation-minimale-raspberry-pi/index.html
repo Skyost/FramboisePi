@@ -1,0 +1,112 @@
+<!doctype html>
+<html data-n-head-ssr lang="fr" data-n-head="%7B%22lang%22:%7B%22ssr%22:%22fr%22%7D%7D">
+  <head>
+    <title>Installation minimale d'un Raspberry Pi | Framboise Pi</title><meta data-n-head="ssr" charset="utf-8"><meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1"><meta data-n-head="ssr" data-hid="description" name="description" content="Blog consacré au Raspberry Pi. Au programme : des actualités, des tutoriels en français, des conseils, des projets, et bien plus pour exploiter le maximum de votre framboise !"><meta data-n-head="ssr" name="theme-color" content="#c51d4a"><meta data-n-head="ssr" property="og:title" content="Installation minimale d'un Raspberry Pi"><meta data-n-head="ssr" property="og:description" content="Flasher une image, activer SSH, se connecter au Wi-Fi, afficher l'écran de votre Raspberry sur votre PC, ...
+Nous allons détailler dans cet article ces étapes fondamentales, mais néanmoins très simples qui vous
+permettront de (bien) débuter avec votre Raspberry."><meta data-n-head="ssr" property="og:type" content="website"><meta data-n-head="ssr" property="og:site_name" content="Framboise Pi"><meta data-n-head="ssr" property="og:url" content="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi"><meta data-n-head="ssr" property="og:image" content="/images/social/open-graph.png"><meta data-n-head="ssr" property="og:locale" content="fr_FR"><meta data-n-head="ssr" name="twitter:card" content="summary"><meta data-n-head="ssr" name="twitter:title" content="Installation minimale d'un Raspberry Pi"><meta data-n-head="ssr" name="twitter:description" content="Flasher une image, activer SSH, se connecter au Wi-Fi, afficher l'écran de votre Raspberry sur votre PC, ...
+Nous allons détailler dans cet article ces étapes fondamentales, mais néanmoins très simples qui vous
+permettront de (bien) débuter avec votre Raspberry."><meta data-n-head="ssr" name="twitter:site" content="@Skyost"><meta data-n-head="ssr" name="twitter:creator" content="@Skyost"><meta data-n-head="ssr" name="twitter:url" content="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi"><meta data-n-head="ssr" name="twitter:image" content="/images/social/twitter.png"><link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico"><link data-n-head="ssr" rel="alternate" type="application/rss+xml" href="/feed.xml" title="Flux RSS de Framboise Pi"><link data-n-head="ssr" data-hid="gf-prefetch" rel="dns-prefetch" href="https://fonts.gstatic.com/"><link data-n-head="ssr" data-hid="gf-preconnect" rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><link data-n-head="ssr" data-hid="gf-preload" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap"><link data-n-head="ssr" rel="canonical" href="/article/installation-minimale-raspberry-pi"><script data-n-head="ssr" data-hid="gf-script">!function(){var e=document.createElement("link");e.rel="stylesheet",e.href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap",document.querySelector("head").appendChild(e)}()</script><noscript data-n-head="ssr" data-hid="gf-noscript"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap"></noscript><link rel="preload" href="/_nuxt/4e961d1.js" as="script"><link rel="preload" href="/_nuxt/9b50707.js" as="script"><link rel="preload" href="/_nuxt/css/fb702ca.css" as="style"><link rel="preload" href="/_nuxt/5aed441.js" as="script"><link rel="preload" href="/_nuxt/css/9c9ae1d.css" as="style"><link rel="preload" href="/_nuxt/cf75c19.js" as="script"><link rel="preload" href="/_nuxt/css/bd14adf.css" as="style"><link rel="preload" href="/_nuxt/0a4f826.js" as="script"><link rel="preload" href="/_nuxt/css/5b6a068.css" as="style"><link rel="preload" href="/_nuxt/f1c05c3.js" as="script"><link rel="stylesheet" href="/_nuxt/css/fb702ca.css"><link rel="stylesheet" href="/_nuxt/css/9c9ae1d.css"><link rel="stylesheet" href="/_nuxt/css/bd14adf.css"><link rel="stylesheet" href="/_nuxt/css/5b6a068.css"><link rel="preload" href="/_nuxt/static/1618236899/article/installation-minimale-raspberry-pi/state.js" as="script"><link rel="preload" href="/_nuxt/static/1618236899/article/installation-minimale-raspberry-pi/payload.js" as="script"><link rel="preload" href="/_nuxt/static/1618236899/manifest.js" as="script">
+  </head>
+  <body>
+    <div data-server-rendered="true" id="__nuxt"><!----><div id="__layout"><div><nav data-fetch-key="data-v-37386b08:0" class="navbar navbar-light navbar-expand-lg" data-v-37386b08><a href="/" target="_self" class="navbar-brand nuxt-link-active" data-v-37386b08><img src="/_nuxt/img/pi.d29fd8c.svg" alt="Pi" class="logo" data-v-37386b08></a> <button type="button" aria-label="Toggle navigation" class="navbar-toggler" data-v-37386b08><span class="navbar-toggler-icon"></span></button> <div id="nav-collapse" class="navbar-collapse collapse" style="display:none" data-v-37386b08><ul class="navbar-nav ml-auto" data-v-37386b08><ul class="navbar-nav" data-v-37386b08><li class="nav-item" data-v-37386b08><a href="/" target="_self" class="nav-link nuxt-link-active" data-v-37386b08><svg viewBox="0 0 16 16" width="1em" height="1em" focusable="false" role="img" aria-label="pen" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-pen b-icon bi" data-v-37386b08><g data-v-37386b08><path d="M13.498.795l.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/></g></svg> Articles
+        </a></li> <li class="nav-item" data-v-37386b08><a href="#" target="_self" class="nav-link"><svg viewBox="0 0 16 16" width="1em" height="1em" focusable="false" role="img" aria-label="search" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-search b-icon bi"><g><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></g></svg> Rechercher
+  <!----></a></li> <li class="nav-item b-nav-dropdown dropdown" data-v-37386b08><a role="button" aria-haspopup="true" aria-expanded="false" href="#" target="_self" class="nav-link dropdown-toggle"><svg viewBox="0 0 16 16" width="1em" height="1em" focusable="false" role="img" aria-label="list ul" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-list-ul b-icon bi" data-v-37386b08><g data-v-37386b08><path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></g></svg> Catégories
+          </a><ul tabindex="-1" class="dropdown-menu dropdown-menu-right"> <li role="presentation" data-v-37386b08><a href="/categorie/annonces" role="menuitem" target="_self" class="dropdown-item">
+            annonces
+          </a></li><li role="presentation" data-v-37386b08><a href="/categorie/projets" role="menuitem" target="_self" class="dropdown-item">
+            projets
+          </a></li><li role="presentation" data-v-37386b08><a href="/categorie/tutoriels" role="menuitem" target="_self" class="dropdown-item">
+            tutoriels
+          </a></li></ul></li> <li class="nav-item" data-v-37386b08><a href="https://skyost.eu" target="_self" class="nav-link" data-v-37386b08><svg viewBox="0 0 16 16" width="1em" height="1em" focusable="false" role="img" aria-label="question" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi-question b-icon bi" data-v-37386b08><g data-v-37386b08><path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/></g></svg> À propos
+        </a></li></ul></ul></div></nav> <div class="container"><div data-fetch-key="0"><!----> <img src="/images/articles/installation-minimale-raspberry-pi/preview.png" alt="Installation minimale d'un Raspberry Pi" class="w-100 mt-5"> <header class="pt-5 pb-5" data-v-75ff8836><h1 class="title" data-v-75ff8836><span data-v-75ff8836>Installation minimale d'un Raspberry Pi</span></h1> <span class="d-block text-muted tagline" data-v-75ff8836>
+    Écrit par <a href="https://skyost.eu" data-v-75ff8836>Skyost</a> le 12/04/2021 à
+    14:13.
+    <span data-v-75ff8836>
+      Mis à jour le 12/04/2021 à 14:13.
+    </span> <span data-v-75ff8836><br data-v-75ff8836>Posté dans
+      <span data-v-75ff8836>
+        la catégorie
+      </span> <span data-v-75ff8836><q data-v-75ff8836><a href="/categorie/tutoriels" class="text-capitalize">tutoriels</a></q><span data-v-75ff8836>.</span></span></span></span></header> <article data-v-57e3944e><div class="nuxt-content" data-v-57e3944e data-v-57e3944e><p data-v-57e3944e data-v-57e3944e><em data-v-57e3944e data-v-57e3944e>Flasher une image, activer SSH, se connecter au Wi-Fi, afficher l'écran de votre Raspberry sur votre PC, ...
+Nous allons détailler dans cet article ces étapes fondamentales, mais néanmoins très simples qui vous
+permettront de (bien) débuter avec votre Raspberry.</em></p>
+
+<h2 id="télécharger-et-flasher-raspberry-os" data-v-57e3944e data-v-57e3944e>Télécharger et flasher Raspberry OS<a href="#t%C3%A9l%C3%A9charger-et-flasher-raspberry-os" aria-hidden="true" tabindex="-1" data-v-57e3944e data-v-57e3944e><span class="anchor" data-v-57e3944e data-v-57e3944e></span></a></h2>
+<p data-v-57e3944e data-v-57e3944e>Commencez par télécharger et installer le logiciel <a href="https://www.raspberrypi.org/software/" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>Raspberry Pi Imager</a>
+(cliquez sur le lien correspondant à votre système d'exploitation). Connectez votre micro SD à votre ordinateur, puis
+ouvrez le logiciel qui se présente comme suit :</p>
+<p data-v-57e3944e data-v-57e3944e><img alt="Raspberry Pi Imager" src="/images/articles/installation-minimale-raspberry-pi/raspberry-pi-imager.png" data-v-57e3944e data-v-57e3944e></p>
+<p data-v-57e3944e data-v-57e3944e>Cliquez sur le bouton <em data-v-57e3944e data-v-57e3944e>Choisissez l'OS</em>, puis sélectionnez <em data-v-57e3944e data-v-57e3944e>Raspberry Pi OS (32-bit)</em> dans la boîte de dialogue
+qui s'affiche. Maintenant, cliquez sur <em data-v-57e3944e data-v-57e3944e>Choisissez le stockage</em> et choisissez votre micro SD.
+Pour terminer, cliquez sur <em data-v-57e3944e data-v-57e3944e>Écrire</em>, patientez quelques instants, et voilà !</p>
+<p data-v-57e3944e data-v-57e3944e>Pour plus d'informations sur toutes les possibilités que vous offre Raspberry Pi Imager,
+je vous conseille la lecture de l'article <q data-v-57e3944e data-v-57e3944e><a href="/article/maitriser-raspberry-pi-imager" data-v-57e3944e>Maîtriser Raspberry Pi Imager</a></q>
+disponible sur ce site 😉</p>
+<h2 id="activer-ssh-et-se-connecter-au-wi-fi" data-v-57e3944e data-v-57e3944e>Activer SSH et se connecter au Wi-Fi<a href="#activer-ssh-et-se-connecter-au-wi-fi" aria-hidden="true" tabindex="-1" data-v-57e3944e data-v-57e3944e><span class="anchor" data-v-57e3944e data-v-57e3944e></span></a></h2>
+<p data-v-57e3944e data-v-57e3944e>Pour activer le serveur SSH intégré à l'OS, il vous suffit de créer un fichier nommé <code data-v-57e3944e data-v-57e3944e>ssh</code> sur la partition boot de
+votre micro SD (la partition qui s'affiche lorsque vous connectez votre carte à votre ordinateur).</p>
+<p data-v-57e3944e data-v-57e3944e>Ce serveur SSH ne vous servira à rien s'il n'est pas connecté à votre réseau local. Pour remédier à cela, on va créer
+un fichier <code data-v-57e3944e data-v-57e3944e>wpa_supplicant.conf</code> ayant pour contenu :</p>
+<div class="nuxt-content-highlight" data-v-57e3944e data-v-57e3944e><pre class="language-text line-numbers" data-v-57e3944e data-v-57e3944e><code data-v-57e3944e data-v-57e3944e>country=fr
+update_config=1
+ctrl_interface=/var/run/wpa_supplicant
+
+network={
+ scan_ssid=1
+ ssid="ID_DE_VOTRE_RESEAU"
+ psk="MOT_DE_PASSE_DE_VOTRE_RESEAU"
+}
+</code></pre></div>
+<p data-v-57e3944e data-v-57e3944e>N'oubliez pas de remplacer <code data-v-57e3944e data-v-57e3944e>ID_DE_VOTRE_RESEAU</code> et <code data-v-57e3944e data-v-57e3944e>MOT_DE_PASSE_DE_VOTRE_RESEAU</code> par leur valeur respective.
+Et voilà, vous pouvez retirer la micro SD de votre ordinateur pour la remettre dans votre Raspberry Pi et brancher
+celui-ci !</p>
+<h2 id="se-connecter-en-ssh" data-v-57e3944e data-v-57e3944e>Se connecter en SSH<a href="#se-connecter-en-ssh" aria-hidden="true" tabindex="-1" data-v-57e3944e data-v-57e3944e><span class="anchor" data-v-57e3944e data-v-57e3944e></span></a></h2>
+<p data-v-57e3944e data-v-57e3944e>Vous aurez besoin d'un client SSH pour réaliser cette étape (si vous êtes sous Windows, je vous conseille
+<a href="https://www.putty.org/" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>PuTTY</a>). Vous aurez également besoin de connaître l'adresse IP locale de votre framboise.
+Il y a beaucoup de façons d'arriver à cela (un article à ce sujet a même été rédigé
+<a href="https://www.raspberrypi.org/documentation/remote-access/ip-address.md" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>sur le site officiel</a> de la fondation
+Raspberry Pi), la manière la plus simple étant d'utiliser l'interface web de votre routeur, couramment accessible
+en tapant <code data-v-57e3944e data-v-57e3944e>192.168.1.1</code> dans la barre d'URL de votre navigateur.</p>
+<p data-v-57e3944e data-v-57e3944e>Un petit exemple sur ma box SFR (en allant dans <em data-v-57e3944e data-v-57e3944e>État</em> > <em data-v-57e3944e data-v-57e3944e>Réseau local</em>) :</p>
+<p data-v-57e3944e data-v-57e3944e><img alt="Raspberry Pi Imager" src="/images/articles/installation-minimale-raspberry-pi/reseau-local.png" data-v-57e3944e data-v-57e3944e></p>
+<p data-v-57e3944e data-v-57e3944e>Petite astuce <a href="https://raspberrypi.stackexchange.com/a/100513" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>trouvée sur StackExchange</a> :
+les adresses MAC des Raspberry Pi commencent généralement par <code data-v-57e3944e data-v-57e3944e>B8:27:EB</code> ou par <code data-v-57e3944e data-v-57e3944e>DC:A6:32</code> pour les modèles les plus récents.
+Si vous ne trouvez pas votre appareil sur le réseau, il se peut que vous ayez fait une erreur dans la configuration du
+Wi-Fi lors de l'étape précédente.</p>
+<p data-v-57e3944e data-v-57e3944e>Une fois l'adresse IP en poche, entrez-la dans votre client SSH et connectez-vous. Par défaut, le nom d'utilisateur
+est <code data-v-57e3944e data-v-57e3944e>pi</code> et le mot de passe est <code data-v-57e3944e data-v-57e3944e>raspberry</code>. On pourrait s'arrêter là, mais tant que vous y êtes,
+profitez-en pour faire les mises à jour de votre appareil en exécutant les commandes suivantes :</p>
+<div class="nuxt-content-highlight" data-v-57e3944e data-v-57e3944e><pre class="language-text line-numbers" data-v-57e3944e data-v-57e3944e><code data-v-57e3944e data-v-57e3944e>sudo apt update
+sudo apt full-upgrade
+</code></pre></div>
+<p data-v-57e3944e data-v-57e3944e>Profitez-en également pour mettre à jour l'outil <code data-v-57e3944e data-v-57e3944e>raspi-config</code> ; ouvrez-le en tapant <code data-v-57e3944e data-v-57e3944e>sudo raspi-config</code> et sélectionnez
+l'option <em data-v-57e3944e data-v-57e3944e>Update</em>. Cet outil est très pratique et vous permet de modifier totalement la manière dont fonctionne
+votre Raspberry (il permet notamment d'overclocker votre machine).
+Par exemple, si vous êtes intéressé, il est possible de changer les options de localisation à travers le menu
+<em data-v-57e3944e data-v-57e3944e>Localization Options</em>.</p>
+<p data-v-57e3944e data-v-57e3944e>Pour terminer, notons qu'il existe une manière d'accéder aux fichiers situés sur votre Raspberry Pi à l'aide d'une
+interface graphique. Il vous suffit de télécharger un client sFTP (comme <a href="https://filezilla-project.org/" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>FileZilla</a>
+par exemple), et de vous connecter à l'adresse IP de votre Pi via le port 22, en utilisant les mêmes identifiants
+que pour la connexion par SSH.</p>
+<p data-v-57e3944e data-v-57e3944e><img alt="FileZilla" src="/images/articles/installation-minimale-raspberry-pi/filezilla.png" data-v-57e3944e data-v-57e3944e></p>
+<h2 id="afficher-lécran-de-votre-raspberry-pi-grâce-à-vnc" data-v-57e3944e data-v-57e3944e>Afficher l'écran de votre Raspberry Pi grâce à VNC<a href="#afficher-l%C3%A9cran-de-votre-raspberry-pi-gr%C3%A2ce-%C3%A0-vnc" aria-hidden="true" tabindex="-1" data-v-57e3944e data-v-57e3944e><span class="anchor" data-v-57e3944e data-v-57e3944e></span></a></h2>
+<p data-v-57e3944e data-v-57e3944e>Cette étape n'est clairement pas nécessaire, d'autant plus si vous ne souhaitez pas utiliser l'interface graphique
+de Raspberry Pi OS (ou si vous avez installé la version Lite). Cependant, dans certains cas, il peut s'avérer utile
+d'afficher l'écran de votre appareil et d'interagir directement dessus avec une interface graphique.</p>
+<p data-v-57e3944e data-v-57e3944e>Pour ce faire, nous allons activer le serveur VNC intégré à l'OS. Il suffit pour cela d'ouvrir l'outil <code data-v-57e3944e data-v-57e3944e>raspi-config</code> à
+l'aide de la commande <code data-v-57e3944e data-v-57e3944e>sudo raspi-config</code> et de sélectionner le menu <em data-v-57e3944e data-v-57e3944e>Interfacing Options</em>. Ensuite, on choisit <em data-v-57e3944e data-v-57e3944e>VNC</em>,
+puis <em data-v-57e3944e data-v-57e3944e>Yes</em>, et le tour est joué !</p>
+<p data-v-57e3944e data-v-57e3944e>Vous allez maintenant avoir besoin d'un client VNC pour vous y connecter. Si vous êtes sous Windows,
+<a href="https://www.realvnc.com/fr/connect/download/viewer/" rel="nofollow noopener noreferrer" target="_blank" data-v-57e3944e data-v-57e3944e>VNC Viewer de RealVNC</a> est un bon choix.
+Ouvrez votre client et entrez l'adresse IP de votre Raspberry. Par défaut, le nom d'utilisateur et le mot de passe
+du serveur VNC sont les mêmes que pour SSH (nom d'utilisateur <code data-v-57e3944e data-v-57e3944e>pi</code> et mot de passe <code data-v-57e3944e data-v-57e3944e>raspberry</code>).</p>
+<p data-v-57e3944e data-v-57e3944e>Et voilà, vous pouvez interagir librement avec votre appareil depuis votre PC !</p></div></article> <div class="red-box social-icons mt-5 mb-5" data-v-5d69f4e0 data-v-26e20ce8><span class="title" data-v-5d69f4e0>Partager l'article</span> <a page-url="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi" button-design="flat" title-social="Facebook" has-icon="true" has-square-edges="true" class="button-social button-social__square_edges facebook__design__flat" data-v-3814ea60 data-v-26e20ce8><i class="icon-facebook" data-v-3814ea60></i> <span class="title-social" data-v-3814ea60>
+    Facebook
+  </span> <!----></a> <a page-url="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi" page-title="Installation minimale d'un Raspberry Pi" button-design="flat" title-social="Twitter" has-icon="true" has-square-edges="true" class="button-social button-social__square_edges twitter__design__flat" data-v-2dcfd48e data-v-26e20ce8><i class="icon-twitter" data-v-2dcfd48e></i> <span class="title-social" data-v-2dcfd48e>Twitter</span></a> <a page-url="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi" page-title="Installation minimale d'un Raspberry Pi" button-design="flat" title-social="Reddit" has-icon="true" has-square-edges="true" class="button-social button-social__square_edges reddit__design__flat" data-v-46e6c976 data-v-26e20ce8><i class="icon-reddit" data-v-46e6c976></i> <span class="title-social" data-v-46e6c976>
+    Reddit
+  </span> <!----></a> <a page-url="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi" button-design="flat" title-social="Email" mail-subject="Installation minimale d'un Raspberry Pi" has-icon="true" has-square-edges="true" class="button-social button-social__square_edges email__design__flat" data-v-5b8ea2b3 data-v-26e20ce8><i class="icon-email" data-v-5b8ea2b3></i> <span class="title-social" data-v-5b8ea2b3>Email</span></a></div> <div class="comments" data-v-11d2c600><script src="https://utteranc.es/client.js" repo="Skyost/FramboisePi" issue-term="pathname" label="comments" theme="boxy-light" crossorigin="anonymous" async data-v-11d2c600></script></div></div></div> <footer data-v-352c3246><img src="/_nuxt/img/raspberrypi.4d9f5c1.svg" alt="Raspberry Pi" class="raspberrypi" data-v-352c3246>
+  Copyright © 2021 - Hugo Delaunay <q data-v-352c3246>Skyost</q>.
+  Tous droits réservés.
+  <a href="#" data-v-352c3246>Mentions légales</a>.
+  <!----></footer></div></div></div><script defer src="/_nuxt/static/1618236899/article/installation-minimale-raspberry-pi/state.js"></script><script src="/_nuxt/4e961d1.js" defer></script><script src="/_nuxt/0a4f826.js" defer></script><script src="/_nuxt/f1c05c3.js" defer></script><script src="/_nuxt/9b50707.js" defer></script><script src="/_nuxt/5aed441.js" defer></script><script src="/_nuxt/cf75c19.js" defer></script>
+  </body>
+</html>
