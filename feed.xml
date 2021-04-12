@@ -4,7 +4,7 @@
         <title>Framboise Pi</title>
         <link>https://framboise-pi.skyost.eu/feed.xml</link>
         <description>Blog consacré au Raspberry Pi. Au programme : des actualités, des tutoriels en français, des conseils, des projets, et bien plus pour exploiter le maximum de votre framboise !</description>
-        <lastBuildDate>Mon, 12 Apr 2021 14:31:28 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 12 Apr 2021 14:33:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <language>fr</language>
@@ -21,7 +21,7 @@
             <title><![CDATA[Hello world !]]></title>
             <link>https://framboise-pi.skyost.eu/article/hello-world</link>
             <guid>https://framboise-pi.skyost.eu/article/hello-world</guid>
-            <pubDate>Mon, 12 Apr 2021 14:30:43 GMT</pubDate>
+            <pubDate>Mon, 12 Apr 2021 14:32:39 GMT</pubDate>
             <description><![CDATA[Ceci est le premier billet de mon blog consacré au Raspberry Pi. Sobrement intitulé Framboise Pi, vous trouverez
 ici tout ce que je partagerai sur l'actualité du nano-ordinateur à 35€ de la fondation Raspberry Pi.]]></description>
             <content:encoded><![CDATA[<p>Ceci est le premier billet de mon blog consacré au Raspberry Pi. Sobrement intitulé Framboise Pi, vous trouverez
@@ -29,10 +29,21 @@ ici tout ce que je partagerai sur l'actualité du nano-ordinateur à 35€ de la
             <enclosure url="https://framboise-pi.skyost.eu/images/articles/hello-world/preview.png" length="0" type="image/png"/>
         </item>
         <item>
+            <title><![CDATA[Créer une horloge avec une matrice de LEDs]]></title>
+            <link>https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds</link>
+            <guid>https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds</guid>
+            <pubDate>Mon, 12 Apr 2021 14:32:39 GMT</pubDate>
+            <description><![CDATA[Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
+qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.]]></description>
+            <content:encoded><![CDATA[<p>Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
+qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.</p><p>Lire l'article en entier sur <a href="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds">Framboise Pi</a>.</p>]]></content:encoded>
+            <enclosure url="https://framboise-pi.skyost.eu/images/articles/creer-horloge-matrice-leds/preview.png" length="0" type="image/png"/>
+        </item>
+        <item>
             <title><![CDATA[Installation minimale d'un Raspberry Pi]]></title>
             <link>https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi</link>
             <guid>https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi</guid>
-            <pubDate>Mon, 12 Apr 2021 14:30:43 GMT</pubDate>
+            <pubDate>Mon, 12 Apr 2021 14:32:39 GMT</pubDate>
             <description><![CDATA[Flasher une image, activer SSH, se connecter au Wi-Fi, afficher l'écran de votre Raspberry sur votre PC, ...
 Nous allons détailler dans cet article ces étapes fondamentales, mais néanmoins très simples qui vous
 permettront de (bien) débuter avec votre Raspberry.]]></description>
@@ -42,21 +53,10 @@ permettront de (bien) débuter avec votre Raspberry.</p><p>Lire l'article en ent
             <enclosure url="https://framboise-pi.skyost.eu/images/articles/installation-minimale-raspberry-pi/preview.png" length="0" type="image/png"/>
         </item>
         <item>
-            <title><![CDATA[Créer une horloge avec une matrice de LEDs]]></title>
-            <link>https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds</link>
-            <guid>https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds</guid>
-            <pubDate>Mon, 12 Apr 2021 14:30:43 GMT</pubDate>
-            <description><![CDATA[Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
-qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.]]></description>
-            <content:encoded><![CDATA[<p>Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
-qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.</p><p>Lire l'article en entier sur <a href="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds">Framboise Pi</a>.</p>]]></content:encoded>
-            <enclosure url="https://framboise-pi.skyost.eu/images/articles/creer-horloge-matrice-leds/preview.png" length="0" type="image/png"/>
-        </item>
-        <item>
             <title><![CDATA[Maîtriser Raspberry Pi Imager]]></title>
             <link>https://framboise-pi.skyost.eu/article/maitriser-raspberry-pi-imager</link>
             <guid>https://framboise-pi.skyost.eu/article/maitriser-raspberry-pi-imager</guid>
-            <pubDate>Mon, 12 Apr 2021 14:30:43 GMT</pubDate>
+            <pubDate>Mon, 12 Apr 2021 14:32:39 GMT</pubDate>
             <description><![CDATA[Raspberry Pi Imager est un petit logiciel mis à disposition par la fondation Raspberry Pi. Mis à disposition des
 utilisateurs il y a un peu plus d'un an, ce programme représente la manière la plus directe et la plus simple de
 flasher une image pour votre framboise. Petit tour d'horizon.]]></description>
