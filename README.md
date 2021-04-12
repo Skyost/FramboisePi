@@ -8,7 +8,7 @@
 &nbsp;
 
 ![Top language](https://img.shields.io/github/languages/top/Skyost/FramboisePi)
-![Status](https://img.shields.io/github/workflow/status/Skyost/FramboisePi/cd.yml)
+![Status](https://img.shields.io/github/workflow/status/Skyost/FramboisePi/Continuous%20Delivery)
 
 ## Framboise Pi
 
