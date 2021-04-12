@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { SITE_NAME, SITE_DESCRIPTION, getCurrentAddress } from '~/utils/site'
+import { SITE_NAME, SITE_DESCRIPTION, HOST_NAME, getCurrentAddress } from '~/utils/site'
 
 export default {
   name: 'SocialHead',
@@ -15,6 +15,18 @@ export default {
     description: {
       type: String,
       default: SITE_DESCRIPTION
+    },
+    openGraphImage: {
+      type: String,
+      default: `${HOST_NAME}/images/social/open-graph.png`
+    },
+    twitterCard: {
+      type: String,
+      default: 'summary'
+    },
+    twitterImage: {
+      type: String,
+      default: `${HOST_NAME}/images/social/twitter.png`
     }
   },
   head () {
@@ -42,7 +54,7 @@ export default {
         },
         {
           property: 'og:image',
-          content: '/images/social/open-graph.png'
+          content: this.openGraphImage
         },
         {
           property: 'og:locale',
@@ -51,7 +63,7 @@ export default {
 
         {
           name: 'twitter:card',
-          content: 'summary'
+          content: this.twitterCard
         },
         {
           name: 'twitter:title',
@@ -75,7 +87,7 @@ export default {
         },
         {
           name: 'twitter:image',
-          content: '/images/social/twitter.png'
+          content: this.twitterImage
         }
       ],
       link: [

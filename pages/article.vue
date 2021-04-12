@@ -4,8 +4,14 @@
     <spring-spinner />
   </div>
   <div v-else-if="article">
-    <social-head :title="article.title" :description="article.description" />
-    <img :src="getArticleImage(article)" :alt="article.title" class="w-100 mt-5">
+    <social-head
+      :title="article.title"
+      :description="article.description"
+      twitter-card="summary_large_image"
+      :twitter-image="articleImage"
+      :open-graph-image="articleImage"
+    />
+    <img :src="articleImage" :alt="article.title" class="w-100 mt-5">
     <page-header :title="article.title">
       Écrit par <a :href="author.link" v-text="author.name" /> le {{ publicationDate }}.
       <span v-if="updateDate">
@@ -62,6 +68,9 @@ export default {
     }
   },
   computed: {
+    articleImage () {
+      return getArticleImage(this.article)
+    },
     publicationDate () {
       return formatDate(getArticlePublicationDate(this.article))
     },
