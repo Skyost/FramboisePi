@@ -7,7 +7,7 @@ function getArticleImage (article) {
 }
 
 function getArticleAddress (article) {
-  return `/article/${article.slug}`
+  return `/article/${article.slug}/`
 }
 
 function getArticleAuthor (article) {

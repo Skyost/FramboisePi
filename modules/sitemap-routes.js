@@ -13,7 +13,10 @@ module.exports = function () {
     const articles = await $content('articles')
       .fetch()
     for (const article of articles) {
-      const url = getArticleAddress(article)
+      let url = getArticleAddress(article)
+      if (url.endsWith('/')) {
+        url = url.substring(0, url.length - 1)
+      }
       if (result.includes(url)) {
         result.push({
           url,

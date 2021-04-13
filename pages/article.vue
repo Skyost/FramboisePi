@@ -8,8 +8,8 @@
       :title="article.title"
       :description="article.description"
       twitter-card="summary_large_image"
-      :twitter-image="articleImage"
-      :open-graph-image="articleImage"
+      :twitter-image="`${hostName}${articleImage}`"
+      :open-graph-image="`${hostName}${articleImage}`"
     />
     <img :src="articleImage" :alt="article.title" class="w-100 mt-5">
     <page-header :title="article.title">
@@ -44,6 +44,7 @@
 import { getArticlePublicationDate, getArticleImage, getArticleAuthor } from '~/utils/article'
 import { getCategoryAddress } from '~/utils/categorie'
 import { formatDate } from '~/utils/date'
+import { HOST_NAME } from '~/utils/site'
 import Comments from '~/components/Article/Comments'
 import SocialIcons from '~/components/Article/SocialIcons'
 
@@ -51,6 +52,7 @@ export default {
   components: { Comments, SocialIcons },
   data () {
     return {
+      hostName: HOST_NAME,
       article: null,
       author: null
     }
