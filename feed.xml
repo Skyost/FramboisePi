@@ -4,41 +4,19 @@
         <title>Framboise Pi</title>
         <link>https://framboise-pi.skyost.eu/feed.xml</link>
         <description>Blog consacré au Raspberry Pi. Au programme : des actualités, des tutoriels en français, des conseils, des projets, et bien plus pour exploiter le maximum de votre framboise !</description>
-        <lastBuildDate>Wed, 14 Apr 2021 10:13:37 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 14 Apr 2021 14:43:35 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <language>fr</language>
         <image>
             <title>Framboise Pi</title>
-            <url>https://framboise-pi.skyost.eu/images/pi.svg</url>
+            <url>https://framboise-pi.skyost.eu/images/social/rss.png</url>
             <link>https://framboise-pi.skyost.eu/feed.xml</link>
         </image>
         <category>Raspberry Pi</category>
         <category>Computers</category>
         <category>Electronic</category>
         <category>Technology</category>
-        <item>
-            <title><![CDATA[Hello world !]]></title>
-            <link>https://framboise-pi.skyost.eu/article/hello-world/</link>
-            <guid>https://framboise-pi.skyost.eu/article/hello-world/</guid>
-            <pubDate>Sun, 11 Apr 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Ceci est le premier billet de mon blog consacré au Raspberry Pi. Sobrement intitulé Framboise Pi, vous trouverez
-ici tout ce que je partagerai sur l'actualité du nano-ordinateur à 35€ de la fondation Raspberry Pi.]]></description>
-            <content:encoded><![CDATA[<p>Ceci est le premier billet de mon blog consacré au Raspberry Pi. Sobrement intitulé Framboise Pi, vous trouverez
-ici tout ce que je partagerai sur l'actualité du nano-ordinateur à 35€ de la fondation Raspberry Pi.</p><p>Lire l'article en entier sur <a href="https://framboise-pi.skyost.eu/article/hello-world/">Framboise Pi</a>.</p>]]></content:encoded>
-            <enclosure url="https://framboise-pi.skyost.eu/images/articles/hello-world/preview.png" length="0" type="image/png"/>
-        </item>
-        <item>
-            <title><![CDATA[Créer une horloge avec une matrice de LEDs]]></title>
-            <link>https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds/</link>
-            <guid>https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds/</guid>
-            <pubDate>Mon, 12 Apr 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
-qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.]]></description>
-            <content:encoded><![CDATA[<p>Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
-qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.</p><p>Lire l'article en entier sur <a href="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds/">Framboise Pi</a>.</p>]]></content:encoded>
-            <enclosure url="https://framboise-pi.skyost.eu/images/articles/creer-horloge-matrice-leds/preview.png" length="0" type="image/png"/>
-        </item>
         <item>
             <title><![CDATA[Maîtriser Raspberry Pi Imager]]></title>
             <link>https://framboise-pi.skyost.eu/article/maitriser-raspberry-pi-imager/</link>
@@ -47,9 +25,62 @@ qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une
             <description><![CDATA[Raspberry Pi Imager est un petit logiciel mis à disposition par la fondation Raspberry Pi. Mis à disposition des
 utilisateurs il y a un peu plus d'un an, ce programme représente la manière la plus directe et la plus simple de
 flasher une image pour votre framboise. Petit tour d'horizon.]]></description>
-            <content:encoded><![CDATA[<p>Raspberry Pi Imager est un petit logiciel mis à disposition par la fondation Raspberry Pi. Mis à disposition des
+            <content:encoded><![CDATA[<p><em>Raspberry Pi Imager est un petit logiciel mis à disposition par la fondation Raspberry Pi. Mis à disposition des
 utilisateurs il y a un peu plus d'un an, ce programme représente la manière la plus directe et la plus simple de
-flasher une image pour votre framboise. Petit tour d'horizon.</p><p>Lire l'article en entier sur <a href="https://framboise-pi.skyost.eu/article/maitriser-raspberry-pi-imager/">Framboise Pi</a>.</p>]]></content:encoded>
+flasher une image pour votre framboise. Petit tour d'horizon.</em></p>
+
+<h2 id="installation">Installation</h2>
+<p>L'installation est plutôt rapide : rendez-vous sur
+<a href="https://www.raspberrypi.org/software/" target="_blank" rel="nofollow noopener noreferrer">la page officielle de Raspberry Pi OS</a>,
+puis cliquez sur le lien correspondant à votre système d'exploitation. Pour vous faciliter la vie,
+je vous ai compilé lesdits liens :</p>
+<ul>
+<li><a href="https://downloads.raspberrypi.org/imager/imager_latest.exe" target="_blank" rel="nofollow noopener noreferrer">Windows</a>.</li>
+<li><a href="https://downloads.raspberrypi.org/imager/imager_latest.dmg" target="_blank" rel="nofollow noopener noreferrer">macOS</a>.</li>
+<li><a href="https://downloads.raspberrypi.org/imager/imager_latest_amd64.deb" target="_blank" rel="nofollow noopener noreferrer">Ubuntu x86</a>.</li>
+</ul>
+<p>Une fois l'installateur téléchargé, installez le logiciel en l'exécutant. Si vous êtes déjà sous Raspberry Pi OS,
+vous pouvez également installer Raspberry Pi Imager en exécutant la commande <code>sudo apt install rpi-imager</code>.</p>
+<h2 id="flasher-une-image">Flasher une image</h2>
+<p>Commencez par insérer votre micro SD dans votre ordinateur (à l'aide d'un
+<a href="https://amzn.to/3uLhnaB" target="_blank" rel="nofollow noopener noreferrer">adaptateur SD</a> par exemple).
+Puis, vous pouvez démarrer Raspberry Pi Imager.</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/maitriser-raspberry-pi-imager/raspberry-pi-imager.png" alt="Raspberry Pi Imager"></p>
+<p>Cliquez sur le bouton <em>Choisissez l'OS</em> et sélectionnez le système d'exploitation
+que vous souhaitez installer (le choix le plus simple étant Raspberry Pi OS ; mais si vous n'avez pas besoin d'interface
+graphique vous pouvez vous contenter de Raspberry Pi OS Lite qui est, comme son nom l'indique, plus léger).
+Dans la partie <em>Stockage</em>, sélectionnez votre micro SD. Enfin, cliquez sur <em>Écrire</em>, et patientez quelques minutes
+(le temps d'attente dépend de <a href="https://fr.wikipedia.org/wiki/Carte_SD#D%C3%A9bit" target="_blank" rel="nofollow noopener noreferrer">la classe</a> de votre carte).</p>
+<p>Une fois les vérifications terminées, vous pouvez éjecter votre micro SD de votre ordinateur : le flash est terminé !</p>
+<h2 id="options-avancées">Options avancées</h2>
+<p>Depuis la version 1.6,
+le logiciel propose <a href="https://www.raspberrypi.org/blog/raspberry-pi-imager-update-to-v1-6/" target="_blank" rel="nofollow noopener noreferrer">des options avancées</a>.
+Pour les afficher, appuyez sur <strong>CTRL+Maj+X</strong>. Nous allons décortiquer tout cela ensemble (à date de cet article,
+les options ne sont pas encore traduites en français) :</p>
+<ul>
+<li><strong>Image customization options for this session only / to always use</strong> : choisissez si vous souhaitez sauvegarder les
+changements apportés aux options avancées ci-dessous pour des futurs usages ou non.
+<ul>
+<li><strong>Disable overscan</strong> : permet de désactiver le surbalayage (peut être utile si jamais des bandes noires apparaissent
+aux bordures de votre écran).</li>
+<li><strong>Set hostname</strong> : permet de changer le nom d'hôte de votre appareil (pour accès par réseau local).</li>
+<li><strong>Enable SSH</strong> : permet d'activer l'accès SSH ; les options dessous concernent les identifiants SSH.</li>
+<li><strong>Configure wifi</strong> : permet de configurer les paramètres Wi-Fi afin que votre framboise se connecte d'elle-même à votre
+réseau sans que vous n'ayez à entrer quoi que ce soit. Peut se révéler très utile si vous envisagez un accès SSH et
+que vous n'avez ni écran ni clavier.</li>
+<li><strong>Set locale settings</strong> : permet de configurer les paramètres locaux (fuseau horaire, agencement du clavier, ...).</li>
+</ul>
+</li>
+<li><strong>Persitent settings</strong> : les paramètres ci-dessous persistent entre chaque redémarrage de l'application.
+<ul>
+<li><strong>Play sound when finished</strong> : joue un son quand le flash est terminé.</li>
+<li><strong>Eject media when finished</strong> : éjecte la carte une fois le flash terminé.</li>
+<li><strong>Enable telemetry</strong> : active l'envoi de pings à <a href="https://raspberrypi.org" target="_blank" rel="nofollow noopener noreferrer">raspberrypi.org</a> à des fins statistiques.</li>
+</ul>
+</li>
+</ul>
+<p>Personnellement, je vous conseille d'activer SSH et de configurer votre Wi-Fi une bonne fois pour toutes.</p>
+]]></content:encoded>
             <enclosure url="https://framboise-pi.skyost.eu/images/articles/maitriser-raspberry-pi-imager/preview.png" length="0" type="image/png"/>
         </item>
         <item>
@@ -60,10 +91,301 @@ flasher une image pour votre framboise. Petit tour d'horizon.</p><p>Lire l'artic
             <description><![CDATA[Flasher une image, activer SSH, se connecter au Wi-Fi, afficher l'écran de votre Raspberry sur votre PC, ...
 Nous allons détailler dans cet article ces étapes fondamentales, mais néanmoins très simples qui vous
 permettront de (bien) débuter avec votre Raspberry.]]></description>
-            <content:encoded><![CDATA[<p>Flasher une image, activer SSH, se connecter au Wi-Fi, afficher l'écran de votre Raspberry sur votre PC, ...
+            <content:encoded><![CDATA[<p><em>Flasher une image, activer SSH, se connecter au Wi-Fi, afficher l'écran de votre Raspberry sur votre PC, ...
 Nous allons détailler dans cet article ces étapes fondamentales, mais néanmoins très simples qui vous
-permettront de (bien) débuter avec votre Raspberry.</p><p>Lire l'article en entier sur <a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi/">Framboise Pi</a>.</p>]]></content:encoded>
+permettront de (bien) débuter avec votre Raspberry.</em></p>
+
+<h2 id="télécharger-et-flasher-raspberry-os">Télécharger et flasher Raspberry OS</h2>
+<p>Commencez par télécharger et installer le logiciel <a href="https://www.raspberrypi.org/software/" target="_blank" rel="nofollow noopener noreferrer">Raspberry Pi Imager</a>
+(cliquez sur le lien correspondant à votre système d'exploitation). Connectez votre micro SD à votre ordinateur, puis
+ouvrez le logiciel qui se présente comme suit :</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/installation-minimale-raspberry-pi/raspberry-pi-imager.png" alt="Raspberry Pi Imager"></p>
+<p>Cliquez sur le bouton <em>Choisissez l'OS</em>, puis sélectionnez <em>Raspberry Pi OS (32-bit)</em> dans la boîte de dialogue
+qui s'affiche. Maintenant, cliquez sur <em>Choisissez le stockage</em> et choisissez votre micro SD.
+Pour terminer, cliquez sur <em>Écrire</em>, patientez quelques instants, et voilà !</p>
+<p>Pour plus d'informations sur toutes les possibilités que vous offre Raspberry Pi Imager,
+je vous conseille la lecture de l'article <q><a href="https://framboise-pi.skyost.eu/article/maitriser-raspberry-pi-imager">Maîtriser Raspberry Pi Imager</a></q>
+disponible sur ce site 😉</p>
+<h2 id="activer-ssh-et-se-connecter-au-wi-fi">Activer SSH et se connecter au Wi-Fi</h2>
+<p>Pour activer le serveur SSH intégré à l'OS, il vous suffit de créer un fichier nommé <code>ssh</code> sur la partition boot de
+votre micro SD (la partition qui s'affiche lorsque vous connectez votre carte à votre ordinateur).</p>
+<p>Ce serveur SSH ne vous servira à rien s'il n'est pas connecté à votre réseau local. Pour remédier à cela, on va créer
+un fichier <code>wpa_supplicant.conf</code> ayant pour contenu :</p>
+<pre><code>country=fr
+update_config=1
+ctrl_interface=/var/run/wpa_supplicant
+
+network={
+ scan_ssid=1
+ ssid="ID_DE_VOTRE_RESEAU"
+ psk="MOT_DE_PASSE_DE_VOTRE_RESEAU"
+}
+</code></pre>
+<p>N'oubliez pas de remplacer <code>ID_DE_VOTRE_RESEAU</code> et <code>MOT_DE_PASSE_DE_VOTRE_RESEAU</code> par leur valeur respective.
+Et voilà, vous pouvez retirer la micro SD de votre ordinateur pour la remettre dans votre Raspberry Pi et brancher
+celui-ci !</p>
+<h2 id="se-connecter-en-ssh">Se connecter en SSH</h2>
+<p>Vous aurez besoin d'un client SSH pour réaliser cette étape (si vous êtes sous Windows, je vous conseille
+<a href="https://www.putty.org/" target="_blank" rel="nofollow noopener noreferrer">PuTTY</a>). Vous aurez également besoin de connaître l'adresse IP locale de votre framboise.
+Il y a beaucoup de façons d'arriver à cela (un article à ce sujet a même été rédigé
+<a href="https://www.raspberrypi.org/documentation/remote-access/ip-address.md" target="_blank" rel="nofollow noopener noreferrer">sur le site officiel</a> de la fondation
+Raspberry Pi), la manière la plus simple étant d'utiliser l'interface web de votre routeur, couramment accessible
+en tapant <code>192.168.1.1</code> dans la barre d'URL de votre navigateur.</p>
+<p>Un petit exemple sur ma box SFR (en allant dans <em>État</em> > <em>Réseau local</em>) :</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/installation-minimale-raspberry-pi/reseau-local.png" alt="Raspberry Pi Imager"></p>
+<p>Petite astuce <a href="https://raspberrypi.stackexchange.com/a/100513" target="_blank" rel="nofollow noopener noreferrer">trouvée sur StackExchange</a> :
+les adresses MAC des Raspberry Pi commencent généralement par <code>B8:27:EB</code> ou par <code>DC:A6:32</code> pour les modèles les plus récents.
+Si vous ne trouvez pas votre appareil sur le réseau, il se peut que vous ayez fait une erreur dans la configuration du
+Wi-Fi lors de l'étape précédente.</p>
+<p>Une fois l'adresse IP en poche, entrez-la dans votre client SSH et connectez-vous. Par défaut, le nom d'utilisateur
+est <code>pi</code> et le mot de passe est <code>raspberry</code>. On pourrait s'arrêter là, mais tant que vous y êtes,
+profitez-en pour faire les mises à jour de votre appareil en exécutant les commandes suivantes :</p>
+<pre><code>sudo apt update
+sudo apt full-upgrade
+</code></pre>
+<p>Profitez-en également pour mettre à jour l'outil <code>raspi-config</code> ; ouvrez-le en tapant <code>sudo raspi-config</code> et sélectionnez
+l'option <em>Update</em>. Cet outil est très pratique et vous permet de modifier totalement la manière dont fonctionne
+votre Raspberry (il permet notamment d'overclocker votre machine).
+Par exemple, si vous êtes intéressé, il est possible de changer les options de localisation à travers le menu
+<em>Localization Options</em>.</p>
+<p>Pour terminer, notons qu'il existe une manière d'accéder aux fichiers situés sur votre Raspberry Pi à l'aide d'une
+interface graphique. Il vous suffit de télécharger un client sFTP (comme <a href="https://filezilla-project.org/" target="_blank" rel="nofollow noopener noreferrer">FileZilla</a>
+par exemple), et de vous connecter à l'adresse IP de votre Pi via le port 22, en utilisant les mêmes identifiants
+que pour la connexion par SSH.</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/installation-minimale-raspberry-pi/filezilla.png" alt="FileZilla"></p>
+<h2 id="afficher-lécran-de-votre-raspberry-pi-grâce-à-vnc">Afficher l'écran de votre Raspberry Pi grâce à VNC</h2>
+<p>Cette étape n'est clairement pas nécessaire, d'autant plus si vous ne souhaitez pas utiliser l'interface graphique
+de Raspberry Pi OS (ou si vous avez installé la version Lite). Cependant, dans certains cas, il peut s'avérer utile
+d'afficher l'écran de votre appareil et d'interagir directement dessus avec une interface graphique.</p>
+<p>Pour ce faire, nous allons activer le serveur VNC intégré à l'OS. Il suffit pour cela d'ouvrir l'outil <code>raspi-config</code> à
+l'aide de la commande <code>sudo raspi-config</code> et de sélectionner le menu <em>Interfacing Options</em>. Ensuite, on choisit <em>VNC</em>,
+puis <em>Yes</em>, et le tour est joué !</p>
+<p>Vous allez maintenant avoir besoin d'un client VNC pour vous y connecter. Si vous êtes sous Windows,
+<a href="https://www.realvnc.com/fr/connect/download/viewer/" target="_blank" rel="nofollow noopener noreferrer">VNC Viewer de RealVNC</a> est un bon choix.
+Ouvrez votre client et entrez l'adresse IP de votre Raspberry. Par défaut, le nom d'utilisateur et le mot de passe
+du serveur VNC sont les mêmes que pour SSH (nom d'utilisateur <code>pi</code> et mot de passe <code>raspberry</code>).</p>
+<p>Et voilà, vous pouvez interagir librement avec votre appareil depuis votre PC !</p>
+]]></content:encoded>
             <enclosure url="https://framboise-pi.skyost.eu/images/articles/installation-minimale-raspberry-pi/preview.png" length="0" type="image/png"/>
+        </item>
+        <item>
+            <title><![CDATA[Créer une horloge avec une matrice de LEDs]]></title>
+            <link>https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds/</link>
+            <guid>https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds/</guid>
+            <pubDate>Mon, 12 Apr 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
+qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.]]></description>
+            <content:encoded><![CDATA[<p><em>Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
+qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.</em></p>
+
+<p>
+<iframe width="640"
+  height="360"
+  src="https://www.youtube.com/embed/VBNRIcA_Ppg"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe></p>
+<h2 id="matériel-nécessaire">Matériel nécessaire</h2>
+<p>Le projet est très accessible mais nécessite pas mal de matériel. Vous aurez besoin de :</p>
+<ul>
+<li>1 <strong>Raspberry Pi Zero WH</strong> [<a href="https://amzn.to/2RvB484" target="_blank" rel="nofollow noopener noreferrer">Amazon</a>,
+<a href="https://s.click.aliexpress.com/e/_A9UaSn" target="_blank" rel="nofollow noopener noreferrer">AliExpress</a>]
+(n'importe quel Raspberry Pi muni de ports GPIO devrait suffire, mais cette solution me semble être la moins
+chère).</li>
+<li>1 <strong>Matrice de LEDs</strong> [<a href="https://amzn.to/3dTBa0U" target="_blank" rel="nofollow noopener noreferrer">Amazon</a>,
+<a href="https://s.click.aliexpress.com/e/_9zTnPl" target="_blank" rel="nofollow noopener noreferrer">AliExpress</a>] (je vous conseille celle d'AZ-Delivery,
+abordable et de bonne qualité).</li>
+<li>1 <strong>Touchpad USB</strong> [<a href="https://amzn.to/3wRrQmQ" target="_blank" rel="nofollow noopener noreferrer">Amazon</a>,
+<a href="https://fr.aliexpress.com/item/32981629578.html" target="_blank" rel="nofollow noopener noreferrer">AliExpress</a>] (cela a l'avantage d'être généralement moins couteux
+que l'achat d'un détecteur de mouvements et de boutons).</li>
+<li>1 <strong>Câble micro USB - USB OTG</strong> [<a href="https://amzn.to/3wP0QEr" target="_blank" rel="nofollow noopener noreferrer">Amazon</a>,
+<a href="https://s.click.aliexpress.com/e/_ABy4z9" target="_blank" rel="nofollow noopener noreferrer">AliExpress</a>].</li>
+<li>1 <strong>Chargeur secteur USB</strong>.</li>
+<li>1 <strong>Câble d'alimentation USB - micro USB</strong>.</li>
+<li>1 <strong>Micro SD</strong> (prévoyez minimum 8Go pour n'importe quel projet).</li>
+<li>1 <strong>Adaptateur SD</strong>.</li>
+</ul>
+<p>Tout cela pour un coût total d'environ 60€ (si vous ne possédez rien).</p>
+<h2 id="effectuer-les-branchements">Effectuer les branchements</h2>
+<p>On va effectuer les branchements à l'aide du tableau suivant :</p>
+<table>
+<thead>
+<tr>
+<th>Pin Matrice</th>
+<th>Nom</th>
+<th>Signification</th>
+<th>Pin RPi</th>
+<th>Fonction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>VCC</td>
+<td>+5V Power</td>
+<td>2</td>
+<td>5V0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GND</td>
+<td>Ground</td>
+<td>6</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>3</td>
+<td>DIN</td>
+<td>Data In</td>
+<td>19</td>
+<td>GPIO 10 (MOSI)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>CS</td>
+<td>Chip Select</td>
+<td>24</td>
+<td>GPIO 8 (SPI CE0)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>CLK</td>
+<td>Clock</td>
+<td>23</td>
+<td>GPIO 11 (SPI CLK)</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://luma-led-matrix.readthedocs.io/en/latest/install.html#max7219-devices-spi" target="_blank" rel="nofollow noopener noreferrer">Source</a>.</p>
+<p>Chaque port de la matrice de LEDs doit être relié au port correspondant sur le Raspberry.
+Voici la carte des ports GPIO sur les modèles les plus récents :</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/creer-horloge-matrice-leds/gpio-pinout.png" alt="Carte des ports GPIO"></p>
+<p><a href="https://www.raspberrypi.org/documentation/usage/gpio/" target="_blank" rel="nofollow noopener noreferrer">Source</a>.</p>
+<p>Ce qui devrait vous donner quelque-chose comme ça :</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/creer-horloge-matrice-leds/branchements.png" alt="Branchements"></p>
+<p>Branchez ensuite le touchpad à l'aide du câble micro USB - USB.</p>
+<h2 id="mettre-en-place-le-script">Mettre en place le script</h2>
+<p>Insérez votre micro SD dans votre ordinateur et flashez Raspberry Pi OS dessus (un tutoriel a été rédigé à ce sujet,
+il est disponible <a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi#t%C3%A9l%C3%A9charger-et-flasher-raspberry-os">ici</a>). Activez SSH
+et le Wi-Fi en suivant les étapes disponibles <a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi#activer-ssh-et-se-connecter-au-wi-fi">ici</a>.
+Enlevez votre carte de l'ordinateur, et insérez-la dans le Raspberry que vous pouvez désormais mettre sous tension.</p>
+<p>Commencez par vous connecter en SSH. On va activer l'interface SPI en lançant l'utilitaire <code>raspi-config</code>
+(il suffit pour cela d'exécuter la commande <code>sudo raspi-config</code>). Sélectionnez <em>Interfacing Options</em>, puis <em>SPI</em>,
+et <em>Yes</em>. Sortez de l'utilitaire et redémarrez (si <code>raspi-config</code> ne vous propose pas de redémarrer,
+la commande <code>sudo reboot now</code> fera l'affaire).</p>
+<p>J'ai créé un petit script Python pour ce projet qui nécessite cependant quelques commandes pour fonctionner.
+Tout d'abord, il faut s'assurer que la version de Python utilisée par défaut soit la version 3 :</p>
+<pre><code class="language-shell">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 2
+</code></pre>
+<p>La commande <code>python --version</code> doit maintenant vous renvoyer <code>Python 3.7.x</code>. On va maintenant pouvoir installer les
+dépendances :</p>
+<pre><code class="language-shell">sudo usermod -a -G spi,gpio pi
+sudo apt install build-essential libfreetype6-dev libjpeg-dev libopenjp2-7 libtiff5
+sudo pip3 install luma.led_matrix
+sudo apt install libsdl-dev libportmidi-dev libsdl-ttf2.0-dev libsdl-mixer1.2-dev libsdl-image1.2-dev
+sudo pip3 install pygame
+sudo pip3 install luma.emulator
+sudo pip3 install pynput
+</code></pre>
+<p>(Il s'agit d'un condensé des informations d'installation de
+<a href="https://luma-led-matrix.readthedocs.io/en/latest/install.html" target="_blank" rel="nofollow noopener noreferrer">Luma LED Matrix</a>,
+<a href="https://luma-emulator.readthedocs.io/en/latest/install.html" target="_blank" rel="nofollow noopener noreferrer">Luma Emulator</a>, et
+<a href="https://pypi.org/project/pynput/" target="_blank" rel="nofollow noopener noreferrer">Pynput</a>). Vous pouvez maintenant télécharger le script directement depuis Github :</p>
+<pre><code class="language-shell">sudo apt install git
+git clone https://github.com/Skyost/Anaclock.git
+</code></pre>
+<p>On va désactiver toutes les interactions possibles avec Raspberry Pi OS à la souris (pour éviter qu'un mauvais clic
+vienne éteindre le système, voire pire). Pour cela, on va éditer le fichier <code>~/.config/lxsession/LXDE-pi/autostart</code> à
+l'aide de Nano :</p>
+<pre><code class="language-shell">sudo nano ~/.config/lxsession/LXDE-pi/autostart
+</code></pre>
+<p>Cherchez la ligne commençant par <code>@lxpanel</code> et éditez le fichier comme suit :</p>
+<pre><code class="language-shell"># @lxpanel --profile LXDE-pi # Désactive lxpanel.
+# @pcmanfm --desktop --profile LXDE-pi # Désactive PCManFM.
+# @xscreensaver -no-splash # Désactive xscreensaver.
+@xset s off # Désactive l’économiseur d’écran.
+@xset -dpms # Désactive DPMS.
+@xset s noblank # Empêche l'écran de devenir blanc.
+@point-rpi # Positionne la souris sur le bouton du menu.
+</code></pre>
+<p>Faîtes <em>CTRL + X</em> pour enregistrer le fichier, puis <em>Y</em> pour valider. On va maintenant supprimer le menu contextuel
+d'OpenBox. Éditez le fichier <code>~/.config/openbox/lxde-pi-rc.xml</code> avec Nano :</p>
+<pre><code class="language-shell">sudo nano ~/.config/openbox/lxde-pi-rc.xml
+</code></pre>
+<p>Et supprimez les lignes qui sont responsables du clic droit :</p>
+<pre><code class="language-xml">&#x3C;!-- Supprimez ou commentez ce qui se trouve entre cette balise... -->
+&#x3C;mousebind button="Right" action="Press">
+  &#x3C;!-- ... -->
+&#x3C;/mousebind> 
+&#x3C;!-- ... Et cette balise. -->
+</code></pre>
+<p>Au lieu de faire tout cela, une autre possibilité aurait été de lancer Chromium en mode kiosk au démarrage
+(les étapes pour faire ceci sont disponibles <a href="https://gist.github.com/jongrover/6831346" target="_blank" rel="nofollow noopener noreferrer">ici</a>).
+De même, faîtes <em>CTRL + X</em> pour enregistrer le fichier, et validez avec <em>Y</em>. On peut maintenant redémarrer le système
+avec <code>sudo reboot now</code>.</p>
+<h2 id="faire-fonctionner-lhorloge">Faire fonctionner l'horloge</h2>
+<p>Une fois le système redémarré, on se dirige dans le répertoire du script, et on l'exécute en fond :</p>
+<pre><code class="language-shell">cd Anaclock
+export DISPLAY=:0.0
+nohup python ./anaclock.py >/dev/null 2>&#x26;1 &#x26;
+</code></pre>
+<p>N'hésitez pas à mettre ceci dans un petit script qui se lance automatiquement, cela peut toujours faire gagner du temps.
+Et voilà, normalement si vous bougez la souris en effectuant un mouvement sur le touchpad... La matrice de LEDs
+devrait s'animer !</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/creer-horloge-matrice-leds/resultat.gif" alt="Résultat"></p>
+<p>Voici les commandes programmées :</p>
+<ul>
+<li><strong>Clic gauche / mouvement</strong> : affiche l'heure.</li>
+<li><strong>Clic droit</strong> : affiche la date.</li>
+<li><strong>Appui consécutif d'au moins 5 secondes sur le clic gauche</strong> : éteint l'appareil.</li>
+</ul>
+<p>C'est terminé ! En espérant que ce petit projet vous ait plu, n'hésitez pas à m'envoyer vos retours 😉</p>
+]]></content:encoded>
+            <enclosure url="https://framboise-pi.skyost.eu/images/articles/creer-horloge-matrice-leds/preview.png" length="0" type="image/png"/>
+        </item>
+        <item>
+            <title><![CDATA[Hello world !]]></title>
+            <link>https://framboise-pi.skyost.eu/article/hello-world/</link>
+            <guid>https://framboise-pi.skyost.eu/article/hello-world/</guid>
+            <pubDate>Sun, 11 Apr 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Ceci est le premier billet de mon blog consacré au Raspberry Pi. Sobrement intitulé Framboise Pi, vous trouverez
+ici tout ce que je partagerai sur l'actualité du nano-ordinateur à 35€ de la fondation Raspberry Pi.]]></description>
+            <content:encoded><![CDATA[<p><em>Ceci est le premier billet de mon blog consacré au Raspberry Pi. Sobrement intitulé <q>Framboise Pi</q>, vous trouverez
+ici tout ce que je partagerai sur l'actualité du nano-ordinateur à 35€ de la fondation Raspberry Pi.</em></p>
+
+<h2 id="qui-suis-je-">Qui suis-je ?</h2>
+<p>Je m'appelle Hugo Delaunay, <q>Skyost</q> de mon pseudonyme fréquemment utilisé sur internet, et j'aime créer toutes sortes
+de petites choses sympa avec mon ordinateur.</p>
+<p>J'ai découvert le Raspberry Pi il y a quelque temps déjà, et je suis tout de suite tombé amoureux du concept.
+Je trouvais (et trouve toujours d'ailleurs) l'idée incroyable : un ordinateur minimaliste et personnalisable à souhait ;
+le tout pour un prix canon.</p>
+<h2 id="pourquoi-ce-blog-">Pourquoi ce blog ?</h2>
+<p>Comme je l'ai dit, j'aime beaucoup m'amuser avec les nouvelles technologies, et le Raspberry Pi n'y fait pas exception.
+Je faisais mes petits projets dans mon coin, et l'idée m'est venue de partager tout cela avec les internautes français.</p>
+<p>Je sais pertinemment que de nombreuses références existent déjà sur le web à propos de la petite carte de la
+fondation Raspberry Pi (je conseille notamment le très bon <a href="https://www.framboise314.fr/" target="_blank" rel="nofollow noopener noreferrer">Framboise 314</a>).</p>
+<p>Le but n'est pas de <q>copier</q> le contenu que l'on peut trouver sur ces sites-là, mais bien d'apporter mes quelques
+conseils et astuces à moi qui m'ont permis de bien me lancer (et qui me servent encore à ce jour), ainsi que de
+partager mes modestes créations et idées. Je souhaite également partager le plus possible les actualités autour du
+Raspberry Pi.</p>
+<p>Et tant que l'on parle du blog en lui-même, sachez qu'il est totalement open source, vous pouvez aller voir ceci
+de vous-même via <a href="https://github.com/Skyost/FramboisePi" target="_blank" rel="nofollow noopener noreferrer">Github</a>.</p>
+<h2 id="mot-de-la-fin">Mot de la fin</h2>
+<p>J'accompagne le lancement de ce blog de trois articles :</p>
+<ul>
+<li><a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi">Installation minimale d'un Raspberry Pi</a> : qui vous permettra notamment
+de flasher une image sur votre carte SD, de vous connecter au Wi-Fi ainsi que de mettre en place des serveurs SSH et VNC.</li>
+<li><a href="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds">Créer une horloge avec une matrice de LEDs</a> : un petit projet d'horloge sympa
+et très minimaliste avec une matrice de LEDs.</li>
+<li><a href="https://framboise-pi.skyost.eu/article/maitriser-raspberry-pi-imager">Maîtriser Raspberry Pi Imager</a> : article entier consacré à la maîtrise
+du logiciel de flash édité par la fondation Raspberry Pi.</li>
+</ul>
+<p>J'ai beaucoup hésité avant de lancer ce blog. J'espère en tout cas que vous y trouverez votre bonheur autant que je
+trouve le mien à vous partager mes pensées. Je vous souhaite, de tout cœur, une <strong>bonne visite</strong>.</p>
+]]></content:encoded>
+            <enclosure url="https://framboise-pi.skyost.eu/images/articles/hello-world/preview.png" length="0" type="image/png"/>
         </item>
     </channel>
 </rss>
