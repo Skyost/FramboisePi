@@ -1,9 +1,7 @@
 <template>
   <iframe
     class="youtube-frame"
-    width="100%"
-    height="590"
-    :src="`https://www.youtube.com/embed/${id}`"
+    :src="`https://www.youtube.com/embed/${video}`"
     title="YouTube video player"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -15,7 +13,7 @@
 export default {
   name: 'Youtube',
   props: {
-    id: {
+    video: {
       type: String,
       required: true
     }

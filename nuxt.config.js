@@ -1,5 +1,5 @@
 import { SITE_NAME, SITE_DESCRIPTION, HOST_NAME } from './utils/site'
-import { createFeed, createRoutes } from './utils/config'
+import { createFeed, createRoutes, beforeInsertRootHook } from './utils/config'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -64,7 +64,6 @@ export default {
   content: {
     liveEdit: false,
     markdown: {
-      remarkPlugins: ['remark-oembed'],
       remarkAutolinkHeadings: {
         behavior: 'append',
         content: {
@@ -85,6 +84,10 @@ export default {
       compact: true,
       minified: true
     }
+  },
+
+  hooks: {
+    'content:file:beforeInsert': beforeInsertRootHook
   },
 
   generate: {

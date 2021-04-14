@@ -9,7 +9,7 @@ qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une
 
 <!--more-->
 
-<youtube id="VBNRIcA_Ppg"></youtube>
+<youtube video="VBNRIcA_Ppg"></youtube>
 
 ## Matériel nécessaire
 
