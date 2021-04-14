@@ -94,8 +94,7 @@ function beforeInsertRootHook (document) {
     for (const youtubeVideo of youtubeVideos) {
       const video = youtubeVideo.getAttribute('video')
       youtubeVideo.replaceWith(
-        `
-<iframe
+        `<iframe
   width="640"
   height="360"
   src="https://www.youtube.com/embed/${video}"
@@ -103,7 +102,8 @@ function beforeInsertRootHook (document) {
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
-/>`.replace('\n', ' ')
+/>
+<br><a href="https://www.youtube.com/watch?v=${video}">Lien vers la vidéo YouTube</a>.`
       )
     }
     const quotes = root.querySelectorAll('q')
