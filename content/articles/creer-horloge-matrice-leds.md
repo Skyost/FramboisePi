@@ -16,17 +16,17 @@ qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une
 Le projet est très accessible mais nécessite pas mal de matériel. Vous aurez besoin de :
 
 * 1 **Raspberry Pi Zero WH** \[[Amazon](https://amzn.to/2RvB484),
-  [AliExpress](https://fr.aliexpress.com/item/1005001993063894.html)\]
+  [AliExpress](https://s.click.aliexpress.com/e/_A9UaSn)\]
   (n'importe quel Raspberry Pi muni de ports GPIO devrait suffire, mais cette solution me semble être la moins
   chère).
 * 1 **Matrice de LEDs** \[[Amazon](https://amzn.to/3dTBa0U),
-  [AliExpress](https://fr.aliexpress.com/item/32834030893.html)\] (je vous conseille celle d'AZ-Delivery,
+  [AliExpress](https://s.click.aliexpress.com/e/_9zTnPl)\] (je vous conseille celle d'AZ-Delivery,
   abordable et de bonne qualité).
 * 1 **Touchpad USB** \[[Amazon](https://amzn.to/3wRrQmQ),
   [AliExpress](https://fr.aliexpress.com/item/32981629578.html)\] (cela a l'avantage d'être généralement moins couteux
   que l'achat d'un détecteur de mouvements et de boutons).
 * 1 **Câble micro USB - USB OTG** \[[Amazon](https://amzn.to/3wP0QEr),
-  [AliExpress](https://fr.aliexpress.com/item/1005001586058974.html)\].
+  [AliExpress](https://s.click.aliexpress.com/e/_ABy4z9)\].
 * 1 **Chargeur secteur USB**.
 * 1 **Câble d'alimentation USB - micro USB**.
 * 1 **Micro SD** (prévoyez minimum 8Go pour n'importe quel projet).
