@@ -4,7 +4,7 @@
         <title>Framboise Pi</title>
         <link>https://framboise-pi.skyost.eu/feed.xml</link>
         <description>Blog consacré au Raspberry Pi. Au programme : des actualités, des tutoriels en français, des conseils, des projets, et bien plus pour exploiter le maximum de votre framboise !</description>
-        <lastBuildDate>Wed, 14 Apr 2021 14:43:35 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 14 Apr 2021 23:14:24 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <language>fr</language>
@@ -104,7 +104,7 @@ ouvrez le logiciel qui se présente comme suit :</p>
 qui s'affiche. Maintenant, cliquez sur <em>Choisissez le stockage</em> et choisissez votre micro SD.
 Pour terminer, cliquez sur <em>Écrire</em>, patientez quelques instants, et voilà !</p>
 <p>Pour plus d'informations sur toutes les possibilités que vous offre Raspberry Pi Imager,
-je vous conseille la lecture de l'article <q><a href="https://framboise-pi.skyost.eu/article/maitriser-raspberry-pi-imager">Maîtriser Raspberry Pi Imager</a></q>
+je vous conseille la lecture de l'article &laquo; <a href="https://framboise-pi.skyost.eu/article/maitriser-raspberry-pi-imager">Maîtriser Raspberry Pi Imager</a> &raquo;
 disponible sur ce site 😉</p>
 <h2 id="activer-ssh-et-se-connecter-au-wi-fi">Activer SSH et se connecter au Wi-Fi</h2>
 <p>Pour activer le serveur SSH intégré à l'OS, il vous suffit de créer un fichier nommé <code>ssh</code> sur la partition boot de
@@ -178,8 +178,7 @@ qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une
             <content:encoded><![CDATA[<p><em>Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
 qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.</em></p>
 
-<p>
-<iframe width="640"
+<p> <iframe width="640"
   height="360"
   src="https://www.youtube.com/embed/VBNRIcA_Ppg"
   title="YouTube video player"
@@ -352,11 +351,11 @@ devrait s'animer !</p>
             <pubDate>Sun, 11 Apr 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Ceci est le premier billet de mon blog consacré au Raspberry Pi. Sobrement intitulé Framboise Pi, vous trouverez
 ici tout ce que je partagerai sur l'actualité du nano-ordinateur à 35€ de la fondation Raspberry Pi.]]></description>
-            <content:encoded><![CDATA[<p><em>Ceci est le premier billet de mon blog consacré au Raspberry Pi. Sobrement intitulé <q>Framboise Pi</q>, vous trouverez
+            <content:encoded><![CDATA[<p><em>Ceci est le premier billet de mon blog consacré au Raspberry Pi. Sobrement intitulé &laquo; Framboise Pi &raquo;, vous trouverez
 ici tout ce que je partagerai sur l'actualité du nano-ordinateur à 35€ de la fondation Raspberry Pi.</em></p>
 
 <h2 id="qui-suis-je-">Qui suis-je ?</h2>
-<p>Je m'appelle Hugo Delaunay, <q>Skyost</q> de mon pseudonyme fréquemment utilisé sur internet, et j'aime créer toutes sortes
+<p>Je m'appelle Hugo Delaunay, &laquo; Skyost &raquo; de mon pseudonyme fréquemment utilisé sur internet, et j'aime créer toutes sortes
 de petites choses sympa avec mon ordinateur.</p>
 <p>J'ai découvert le Raspberry Pi il y a quelque temps déjà, et je suis tout de suite tombé amoureux du concept.
 Je trouvais (et trouve toujours d'ailleurs) l'idée incroyable : un ordinateur minimaliste et personnalisable à souhait ;
@@ -366,7 +365,7 @@ le tout pour un prix canon.</p>
 Je faisais mes petits projets dans mon coin, et l'idée m'est venue de partager tout cela avec les internautes français.</p>
 <p>Je sais pertinemment que de nombreuses références existent déjà sur le web à propos de la petite carte de la
 fondation Raspberry Pi (je conseille notamment le très bon <a href="https://www.framboise314.fr/" target="_blank" rel="nofollow noopener noreferrer">Framboise 314</a>).</p>
-<p>Le but n'est pas de <q>copier</q> le contenu que l'on peut trouver sur ces sites-là, mais bien d'apporter mes quelques
+<p>Le but n'est pas de &laquo; copier &raquo; le contenu que l'on peut trouver sur ces sites-là, mais bien d'apporter mes quelques
 conseils et astuces à moi qui m'ont permis de bien me lancer (et qui me servent encore à ce jour), ainsi que de
 partager mes modestes créations et idées. Je souhaite également partager le plus possible les actualités autour du
 Raspberry Pi.</p>
