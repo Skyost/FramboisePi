@@ -4,7 +4,7 @@
         <title>Framboise Pi</title>
         <link>https://framboise-pi.skyost.eu/feed.xml</link>
         <description>Blog consacré au Raspberry Pi. Au programme : des actualités, des tutoriels en français, des conseils, des projets, et bien plus pour exploiter le maximum de votre framboise !</description>
-        <lastBuildDate>Wed, 14 Apr 2021 23:14:24 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 14 Apr 2021 23:22:57 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <language>fr</language>
@@ -178,14 +178,15 @@ qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une
             <content:encoded><![CDATA[<p><em>Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
 qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.</em></p>
 
-<p> <iframe width="640"
+<p><iframe width="640"
   height="360"
   src="https://www.youtube.com/embed/VBNRIcA_Ppg"
   title="YouTube video player"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
-></iframe></p>
+></iframe>
+<br><a href="https://www.youtube.com/watch?v=VBNRIcA_Ppg">Lien vers la vidéo YouTube</a>.</p>
 <h2 id="matériel-nécessaire">Matériel nécessaire</h2>
 <p>Le projet est très accessible mais nécessite pas mal de matériel. Vous aurez besoin de :</p>
 <ul>
