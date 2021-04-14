@@ -103,8 +103,12 @@ function beforeInsertRootHook (document) {
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
-/>`
+/>`.replace('\n', ' ')
       )
+    }
+    const quotes = root.querySelectorAll('q')
+    for (const quote of quotes) {
+      quote.replaceWith(`&laquo; ${quote.innerHTML} &raquo;`)
     }
     document.bodyHtml = root.outerHTML
   }
