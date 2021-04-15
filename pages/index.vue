@@ -6,7 +6,7 @@
       <article-card :article="firstArticle" />
     </red-box>
     <h1 v-if="showTitle" class="mt-5 mb-4">
-      <b-icon-bookmark /> Articles les plus récents
+      <b-icon-bookmark class="bookmark-icon" /> Articles les plus récents
     </h1>
     <article-list
       :create-query-builder="queryArticles"
@@ -58,3 +58,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import 'assets/colors';
+
+.bookmark-icon {
+  color: $main-color;
+}
+</style>
