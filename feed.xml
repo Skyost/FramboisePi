@@ -4,7 +4,7 @@
         <title>Framboise Pi</title>
         <link>https://framboise-pi.skyost.eu/feed.xml</link>
         <description>Blog consacré au Raspberry Pi. Au programme : des actualités, des tutoriels en français, des conseils, des projets, et bien plus pour exploiter le maximum de votre framboise !</description>
-        <lastBuildDate>Thu, 15 Apr 2021 18:57:41 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 18 Apr 2021 19:21:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <language>fr</language>
@@ -17,6 +17,94 @@
         <category>Computers</category>
         <category>Electronic</category>
         <category>Technology</category>
+        <item>
+            <title><![CDATA[Construire l'horloge du complotiste !]]></title>
+            <link>https://framboise-pi.skyost.eu/article/construire-horloge-complotiste/</link>
+            <guid>https://framboise-pi.skyost.eu/article/construire-horloge-complotiste/</guid>
+            <pubDate>Sun, 18 Apr 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Nouveau projet d'horloge originale utilisant cette fois un affichage à base d'encre électronique
+pour afficher l'heure sur un meme bien connu et plutôt sympathique !]]></description>
+            <content:encoded><![CDATA[<p><em>Nouveau projet d'horloge originale utilisant cette fois un affichage à base d'encre électronique
+pour afficher l'heure sur un meme bien connu et plutôt sympathique !</em></p>
+
+<p>Voici donc ce que l'on va construire :</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/construire-horloge-complotiste/horloge.png" alt="Horloge"></p>
+<p>Vous aurez sans doute reconnu le meme &laquo; Wait, It's All Ohio ? &raquo; (cf.
+<a href="https://knowyourmeme.com/memes/wait-its-all-ohio-always-has-been" target="_blank" rel="nofollow noopener noreferrer">Know Your Meme</a> pour la référence). Le rendu
+est plutôt sympathique, et a notamment pour avantage de ne pas produire de lumière et de ne pas consommer d'énergie
+(en dehors de la consommation du Raspberry) car la consommation d'un affichage à encre électronique est
+vraiment négligeable.</p>
+<h2 id="matériel-nécessaire">Matériel nécessaire</h2>
+<p>Voici le matériel dont nous aurons besoin :</p>
+<ul>
+<li>1 <strong>Raspberry Pi Zero WH</strong> [<a href="https://amzn.to/2RvB484" target="_blank" rel="nofollow noopener noreferrer">Amazon</a>,
+<a href="https://s.click.aliexpress.com/e/_A9UaSn" target="_blank" rel="nofollow noopener noreferrer">AliExpress</a>].</li>
+<li>1 <strong>Inky pHAT</strong> [<a href="https://amzn.to/3uY0kCb" target="_blank" rel="nofollow noopener noreferrer">Amazon</a>,
+<a href="https://shop.pimoroni.com/products/inky-phat?variant=12549254938707" target="_blank" rel="nofollow noopener noreferrer">Pimoroni</a>].</li>
+<li>1 <strong>Chargeur secteur USB</strong>.</li>
+<li>1 <strong>Câble d'alimentation USB - micro USB</strong>.</li>
+<li>1 <strong>Micro SD</strong> (prévoyez minimum 8Go pour n'importe quel projet).</li>
+<li>1 <strong>Adaptateur SD</strong>.</li>
+<li>1 <em>Boitier Pibow</em> [<a href="https://shop.pimoroni.com/products/pibow-zero-w" target="_blank" rel="nofollow noopener noreferrer">Pimoroni</a>] (facultatif).</li>
+</ul>
+<p>Tout cela pour un coût total d'environ 50€ (si vous ne possédez rien).</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/construire-horloge-complotiste/materiel.png" alt="Matériel"></p>
+<h2 id="flasher-los">Flasher l'OS</h2>
+<p>Insérez votre micro SD dans votre ordinateur à l'aide de l'adaptateur SD, et flashez Raspberry Pi OS Lite dessus
+(pas besoin de la version standard qui est plus gourmande en ressources). Si vous ne savez pas comment faire,
+j'ai rédigé <a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi#t%C3%A9l%C3%A9charger-et-flasher-raspberry-os">un petit tutoriel</a> à
+ce propos. Profitez-en pour configurer votre Wi-Fi et activer SSH (je vous renvoie toujours à
+<a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi#activer-ssh-et-se-connecter-au-wi-fi">ce même tutoriel</a>).</p>
+<p>Une fois fait, vous pouvez déconnecter votre micro SD de votre ordinateur et l'insérer dans votre Raspberry.</p>
+<h2 id="monter-le-boîtier-et-laffichage">Monter le boîtier et l'affichage</h2>
+<p>Si vous avez opté pour un boîtier Pibow, je vous renvoie vers
+<a href="https://learn.pimoroni.com/tutorial/sandyj/pibow-zero-assembly" target="_blank" rel="nofollow noopener noreferrer">le guide officiel</a> disponible sur le site de Pimoroni.
+Il est très explicite, et est facile à suivre (même pour les plus anglophobes d'entre vous 😁).</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/construire-horloge-complotiste/avec-pibow.png" alt="Avec Pibow"></p>
+<p>Une fois votre boitier monté, branchez votre Inky pHAT sur les ports GPIO de votre framboise. Il vous faudra sans doute
+appuyer un peu, mais cela ne devrait pas poser de problèmes.</p>
+<h2 id="configurer-lappareil">Configurer l'appareil</h2>
+<p>Mettez sous tension votre Raspberry, puis
+<a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi/#se-connecter-en-ssh">connectez-vous en SSH</a>.
+Commencez par entrer la commande suivante :</p>
+<pre><code class="language-shell">sudo raspi-config
+</code></pre>
+<p>Elle vous permettra de vous rendre dans <code>raspi-config</code>. Rendez-vous ensuite dans le menu <em>Interfaces</em>,
+puis activez <em>SPI</em> et <em>I2C</em> (sélectionnez l'option, puis validez avec <em>Yes</em>). Ensuite, dans le menu principal de
+l'utilitaire, sélectionnez <em>Localisation Options</em>, puis <em>Change Timezone</em> et choisissez <em>Europe (Paris)</em>.
+Une fois tout ceci effectué, vous pouvez redémarrer votre Pi.</p>
+<p>Pour continuer, il vous faudra d'abord vous assurer que la version de Python utilisée par défaut soit bien la
+version 3 :</p>
+<pre><code class="language-shell">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 2
+</code></pre>
+<p>La commande <code>python --version</code> doit maintenant vous renvoyer quelque chose comme <code>Python 3.7.x</code>.</p>
+<h2 id="installer-le-script">Installer le script</h2>
+<p>Comme pour <a href="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds">l'horloge de matrices LEDs</a>, j'ai créé un petit script pour vous
+faciliter l'installation de ce projet. Il va d'abord falloir installer la dépendance principale :</p>
+<pre><code class="language-shell">curl https://get.pimoroni.com/inky | bash
+</code></pre>
+<p>L'assistant d'installation vous proposera diverses options. Personnellement, je vous déconseille l'installation
+complète (avec l'aide et les exemples) car elle prend plus de temps et de place.
+Les instructions complètes de l'installation de cette librairie sont disponibles sur
+<a href="https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-inky-phat" target="_blank" rel="nofollow noopener noreferrer">le site de Pimoroni</a>.</p>
+<p>Maintenant, on peut installer le script :</p>
+<pre><code class="language-shell">sudo apt install git
+git clone https://github.com/Skyost/ComplotistClock.git
+</code></pre>
+<h2 id="lancer-le-script">Lancer le script</h2>
+<p>C'est presque terminé, allez dans le répertoire du script (en utilisant <code>cd ComplotistClock</code>).
+On va rendre exécutable le fichier <code>run.sh</code>. Pour cela, tapez simplement :</p>
+<pre><code class="language-shell">sudo chmod +x ./run.sh
+</code></pre>
+<p>Et c'est bon ! Pour lancer le script en arrière-plan, vous pouvez vous contenter de rentrer :</p>
+<pre><code class="language-shell">./run.sh
+</code></pre>
+<p>L'heure et l'illustration devraient apparaître sur votre affichage Inky. N'hésitez pas à personnaliser tout cela
+à votre guise en modifiant le script !</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/construire-horloge-complotiste/horloge-animation.gif" alt="Horloge animée"></p>
+]]></content:encoded>
+            <enclosure url="https://framboise-pi.skyost.eu/images/articles/construire-horloge-complotiste/preview.png" length="0" type="image/png"/>
+        </item>
         <item>
             <title><![CDATA[Maîtriser Raspberry Pi Imager]]></title>
             <link>https://framboise-pi.skyost.eu/article/maitriser-raspberry-pi-imager/</link>
@@ -147,7 +235,7 @@ sudo apt full-upgrade
 l'option <em>Update</em>. Cet outil est très pratique et vous permet de modifier totalement la manière dont fonctionne
 votre Raspberry (il permet notamment d'overclocker votre machine).
 Par exemple, si vous êtes intéressé, il est possible de changer les options de localisation à travers le menu
-<em>Localization Options</em>.</p>
+<em>Localisation Options</em>.</p>
 <p>Pour terminer, notons qu'il existe une manière d'accéder aux fichiers situés sur votre Raspberry Pi à l'aide d'une
 interface graphique. Il vous suffit de télécharger un client sFTP (comme <a href="https://filezilla-project.org/" target="_blank" rel="nofollow noopener noreferrer">FileZilla</a>
 par exemple), et de vous connecter à l'adresse IP de votre Pi via le port 22, en utilisant les mêmes identifiants
@@ -269,11 +357,15 @@ Voici la carte des ports GPIO sur les modèles les plus récents :</p>
 <h2 id="mettre-en-place-le-script">Mettre en place le script</h2>
 <p>Insérez votre micro SD dans votre ordinateur et flashez Raspberry Pi OS dessus (un tutoriel a été rédigé à ce sujet,
 il est disponible <a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi#t%C3%A9l%C3%A9charger-et-flasher-raspberry-os">ici</a>). Activez SSH
-et le Wi-Fi en suivant les étapes disponibles <a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi#activer-ssh-et-se-connecter-au-wi-fi">ici</a>.
+et la connexion à votre réseau Wi-Fi en suivant les étapes disponibles
+<a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi#activer-ssh-et-se-connecter-au-wi-fi">ici</a>.
 Enlevez votre carte de l'ordinateur, et insérez-la dans le Raspberry que vous pouvez désormais mettre sous tension.</p>
-<p>Commencez par vous connecter en SSH. On va activer l'interface SPI en lançant l'utilitaire <code>raspi-config</code>
-(il suffit pour cela d'exécuter la commande <code>sudo raspi-config</code>). Sélectionnez <em>Interfacing Options</em>, puis <em>SPI</em>,
-et <em>Yes</em>. Sortez de l'utilitaire et redémarrez (si <code>raspi-config</code> ne vous propose pas de redémarrer,
+<p>Commencez par vous <a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi/#se-connecter-en-ssh">connecter en SSH</a>.
+On va activer l'interface SPI en lançant l'utilitaire <code>raspi-config</code> (il suffit pour cela d'exécuter la
+commande <code>sudo raspi-config</code>). Sélectionnez <em>Interfacing Options</em>, puis <em>SPI</em>, et <em>Yes</em>.
+Tant qu'on y est, on va changer le fuseau horaire de votre Pi. Pour ce faire, sortez de ce menu et rendez-vous dans
+le menu <em>Localisation Options</em>. À partir de ce menu, sélectionnez <em>Change Timezone</em> et choisissez <em>Europe (Paris)</em>.</p>
+<p>Sortez de l'utilitaire et  redémarrez (si <code>raspi-config</code> ne vous propose pas de redémarrer,
 la commande <code>sudo reboot now</code> fera l'affaire).</p>
 <p>J'ai créé un petit script Python pour ce projet qui nécessite cependant quelques commandes pour fonctionner.
 Tout d'abord, il faut s'assurer que la version de Python utilisée par défaut soit la version 3 :</p>
