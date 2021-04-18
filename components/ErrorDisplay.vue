@@ -13,8 +13,11 @@
 </template>
 
 <script>
+import PageHeader from './PageHeader'
+
 export default {
   name: 'ErrorDisplay',
+  components: { PageHeader },
   props: {
     errorCode: {
       type: Number,

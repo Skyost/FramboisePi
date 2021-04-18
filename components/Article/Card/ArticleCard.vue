@@ -19,7 +19,7 @@ import { BIconReplyFill } from 'bootstrap-vue'
 import PreviewImage from './PreviewImage'
 import BigCard from './BigCard'
 import SmallCard from './SmallCard'
-import { getArticlePublicationDate, getArticleAddress } from '~/utils/article'
+import { getArticleAddress, getArticlePublicationDate } from '~/utils/article'
 import { formatDate } from '~/utils/date'
 
 export default {
@@ -40,16 +40,16 @@ export default {
       tag: 'div'
     }
   },
+  computed: {
+    publicationDate () {
+      return formatDate(getArticlePublicationDate(this.article))
+    }
+  },
   destroyed () {
     window.removeEventListener('resize', this.updateTag)
   },
   beforeMount () {
     window.addEventListener('resize', this.updateTag)
-  },
-  computed: {
-    publicationDate () {
-      return formatDate(getArticlePublicationDate(this.article))
-    }
   },
   async mounted () {
     await this.$nextTick()

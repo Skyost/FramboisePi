@@ -7,8 +7,10 @@
 
 <script>
 import SocialHead from '../components/SocialHead'
+import ErrorDisplay from '../components/ErrorDisplay'
+
 export default {
-  components: { SocialHead },
+  components: { SocialHead, ErrorDisplay },
   layout: 'error',
   props: {
     error: {

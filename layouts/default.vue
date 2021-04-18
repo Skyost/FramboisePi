@@ -10,9 +10,10 @@
 
 <script>
 import PageNavbar from '../components/Navbar/PageNavbar'
+import PageFooter from '../components/PageFooter'
 
 export default {
-  components: { PageNavbar },
+  components: { PageNavbar, PageFooter },
   layout: 'default'
 }
 </script>

@@ -41,15 +41,20 @@
 </template>
 
 <script>
-import { getArticlePublicationDate, getArticleImage, getArticleAuthor } from '~/utils/article'
-import { getCategoryAddress } from '~/utils/categorie'
+import PageHeader from '../components/PageHeader'
+import SpringSpinner from '../components/SpringSpinner'
+import SocialHead from '../components/SocialHead'
+import ArticleContent from '../components/Article/ArticleContent'
+import ErrorDisplay from '../components/ErrorDisplay'
 import { formatDate } from '~/utils/date'
+import { getCategoryAddress } from '~/utils/categorie'
+import { getArticleAuthor, getArticleImage, getArticlePublicationDate } from '~/utils/article'
 import { HOST_NAME } from '~/utils/site'
 import Comments from '~/components/Article/Comments'
 import SocialIcons from '~/components/Article/SocialIcons'
 
 export default {
-  components: { Comments, SocialIcons },
+  components: { PageHeader, SpringSpinner, SocialHead, ArticleContent, ErrorDisplay, Comments, SocialIcons },
   data () {
     return {
       hostName: HOST_NAME,

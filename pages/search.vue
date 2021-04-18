@@ -11,7 +11,12 @@
 </template>
 
 <script>
+import SocialHead from '../components/SocialHead'
+import PageHeader from '../components/PageHeader'
+import ArticleList from '../components/Article/ArticleList'
+
 export default {
+  components: { SocialHead, PageHeader, ArticleList },
   data () {
     return {
       title: 'Rechercher un article',

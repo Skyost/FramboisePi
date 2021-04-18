@@ -81,7 +81,7 @@ Profitez-en également pour mettre à jour l'outil `raspi-config` ; ouvrez-le en
 l'option _Update_. Cet outil est très pratique et vous permet de modifier totalement la manière dont fonctionne
 votre Raspberry (il permet notamment d'overclocker votre machine).
 Par exemple, si vous êtes intéressé, il est possible de changer les options de localisation à travers le menu
-_Localization Options_.
+_Localisation Options_.
 
 Pour terminer, notons qu'il existe une manière d'accéder aux fichiers situés sur votre Raspberry Pi à l'aide d'une
 interface graphique. Il vous suffit de télécharger un client sFTP (comme [FileZilla](https://filezilla-project.org/)

@@ -65,12 +65,17 @@ Branchez ensuite le touchpad à l'aide du câble micro USB - USB.
 
 Insérez votre micro SD dans votre ordinateur et flashez Raspberry Pi OS dessus (un tutoriel a été rédigé à ce sujet,
 il est disponible [ici](/article/installation-minimale-raspberry-pi#télécharger-et-flasher-raspberry-os)). Activez SSH
-et le Wi-Fi en suivant les étapes disponibles [ici](/article/installation-minimale-raspberry-pi#activer-ssh-et-se-connecter-au-wi-fi).
+et la connexion à votre réseau Wi-Fi en suivant les étapes disponibles
+[ici](/article/installation-minimale-raspberry-pi#activer-ssh-et-se-connecter-au-wi-fi).
 Enlevez votre carte de l'ordinateur, et insérez-la dans le Raspberry que vous pouvez désormais mettre sous tension.
 
-Commencez par vous connecter en SSH. On va activer l'interface SPI en lançant l'utilitaire `raspi-config`
-(il suffit pour cela d'exécuter la commande `sudo raspi-config`). Sélectionnez _Interfacing Options_, puis _SPI_,
-et _Yes_. Sortez de l'utilitaire et redémarrez (si `raspi-config` ne vous propose pas de redémarrer,
+Commencez par vous [connecter en SSH](/article/installation-minimale-raspberry-pi/#se-connecter-en-ssh).
+On va activer l'interface SPI en lançant l'utilitaire `raspi-config` (il suffit pour cela d'exécuter la
+commande `sudo raspi-config`). Sélectionnez _Interfacing Options_, puis _SPI_, et _Yes_.
+Tant qu'on y est, on va changer le fuseau horaire de votre Pi. Pour ce faire, sortez de ce menu et rendez-vous dans
+le menu _Localisation Options_. À partir de ce menu, sélectionnez _Change Timezone_ et choisissez _Europe (Paris)_.
+
+Sortez de l'utilitaire et  redémarrez (si `raspi-config` ne vous propose pas de redémarrer,
 la commande `sudo reboot now` fera l'affaire).
 
 J'ai créé un petit script Python pour ce projet qui nécessite cependant quelques commandes pour fonctionner.

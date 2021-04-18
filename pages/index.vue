@@ -20,10 +20,15 @@
 
 <script>
 import { BIconBookmark } from 'bootstrap-vue'
+import SocialHead from '../components/SocialHead'
+import PageHeader from '../components/PageHeader'
+import RedBox from '../components/RedBox'
+import ArticleCard from '../components/Article/Card/ArticleCard'
+import ArticleList from '../components/Article/ArticleList'
 import { SITE_NAME } from '~/utils/site'
 
 export default {
-  components: { BIconBookmark },
+  components: { SocialHead, PageHeader, RedBox, ArticleCard, ArticleList, BIconBookmark },
   data () {
     return {
       firstArticle: null,

@@ -32,10 +32,12 @@
 
 <script>
 import InfiniteLoading from 'vue-infinite-loading'
+import SpringSpinner from '../SpringSpinner'
+import ArticleCard from './Card/ArticleCard'
 
 export default {
   name: 'ArticleList',
-  components: { InfiniteLoading },
+  components: { ArticleCard, SpringSpinner, InfiniteLoading },
   props: {
     createQueryBuilder: {
       type: Function,

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { getArticleImage } from '@/utils/article'
+import { getArticleImage } from '~/utils/article'
 
 export default {
   name: 'PreviewImage',
