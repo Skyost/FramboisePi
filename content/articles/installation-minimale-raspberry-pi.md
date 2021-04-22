@@ -1,6 +1,6 @@
 ---
 title: Installation minimale d'un Raspberry Pi
-categories: [tutoriels]
+categories: [astuces, tutoriels]
 date: 2021-04-12
 ---
 

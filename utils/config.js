@@ -1,6 +1,6 @@
 import { parse } from 'node-html-parser'
 import { HOST_NAME, SITE_DESCRIPTION, SITE_NAME } from './site'
-import { getArticlePublicationDate, getArticleAddress, getArticleImage, getArticleAuthor } from './article'
+import { getArticleAddress, getArticleAuthor, getArticleImage, getArticlePublicationDate } from './article'
 
 const remark = require('remark')
 const remarkSqueezeParagraphs = require('remark-squeeze-paragraphs')
@@ -42,6 +42,7 @@ async function createFeed (feed) {
   const { $content } = require('@nuxt/content')
   const articles = await $content('articles')
     .sortBy('date', 'desc')
+    .limit(10)
     .fetch()
   for (const article of articles) {
     const url = `${HOST_NAME}${getArticleAddress(article)}`
