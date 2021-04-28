@@ -31,7 +31,7 @@
       </span>
     </page-header>
     <article-content :article="article" />
-    <social-icons class="mt-5 mb-5" :article="article" />
+    <social-buttons class="mt-5 mb-5" :article="article" />
     <comments />
   </div>
   <div v-else>
@@ -51,10 +51,10 @@ import { getCategoryAddress } from '~/utils/categorie'
 import { getArticleAuthor, getArticleImage, getArticlePublicationDate } from '~/utils/article'
 import { HOST_NAME } from '~/utils/site'
 import Comments from '~/components/Article/Comments'
-import SocialIcons from '~/components/Article/SocialIcons'
+import SocialButtons from '~/components/Article/Social/SocialButtons'
 
 export default {
-  components: { PageHeader, SpringSpinner, SocialHead, ArticleContent, ErrorDisplay, Comments, SocialIcons },
+  components: { PageHeader, SpringSpinner, SocialHead, ArticleContent, ErrorDisplay, Comments, SocialButtons },
   data () {
     return {
       hostName: HOST_NAME,
