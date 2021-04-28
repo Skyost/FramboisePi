@@ -8,30 +8,28 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
-        <b-navbar-nav>
-          <b-nav-item to="/" :active="$nuxt.$route.path === '/'">
-            <b-icon-pen /> Articles
-          </b-nav-item>
-          <search-item />
-          <b-nav-item-dropdown v-if="categories.length > 0" right>
-            <template #button-content>
-              <b-icon-list-ul /> Catégories
-            </template>
-            <b-dropdown-item v-for="category in categories" :key="category" :to="getCategoryAddress(category)">
-              {{ category }}
-            </b-dropdown-item>
-          </b-nav-item-dropdown>
-          <b-nav-item href="https://skyost.eu">
-            <b-icon-question /> À propos
-          </b-nav-item>
-        </b-navbar-nav>
+        <b-nav-item to="/" :active="$nuxt.$route.path === '/'">
+          <b-icon-pen /> Articles
+        </b-nav-item>
+        <search-item />
+        <b-nav-item-dropdown v-if="categories.length > 0" right>
+          <template #button-content>
+            <b-icon-list-ul /> Catégories
+          </template>
+          <b-dropdown-item v-for="category in categories" :key="category" :to="getCategoryAddress(category)">
+            {{ category }}
+          </b-dropdown-item>
+        </b-nav-item-dropdown>
+        <b-nav-item href="https://skyost.eu">
+          <b-icon-question /> À propos
+        </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 </template>
 
 <script>
-import { BIconPen, BIconListUl, BIconQuestion } from 'bootstrap-vue'
+import { BIconListUl, BIconPen, BIconQuestion } from 'bootstrap-vue'
 import SearchItem from './SearchItem'
 import { getCategoryAddress } from '~/utils/categorie'
 
