@@ -4,7 +4,7 @@
         <title>Framboise Pi</title>
         <link>https://framboise-pi.skyost.eu/feed.xml</link>
         <description>Blog consacré au Raspberry Pi. Au programme : des actualités, des tutoriels en français, des conseils, des projets, et bien plus pour exploiter le maximum de votre framboise !</description>
-        <lastBuildDate>Sat, 08 May 2021 20:19:02 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 08 May 2021 20:32:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <language>fr</language>
@@ -21,7 +21,7 @@
             <title><![CDATA[Qu'est-ce que GPIO ? À quoi ça sert ?]]></title>
             <link>https://framboise-pi.skyost.eu/article/qu-est-ce-que-gpio/</link>
             <guid>https://framboise-pi.skyost.eu/article/qu-est-ce-que-gpio/</guid>
-            <pubDate>Sun, 25 Apr 2021 00:00:00 GMT</pubDate>
+            <pubDate>Sat, 08 May 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Si vous avez déjà touché un peu à l'univers Rasbperry Pi -et à électronique de manière générale-, vous avez
 probablement entendu parler de GPIO. Alors du coup, qu'est-ce-que c'est ? Ça se mange ça, GPIO ?]]></description>
             <content:encoded><![CDATA[<p><em>Si vous avez déjà touché un peu à l'univers Rasbperry Pi -et à électronique de manière générale-, vous avez
