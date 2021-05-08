@@ -1,7 +1,7 @@
 ---
 title: Qu'est-ce que GPIO ? À quoi ça sert ?
 categories: [astuces]
-date: 2021-04-25
+date: 2021-05-08
 ---
 
 _Si vous avez déjà touché un peu à l'univers Rasbperry Pi -et à électronique de manière générale-, vous avez
