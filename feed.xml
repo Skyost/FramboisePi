@@ -4,7 +4,7 @@
         <title>Framboise Pi</title>
         <link>https://framboise-pi.skyost.eu/feed.xml</link>
         <description>Blog consacré au Raspberry Pi. Au programme : des actualités, des tutoriels en français, des conseils, des projets, et bien plus pour exploiter le maximum de votre framboise !</description>
-        <lastBuildDate>Wed, 28 Apr 2021 18:09:19 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 08 May 2021 20:19:02 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <language>fr</language>
@@ -17,6 +17,64 @@
         <category>Computers</category>
         <category>Electronic</category>
         <category>Technology</category>
+        <item>
+            <title><![CDATA[Qu'est-ce que GPIO ? À quoi ça sert ?]]></title>
+            <link>https://framboise-pi.skyost.eu/article/qu-est-ce-que-gpio/</link>
+            <guid>https://framboise-pi.skyost.eu/article/qu-est-ce-que-gpio/</guid>
+            <pubDate>Sun, 25 Apr 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Si vous avez déjà touché un peu à l'univers Rasbperry Pi -et à électronique de manière générale-, vous avez
+probablement entendu parler de GPIO. Alors du coup, qu'est-ce-que c'est ? Ça se mange ça, GPIO ?]]></description>
+            <content:encoded><![CDATA[<p><em>Si vous avez déjà touché un peu à l'univers Rasbperry Pi -et à électronique de manière générale-, vous avez
+probablement entendu parler de <strong>GPIO</strong>. Alors du coup, qu'est-ce-que c'est ? Ça se mange ça, GPIO ?</em></p>
+
+<h2 id="gpio-cest-quoi-">GPIO, c'est quoi ?</h2>
+<p><strong>GPIO</strong> ou <strong>Entrée/sortie à usage général</strong> (traduit de l'expression anglaise <strong>General Purpose Input/Output</strong>),
+est un ensemble de ports destinés à contrôler l'entrée et la sortie de données entre composants électroniques.</p>
+<p>Nous en avons notamment fait usage dans deux projets précédents : celui de
+<a href="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds/">l'horloge de matrices de LEDs</a>, et celui de
+<a href="https://framboise-pi.skyost.eu/article/construire-horloge-complotiste/">l'horloge du complotiste</a>.
+Dans le premier projet, nous avons utilisé les ports GPIO du Raspberry pour lui relier une matrice de LEDs et
+interagir avec (afficher des chiffres, des lettres, etc.). Dans le deuxième, nous avons fait pareil mais avec
+un affichage à encre électronique cette fois-ci.</p>
+<p>Tout ça pour dire que les possibilités qu'offrent les ports GPIO intégrés aux RPi sont nombreuses, il est possible de
+brancher à peu près n'importe quoi dessus, pour peu que cela soit compatible (un ventilateur, une LED, un écran
+tactile, ...).</p>
+<h2 id="connecteurs-broches-et-pinout">Connecteurs, broches et Pinout</h2>
+<p>Dans les modèles les plus récents, les Raspberry Pi sont munis de 40 <strong>broches</strong> (26 pour les premiers modèles).
+Cet ensemble de broches forme un <strong>connecteur</strong>. C'est à ces broches que l'on va venir relier nos composants électroniques.</p>
+<p>Attention cependant, on ne peut pas relier n'importe quel composant à n'importe quelle broche : chacune d'elles a une
+utilité bien précise. Certains servent à donner du courant, d'autres sont des masses, d'autres encore servent à
+transmettre des données, ... C'est pour cela que chacune des broches porte un nom qui représente sa fonction.
+Pour connaître le nom donné à une broche en particulier, on se réfère au <strong>Pinout</strong>.
+Voici celui des modèles les plus récents :</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/qu-est-ce-que-gpio/gpio-pinout.png" alt="Pinout"></p>
+<p>Il est également accessible sur <a href="https://pinout.xyz/" target="_blank" rel="nofollow noopener noreferrer">ce petit site utilitaire</a> ainsi que sur le site officiel du
+<a href="https://www.raspberrypi.org/documentation/usage/gpio/" target="_blank" rel="nofollow noopener noreferrer">Raspberry Pi</a>. À noter une information très sympathique :
+il vous suffit d'entrer la commande <code>pinout</code> sur votre framboise pour voir son Pinout s'afficher (si vous êtes
+sous Raspberry Pi OS Desktop du moins).</p>
+<p>Certains modèles sont dépourvus de ports GPIO mais offrent cependant la possibilité de
+<a href="https://www.youtube.com/watch?v=gtCwC4VAQZo" target="_blank" rel="nofollow noopener noreferrer">les souder</a>. C'est par exemple le cas du Raspberry Pi Zero W,
+qui est moins cher que le modèle WH (mais ce dernier arrive avec les ports GPIO déjà soudés).</p>
+<h2 id="où-trouver-des-composants-gpio-">Où trouver des composants GPIO ?</h2>
+<p>Vous pouvez en trouver sur tous les sites web qui vendent des composants Raspberry Pi, mes recommandations personnelles
+étant :</p>
+<ul>
+<li><a href="https://shop.pimoroni.com/" target="_blank" rel="nofollow noopener noreferrer">Pimoroni</a>, mon choix du cœur ! Ils sont très créatifs et ont un large choix de composants
+(et de projets à faire avec). Beaucoup de leurs composants sont d'ailleurs réalisés par eux-mêmes et sont très qualitatifs.
+Notez cependant que le site est basé en Angleterre, et n'est disponible qu'en anglais.</li>
+<li><a href="https://thepihut.com/" target="_blank" rel="nofollow noopener noreferrer">The Pi Hut</a>, comme Pimoroni mais à l'aspect un peu moins &laquo; familial &raquo; (sans que ce soit
+péjoratif pour autant). Ils ont racheté ModMyPi en 2019, ce qui leur permet eux aussi de créer leurs propres composants.</li>
+<li><a href="https://www.kubii.fr/" target="_blank" rel="nofollow noopener noreferrer">Kubii</a>, distributeur français agréé par la fondation Raspberry Pi. Ils proposent pas mal
+de produits de qualité.</li>
+<li>Et bien sûr les incontournables <a href="https://fr.aliexpress.com/" target="_blank" rel="nofollow noopener noreferrer">AliExpress</a> et <a href="https://www.amazon.fr/" target="_blank" rel="nofollow noopener noreferrer">Amazon</a> (mais
+ils sont un peu hors catégorie étant donné que leur champ d'activité va bien au-delà du Raspberry Pi ; et de
+l'électronique en général).</li>
+</ul>
+<p>Nota Bene : généralement les instructions de connexion (à quelles broches relier celles du composant)
+sont fournies par le constructeur du composant en question.</p>
+]]></content:encoded>
+            <enclosure url="https://framboise-pi.skyost.eu/images/articles/qu-est-ce-que-gpio/preview.png" length="0" type="image/png"/>
+        </item>
         <item>
             <title><![CDATA[Activer ou désactiver les LEDs intégrées d'un Raspberry Pi]]></title>
             <link>https://framboise-pi.skyost.eu/article/activer-desactiver-leds-raspberry-pi/</link>
