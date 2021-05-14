@@ -4,7 +4,7 @@
         <title>Framboise Pi</title>
         <link>https://framboise-pi.skyost.eu/feed.xml</link>
         <description>Blog consacré au Raspberry Pi. Au programme : des actualités, des tutoriels en français, des conseils, des projets, et bien plus pour exploiter le maximum de votre framboise !</description>
-        <lastBuildDate>Sat, 08 May 2021 20:32:30 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 14 May 2021 22:47:21 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <language>fr</language>
@@ -17,6 +17,64 @@
         <category>Computers</category>
         <category>Electronic</category>
         <category>Technology</category>
+        <item>
+            <title><![CDATA[40 millions de Raspberry Pi vendus !]]></title>
+            <link>https://framboise-pi.skyost.eu/article/40-millions-raspberry-pi-vendus/</link>
+            <guid>https://framboise-pi.skyost.eu/article/40-millions-raspberry-pi-vendus/</guid>
+            <pubDate>Sat, 15 May 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Après avoir passé le cap des 30 millions de cartes vendues en 2019, c'est le cap des 40 millions qui vient d'être
+franchi en ce mois de mai !]]></description>
+            <content:encoded><![CDATA[<p><em>Après avoir passé le cap des 30 millions de cartes vendues en 2019, c'est le cap des 40 millions qui vient d'être
+franchi en ce mois de mai !</em></p>
+
+<blockquote class="twitter-tweet">
+  <p lang="en" dir="ltr">
+    Great call with <a href="https://twitter.com/EbenUpton?ref_src=twsrc%5Etfw">@EbenUpton</a> today.
+    Congrats on 40 Million <a href="https://twitter.com/hashtag/RaspberryPi?src=hash&amp;ref_src=twsrc%5Etfw">#RaspberryPi</a> sold!
+    A lot more headed to The enterprise with <a href="https://twitter.com/hashtag/Citrix?src=hash&amp;ref_src=twsrc%5Etfw">#Citrix</a>
+    <a href="https://t.co/6YfVp5KyYZ">pic.twitter.com/6YfVp5KyYZ</a>
+  </p>&mdash; ChrisFleck (@chrisfleck)
+  <a href="https://twitter.com/chrisfleck/status/1392224692862427138?ref_src=twsrc%5Etfw">May 11, 2021</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>Et voici quelques dates clés :</p>
+<ul>
+<li>Les premiers concepts du Raspberry Pi ont émergé en <strong>2006</strong>.
+<a href="https://www.raspberrypi.org/blog/raspberry-pi-2006-edition/" target="_blank" rel="nofollow noopener noreferrer">Une news</a> publiée sur le site de la fondation permet
+même de reproduire le concept de l'époque.</li>
+<li>Le projet a été lancé le <strong>24 février 2012</strong>, soit il y a environ 9 ans. Les premières ventes ont débuté le
+<strong>29 février 2012</strong>.</li>
+<li>Le <strong>16 avril 2012</strong>, les premiers acheteurs reçoivent leur carte. L'envoi a en effet été retardé à cause d'une
+installation incorrecte du port Ethernet !</li>
+<li>Le <strong>22 mai 2012</strong>, ce ne sont pas moins de 20 000 unités qui ont été envoyées.</li>
+<li>C'est le <strong>3 juin 2013</strong> que &laquo; New Out of Box Software &raquo; (plus connu sous le nom de
+<a href="https://www.raspberrypi.org/documentation/installation/noobs.md" target="_blank" rel="nofollow noopener noreferrer"><em>NOOBS</em></a>) est annoncé.</li>
+<li>Entre le <strong>24</strong> et le <strong>31 octobre 2013</strong>, le cap des 2 millions d'unités envoyées est franchi.</li>
+<li>Le <strong>7 avril 2014</strong>, le Raspberry Pi Compute Module premier du nom est annoncé.</li>
+<li><strong>Début mai 2014</strong>, environ 3 millions de cartes ont été vendues.</li>
+<li>Le Raspberry Pi 2 est annoncé le <strong>2 février 2015</strong> et le Raspberry Pi Zero le <strong>26 novembre</strong> de la même année.
+Ce dernier était, à l'époque, le plus petit modèle disponible pour une carte Raspberry Pi (65 x 30mm).</li>
+<li>Le <strong>29 février 2016</strong> sort le Raspberry Pi 3. Ce même mois est annoncé que plus de 8 millions de cartes
+(tous modèles confondus) ont été écoulées : Raspberry Pi devient ainsi l'ordinateur britannique le plus vendu au monde,
+dépassant l'Amstrad PCW.</li>
+<li>La barre des 11 millions de framboises vendues est dépassée le <strong>25 novembre 2016</strong>.</li>
+<li>Le <strong>28 février 2017</strong>, le Raspberry Pi Zero W est sorti. Véritable bijou de nanotechnologie, je m'en sers
+personnellement dans nombre de mes projets personnels !</li>
+<li>Le Raspberry Pi 4B sort le <strong>24 juin 2019</strong>.</li>
+<li>Ce ne sont pas moins de 30 millions d'unités qui ont été écoulées au jour du <strong>10 décembre 2019</strong>.</li>
+<li>Durant l'année <strong>2020</strong> est sorti la déclinaison 8Go du RPi 4 le <strong>28 mai</strong>, ainsi que le Raspberry Pi 400 le
+<strong>2 novembre</strong>, qui est un ordinateur complet intégré dans un clavier.</li>
+<li>Le <strong>21 janvier 2021</strong> est lancé le premier microcontrôleur de la fondation : le Raspberry Pi Pico.
+Taille record et prix record à son lancement : 51 x 21mm pour seulement 4 dollars. Il s'en écoulera environ
+1 million en moins de deux mois.</li>
+<li>Enfin, le <strong>11 mai 2021</strong>, 40 millions de cartes ont été vendues.</li>
+</ul>
+<p>Merci à <a href="https://en.wikipedia.org/wiki/Raspberry_Pi" target="_blank" rel="nofollow noopener noreferrer">Wikipedia</a> pour leur formidable historique !</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/40-millions-raspberry-pi-vendus/ventes.png" alt="Ventes"></p>
+<p>Le Raspberry Pi est le troisième ordinateur le plus vendu derrière Mac et PC.</p>
+]]></content:encoded>
+            <enclosure url="https://framboise-pi.skyost.eu/images/articles/40-millions-raspberry-pi-vendus/preview.png" length="0" type="image/png"/>
+        </item>
         <item>
             <title><![CDATA[Qu'est-ce que GPIO ? À quoi ça sert ?]]></title>
             <link>https://framboise-pi.skyost.eu/article/qu-est-ce-que-gpio/</link>

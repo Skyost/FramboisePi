@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/categorie/projets", {data:[{}],fetch:{"data-v-7ac399df:0":{categories:["annonces","astuces","projets","tutoriels"]}},mutations:void 0});
