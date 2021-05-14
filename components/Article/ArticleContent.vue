@@ -60,5 +60,11 @@ export default {
   .youtube-frame {
     margin-bottom: 1em;
   }
+
+  .twitter-tweet {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+  }
 }
 </style>
