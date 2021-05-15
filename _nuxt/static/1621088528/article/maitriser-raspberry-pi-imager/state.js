@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1621088528",layout:"default",error:a,serverRendered:true,routePath:"\u002Farticle\u002Fmaitriser-raspberry-pi-imager",config:{_app:{basePath:"\u002F",assetsPath:"\u002F_nuxt\u002F",cdnURL:a},content:{dbHash:"0abd60b1"}}}}(null));
