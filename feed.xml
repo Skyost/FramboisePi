@@ -4,7 +4,7 @@
         <title>Framboise Pi</title>
         <link>https://framboise-pi.skyost.eu/feed.xml</link>
         <description>Blog consacré au Raspberry Pi. Au programme : des actualités, des tutoriels en français, des conseils, des projets, et bien plus pour exploiter le maximum de votre framboise !</description>
-        <lastBuildDate>Tue, 08 Jun 2021 22:25:39 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 08 Jun 2021 22:38:10 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <language>fr</language>
@@ -67,7 +67,7 @@ la barre d'URL du navigateur). Veillez bien à ce qu'aucun logiciel n'utilise d�
 <p>Pour lancer votre hébergement, exécutez simplement <code>./filebrowser.sh</code> (en vous situant dans le répertoire
 <code>/home/pi</code>). Si vous avez suivi les instructions de la partie précédente, File Browser devrait maintenant vous
 être accessible en tapant <code>http://adresse.ip.de.votre.pi:port</code> dans la barre d'URL de votre navigateur.</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/installer-un-petit-hebergement-de-fichier-leger/filebrowser.png" alt="Matériel"></p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/installer-un-petit-hebergement-de-fichiers/filebrowser.png" alt="Matériel"></p>
 <p>J'ai personnellement donné une URL plus sympathique à mon cloud (je n'ai pas testé avec d'autres routeurs,
 mais pour moi il suffisait de se connecter au panel d'administration, d'aller dans <em>Réseau V4</em> > <em>DNS</em>,
 de sélectionner le Raspberry Pi, puis de saisir une adresse plus simple ; du style <code>hugo.cloud</code>).</p>
