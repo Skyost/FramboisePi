@@ -68,7 +68,7 @@ Pour lancer votre hébergement, exécutez simplement `./filebrowser.sh` (en vous
 `/home/pi`). Si vous avez suivi les instructions de la partie précédente, File Browser devrait maintenant vous
 être accessible en tapant `http://adresse.ip.de.votre.pi:port` dans la barre d'URL de votre navigateur.
 
-![Matériel](/images/articles/installer-un-petit-hebergement-de-fichier-leger/filebrowser.png)
+![Matériel](/images/articles/installer-un-petit-hebergement-de-fichiers/filebrowser.png)
 
 J'ai personnellement donné une URL plus sympathique à mon cloud (je n'ai pas testé avec d'autres routeurs,
 mais pour moi il suffisait de se connecter au panel d'administration, d'aller dans _Réseau V4_ > _DNS_,
