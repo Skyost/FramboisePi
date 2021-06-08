@@ -4,7 +4,7 @@
         <title>Framboise Pi</title>
         <link>https://framboise-pi.skyost.eu/feed.xml</link>
         <description>Blog consacré au Raspberry Pi. Au programme : des actualités, des tutoriels en français, des conseils, des projets, et bien plus pour exploiter le maximum de votre framboise !</description>
-        <lastBuildDate>Sat, 15 May 2021 14:22:10 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 08 Jun 2021 22:25:39 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <language>fr</language>
@@ -17,6 +17,63 @@
         <category>Computers</category>
         <category>Electronic</category>
         <category>Technology</category>
+        <item>
+            <title><![CDATA[Mettre en place un petit hébergement de fichiers]]></title>
+            <link>https://framboise-pi.skyost.eu/article/installer-un-petit-hebergement-de-fichiers/</link>
+            <guid>https://framboise-pi.skyost.eu/article/installer-un-petit-hebergement-de-fichiers/</guid>
+            <pubDate>Wed, 09 Jun 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[On a parfois besoin d'avoir un cloud chez soi qui soit disponible en permanence et compatible avec tous les appareils
+pour s'échanger des photos, des vidéos, des musiques, etc. Voici un petit tuto qui vous permettra de mettre en place
+un tel service de manière ultra-simple.]]></description>
+            <content:encoded><![CDATA[<p><em>On a parfois besoin d'avoir un cloud chez soi qui soit disponible en permanence et compatible avec tous les appareils
+pour s'échanger des photos, des vidéos, des musiques, etc. Voici un petit tuto qui vous permettra de mettre en place
+un tel service de manière ultra-simple.</em></p>
+
+<p>On va pour cela avoir recours à un petit logiciel libre qui se nomme <a href="https://filebrowser.org/" target="_blank" rel="nofollow noopener noreferrer">File Browser</a>.</p>
+<h2 id="installation">Installation</h2>
+<p>L'installation est plutôt simple ; <a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi/#se-connecter-en-ssh">connectez-vous en SSH</a>
+sur votre machine et exécutez la commande suivante :</p>
+<pre><code class="language-shell">curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
+</code></pre>
+<p>Créez un petit maintenant un petit répertoire que l'on va appeler &laquo; Mes fichiers &raquo; (qui contiendra... vos fichiers),
+et qui se situera dans votre répertoire racine :</p>
+<pre><code class="language-shell">cd "/home/pi/"
+mkdir "Mes fichiers"
+</code></pre>
+<p>Ok, maintenant on va juste créer un petit script de lancement. Pour cela, ouvrez l'éditeur Nano :</p>
+<pre><code class="language-shell">nano filebrowser.sh
+</code></pre>
+<p>Puis copiez-collez le texte suivant dans le fichier :</p>
+<pre><code class="language-shell">nohup filebrowser -r "/home/pi/Mes fichiers" >/dev/null 2>&#x26;1 &#x26;
+</code></pre>
+<p>Fermez ensuite l'éditeur avec <strong>CTRL+X</strong> et validez la sauvegarde. Pour terminer, rendez exécutable le fichier
+<code>filebrowser.sh</code> avec la commande :</p>
+<pre><code class="language-shell">chmod +x filebrowser.sh
+</code></pre>
+<h2 id="configuration">Configuration</h2>
+<p>Toutes les options de configuration sont disponibles <a href="https://filebrowser.org/cli/filebrowser-config-set" target="_blank" rel="nofollow noopener noreferrer">ici</a>.
+Je vous recommande cependant :</p>
+<ul>
+<li><code>filebrowser config set --auth.method=noauth</code> pour désactiver l'authentification (pratique dans le cadre d'une
+utilisation locale, avec des personnes de confiance).</li>
+<li><code>filebrowser config set --address=adresse.ip.de.votre.pi</code> qui vous permettra d'accéder à File Browser depuis une
+machine se situant sur le réseau. Je vous conseille d'assigner une adresse IP fixe à votre Raspberry (soit depuis
+le routeur, soit directement depuis la bête).</li>
+<li><code>filebrowser config set --port=80</code> pour démarrer le service sur le port 80 (cela évite de taper le <code>:port</code> dans
+la barre d'URL du navigateur). Veillez bien à ce qu'aucun logiciel n'utilise déjà ce port, cependant.</li>
+<li><code>filebrowser config set --locale=fr</code> pour passer le logiciel en français.</li>
+</ul>
+<h2 id="lancement">Lancement</h2>
+<p>Pour lancer votre hébergement, exécutez simplement <code>./filebrowser.sh</code> (en vous situant dans le répertoire
+<code>/home/pi</code>). Si vous avez suivi les instructions de la partie précédente, File Browser devrait maintenant vous
+être accessible en tapant <code>http://adresse.ip.de.votre.pi:port</code> dans la barre d'URL de votre navigateur.</p>
+<p><img src="https://framboise-pi.skyost.eu/images/articles/installer-un-petit-hebergement-de-fichier-leger/filebrowser.png" alt="Matériel"></p>
+<p>J'ai personnellement donné une URL plus sympathique à mon cloud (je n'ai pas testé avec d'autres routeurs,
+mais pour moi il suffisait de se connecter au panel d'administration, d'aller dans <em>Réseau V4</em> > <em>DNS</em>,
+de sélectionner le Raspberry Pi, puis de saisir une adresse plus simple ; du style <code>hugo.cloud</code>).</p>
+]]></content:encoded>
+            <enclosure url="https://framboise-pi.skyost.eu/images/articles/installer-un-petit-hebergement-de-fichiers/preview.png" length="0" type="image/png"/>
+        </item>
         <item>
             <title><![CDATA[40 millions de Raspberry Pi vendus !]]></title>
             <link>https://framboise-pi.skyost.eu/article/40-millions-raspberry-pi-vendus/</link>
