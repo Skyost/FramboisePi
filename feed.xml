@@ -4,7 +4,7 @@
         <title>Framboise Pi</title>
         <link>https://framboise-pi.skyost.eu/feed.xml</link>
         <description>Blog consacré au Raspberry Pi. Au programme : des actualités, des tutoriels en français, des conseils, des projets, et bien plus pour exploiter le maximum de votre framboise !</description>
-        <lastBuildDate>Tue, 08 Jun 2021 22:38:10 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 29 Aug 2021 10:34:20 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/nuxt-community/feed-module</generator>
         <language>fr</language>
@@ -25,52 +25,75 @@
             <description><![CDATA[On a parfois besoin d'avoir un cloud chez soi qui soit disponible en permanence et compatible avec tous les appareils
 pour s'échanger des photos, des vidéos, des musiques, etc. Voici un petit tuto qui vous permettra de mettre en place
 un tel service de manière ultra-simple.]]></description>
-            <content:encoded><![CDATA[<p><em>On a parfois besoin d'avoir un cloud chez soi qui soit disponible en permanence et compatible avec tous les appareils
+            <content:encoded><![CDATA[*On a parfois besoin d'avoir un cloud chez soi qui soit disponible en permanence et compatible avec tous les appareils
 pour s'échanger des photos, des vidéos, des musiques, etc. Voici un petit tuto qui vous permettra de mettre en place
-un tel service de manière ultra-simple.</em></p>
+un tel service de manière ultra-simple.*
 
-<p>On va pour cela avoir recours à un petit logiciel libre qui se nomme <a href="https://filebrowser.org/" target="_blank" rel="nofollow noopener noreferrer">File Browser</a>.</p>
-<h2 id="installation">Installation</h2>
-<p>L'installation est plutôt simple ; <a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi/#se-connecter-en-ssh">connectez-vous en SSH</a>
-sur votre machine et exécutez la commande suivante :</p>
-<pre><code class="language-shell">curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
-</code></pre>
-<p>Créez un petit maintenant un petit répertoire que l'on va appeler &laquo; Mes fichiers &raquo; (qui contiendra... vos fichiers),
-et qui se situera dans votre répertoire racine :</p>
-<pre><code class="language-shell">cd "/home/pi/"
+
+
+On va pour cela avoir recours à un petit logiciel libre qui se nomme [File Browser](https://filebrowser.org/).
+
+## Installation
+
+L'installation est plutôt simple ; [connectez-vous en SSH](/article/installation-minimale-raspberry-pi/#se-connecter-en-ssh)
+sur votre machine et exécutez la commande suivante :
+
+```shell
+curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
+```
+
+Créez un petit maintenant un petit répertoire que l'on va appeler &laquo; Mes fichiers &raquo; (qui contiendra... vos fichiers),
+et qui se situera dans votre répertoire racine :
+
+```shell
+cd "/home/pi/"
 mkdir "Mes fichiers"
-</code></pre>
-<p>Ok, maintenant on va juste créer un petit script de lancement. Pour cela, ouvrez l'éditeur Nano :</p>
-<pre><code class="language-shell">nano filebrowser.sh
-</code></pre>
-<p>Puis copiez-collez le texte suivant dans le fichier :</p>
-<pre><code class="language-shell">nohup filebrowser -r "/home/pi/Mes fichiers" >/dev/null 2>&#x26;1 &#x26;
-</code></pre>
-<p>Fermez ensuite l'éditeur avec <strong>CTRL+X</strong> et validez la sauvegarde. Pour terminer, rendez exécutable le fichier
-<code>filebrowser.sh</code> avec la commande :</p>
-<pre><code class="language-shell">chmod +x filebrowser.sh
-</code></pre>
-<h2 id="configuration">Configuration</h2>
-<p>Toutes les options de configuration sont disponibles <a href="https://filebrowser.org/cli/filebrowser-config-set" target="_blank" rel="nofollow noopener noreferrer">ici</a>.
-Je vous recommande cependant :</p>
-<ul>
-<li><code>filebrowser config set --auth.method=noauth</code> pour désactiver l'authentification (pratique dans le cadre d'une
-utilisation locale, avec des personnes de confiance).</li>
-<li><code>filebrowser config set --address=adresse.ip.de.votre.pi</code> qui vous permettra d'accéder à File Browser depuis une
-machine se situant sur le réseau. Je vous conseille d'assigner une adresse IP fixe à votre Raspberry (soit depuis
-le routeur, soit directement depuis la bête).</li>
-<li><code>filebrowser config set --port=80</code> pour démarrer le service sur le port 80 (cela évite de taper le <code>:port</code> dans
-la barre d'URL du navigateur). Veillez bien à ce qu'aucun logiciel n'utilise déjà ce port, cependant.</li>
-<li><code>filebrowser config set --locale=fr</code> pour passer le logiciel en français.</li>
-</ul>
-<h2 id="lancement">Lancement</h2>
-<p>Pour lancer votre hébergement, exécutez simplement <code>./filebrowser.sh</code> (en vous situant dans le répertoire
-<code>/home/pi</code>). Si vous avez suivi les instructions de la partie précédente, File Browser devrait maintenant vous
-être accessible en tapant <code>http://adresse.ip.de.votre.pi:port</code> dans la barre d'URL de votre navigateur.</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/installer-un-petit-hebergement-de-fichiers/filebrowser.png" alt="Matériel"></p>
-<p>J'ai personnellement donné une URL plus sympathique à mon cloud (je n'ai pas testé avec d'autres routeurs,
-mais pour moi il suffisait de se connecter au panel d'administration, d'aller dans <em>Réseau V4</em> > <em>DNS</em>,
-de sélectionner le Raspberry Pi, puis de saisir une adresse plus simple ; du style <code>hugo.cloud</code>).</p>
+```
+
+Ok, maintenant on va juste créer un petit script de lancement. Pour cela, ouvrez l'éditeur Nano :
+
+```shell
+nano filebrowser.sh
+```
+
+Puis copiez-collez le texte suivant dans le fichier :
+
+```shell
+nohup filebrowser -r "/home/pi/Mes fichiers" >/dev/null 2>&1 &
+```
+
+Fermez ensuite l'éditeur avec **CTRL+X** et validez la sauvegarde. Pour terminer, rendez exécutable le fichier
+`filebrowser.sh` avec la commande :
+
+```shell
+chmod +x filebrowser.sh
+```
+
+## Configuration
+
+Toutes les options de configuration sont disponibles [ici](https://filebrowser.org/cli/filebrowser-config-set).
+Je vous recommande cependant :
+
+*   `filebrowser config set --auth.method=noauth` pour désactiver l'authentification (pratique dans le cadre d'une
+    utilisation locale, avec des personnes de confiance).
+*   `filebrowser config set --address=adresse.ip.de.votre.pi` qui vous permettra d'accéder à File Browser depuis une
+    machine se situant sur le réseau. Je vous conseille d'assigner une adresse IP fixe à votre Raspberry (soit depuis
+    le routeur, soit directement depuis la bête).
+*   `filebrowser config set --port=80` pour démarrer le service sur le port 80 (cela évite de taper le `:port` dans
+    la barre d'URL du navigateur). Veillez bien à ce qu'aucun logiciel n'utilise déjà ce port, cependant.
+*   `filebrowser config set --locale=fr` pour passer le logiciel en français.
+
+## Lancement
+
+Pour lancer votre hébergement, exécutez simplement `./filebrowser.sh` (en vous situant dans le répertoire
+`/home/pi`). Si vous avez suivi les instructions de la partie précédente, File Browser devrait maintenant vous
+être accessible en tapant `http://adresse.ip.de.votre.pi:port` dans la barre d'URL de votre navigateur.
+
+![Matériel](/images/articles/installer-un-petit-hebergement-de-fichiers/filebrowser.png)
+
+J'ai personnellement donné une URL plus sympathique à mon cloud (je n'ai pas testé avec d'autres routeurs,
+mais pour moi il suffisait de se connecter au panel d'administration, d'aller dans *Réseau V4* > *DNS*,
+de sélectionner le Raspberry Pi, puis de saisir une adresse plus simple ; du style `hugo.cloud`).
 ]]></content:encoded>
             <enclosure url="https://framboise-pi.skyost.eu/images/articles/installer-un-petit-hebergement-de-fichiers/preview.png" length="0" type="image/png"/>
         </item>
@@ -81,8 +104,10 @@ de sélectionner le Raspberry Pi, puis de saisir une adresse plus simple ; du st
             <pubDate>Sat, 15 May 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Après avoir passé le cap des 30 millions de cartes vendues en 2019, c'est le cap des 40 millions qui vient d'être
 franchi en ce mois de mai !]]></description>
-            <content:encoded><![CDATA[<p><em>Après avoir passé le cap des 30 millions de cartes vendues en 2019, c'est le cap des 40 millions qui vient d'être
-franchi en ce mois de mai !</em></p>
+            <content:encoded><![CDATA[*Après avoir passé le cap des 30 millions de cartes vendues en 2019, c'est le cap des 40 millions qui vient d'être
+franchi en ce mois de mai !*
+
+
 
 <blockquote class="twitter-tweet">
   <p lang="en" dir="ltr">
@@ -94,41 +119,44 @@ franchi en ce mois de mai !</em></p>
   <a href="https://twitter.com/chrisfleck/status/1392224692862427138?ref_src=twsrc%5Etfw">May 11, 2021</a>
 </blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<p>Et voici quelques dates clés :</p>
-<ul>
-<li>Les premiers concepts du Raspberry Pi ont émergé en <strong>2006</strong>.
-<a href="https://www.raspberrypi.org/blog/raspberry-pi-2006-edition/" target="_blank" rel="nofollow noopener noreferrer">Une news</a> publiée sur le site de la fondation permet
-même de reproduire le concept de l'époque.</li>
-<li>Le projet a été lancé le <strong>24 février 2012</strong>, soit il y a environ 9 ans. Les premières ventes ont débuté le
-<strong>29 février 2012</strong>.</li>
-<li>Le <strong>16 avril 2012</strong>, les premiers acheteurs reçoivent leur carte. L'envoi a en effet été retardé à cause d'une
-installation incorrecte du port Ethernet !</li>
-<li>Le <strong>22 mai 2012</strong>, ce ne sont pas moins de 20 000 unités qui ont été envoyées.</li>
-<li>C'est le <strong>3 juin 2013</strong> que &laquo; New Out of Box Software &raquo; (plus connu sous le nom de
-<a href="https://www.raspberrypi.org/documentation/installation/noobs.md" target="_blank" rel="nofollow noopener noreferrer"><em>NOOBS</em></a>) est annoncé.</li>
-<li>Entre le <strong>24</strong> et le <strong>31 octobre 2013</strong>, le cap des 2 millions d'unités envoyées est franchi.</li>
-<li>Le <strong>7 avril 2014</strong>, le Raspberry Pi Compute Module premier du nom est annoncé.</li>
-<li><strong>Début mai 2014</strong>, environ 3 millions de cartes ont été vendues.</li>
-<li>Le Raspberry Pi 2 est annoncé le <strong>2 février 2015</strong> et le Raspberry Pi Zero le <strong>26 novembre</strong> de la même année.
-Ce dernier était, à l'époque, le plus petit modèle disponible pour une carte Raspberry Pi (65 x 30mm).</li>
-<li>Le <strong>29 février 2016</strong> sort le Raspberry Pi 3. Ce même mois est annoncé que plus de 8 millions de cartes
-(tous modèles confondus) ont été écoulées : Raspberry Pi devient ainsi l'ordinateur britannique le plus vendu au monde,
-dépassant l'Amstrad PCW.</li>
-<li>La barre des 11 millions de framboises vendues est dépassée le <strong>25 novembre 2016</strong>.</li>
-<li>Le <strong>28 février 2017</strong>, le Raspberry Pi Zero W est sorti. Véritable bijou de nanotechnologie, je m'en sers
-personnellement dans nombre de mes projets personnels !</li>
-<li>Le Raspberry Pi 4B sort le <strong>24 juin 2019</strong>.</li>
-<li>Ce ne sont pas moins de 30 millions d'unités qui ont été écoulées au jour du <strong>10 décembre 2019</strong>.</li>
-<li>Durant l'année <strong>2020</strong> est sorti la déclinaison 8Go du RPi 4 le <strong>28 mai</strong>, ainsi que le Raspberry Pi 400 le
-<strong>2 novembre</strong>, qui est un ordinateur complet intégré dans un clavier.</li>
-<li>Le <strong>21 janvier 2021</strong> est lancé le premier microcontrôleur de la fondation : le Raspberry Pi Pico.
-Taille record et prix record à son lancement : 51 x 21mm pour seulement 4 dollars. Il s'en écoulera environ
-1 million en moins de deux mois.</li>
-<li>Enfin, le <strong>11 mai 2021</strong>, 40 millions de cartes ont été vendues.</li>
-</ul>
-<p>Merci à <a href="https://en.wikipedia.org/wiki/Raspberry_Pi" target="_blank" rel="nofollow noopener noreferrer">Wikipedia</a> pour leur formidable historique !</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/40-millions-raspberry-pi-vendus/ventes.png" alt="Ventes"></p>
-<p>Le Raspberry Pi est le troisième ordinateur le plus vendu derrière Mac et PC.</p>
+
+Et voici quelques dates clés :
+
+*   Les premiers concepts du Raspberry Pi ont émergé en **2006**.
+    [Une news](https://www.raspberrypi.org/blog/raspberry-pi-2006-edition/) publiée sur le site de la fondation permet
+    même de reproduire le concept de l'époque.
+*   Le projet a été lancé le **24 février 2012**, soit il y a environ 9 ans. Les premières ventes ont débuté le
+    **29 février 2012**.
+*   Le **16 avril 2012**, les premiers acheteurs reçoivent leur carte. L'envoi a en effet été retardé à cause d'une
+    installation incorrecte du port Ethernet !
+*   Le **22 mai 2012**, ce ne sont pas moins de 20 000 unités qui ont été envoyées.
+*   C'est le **3 juin 2013** que &laquo; New Out of Box Software &raquo; (plus connu sous le nom de
+    [*NOOBS*](https://www.raspberrypi.org/documentation/installation/noobs.md)) est annoncé.
+*   Entre le **24** et le **31 octobre 2013**, le cap des 2 millions d'unités envoyées est franchi.
+*   Le **7 avril 2014**, le Raspberry Pi Compute Module premier du nom est annoncé.
+*   **Début mai 2014**, environ 3 millions de cartes ont été vendues.
+*   Le Raspberry Pi 2 est annoncé le **2 février 2015** et le Raspberry Pi Zero le **26 novembre** de la même année.
+    Ce dernier était, à l'époque, le plus petit modèle disponible pour une carte Raspberry Pi (65 x 30mm).
+*   Le **29 février 2016** sort le Raspberry Pi 3. Ce même mois est annoncé que plus de 8 millions de cartes
+    (tous modèles confondus) ont été écoulées : Raspberry Pi devient ainsi l'ordinateur britannique le plus vendu au monde,
+    dépassant l'Amstrad PCW.
+*   La barre des 11 millions de framboises vendues est dépassée le **25 novembre 2016**.
+*   Le **28 février 2017**, le Raspberry Pi Zero W est sorti. Véritable bijou de nanotechnologie, je m'en sers
+    personnellement dans nombre de mes projets personnels !
+*   Le Raspberry Pi 4B sort le **24 juin 2019**.
+*   Ce ne sont pas moins de 30 millions d'unités qui ont été écoulées au jour du **10 décembre 2019**.
+*   Durant l'année **2020** est sorti la déclinaison 8Go du RPi 4 le **28 mai**, ainsi que le Raspberry Pi 400 le
+    **2 novembre**, qui est un ordinateur complet intégré dans un clavier.
+*   Le **21 janvier 2021** est lancé le premier microcontrôleur de la fondation : le Raspberry Pi Pico.
+    Taille record et prix record à son lancement : 51 x 21mm pour seulement 4 dollars. Il s'en écoulera environ
+    1 million en moins de deux mois.
+*   Enfin, le **11 mai 2021**, 40 millions de cartes ont été vendues.
+
+Merci à [Wikipedia](https://en.wikipedia.org/wiki/Raspberry_Pi) pour leur formidable historique !
+
+![Ventes](/images/articles/40-millions-raspberry-pi-vendus/ventes.png)
+
+Le Raspberry Pi est le troisième ordinateur le plus vendu derrière Mac et PC.
 ]]></content:encoded>
             <enclosure url="https://framboise-pi.skyost.eu/images/articles/40-millions-raspberry-pi-vendus/preview.png" length="0" type="image/png"/>
         </item>
@@ -139,54 +167,67 @@ Taille record et prix record à son lancement : 51 x 21mm pour seulement 4 dolla
             <pubDate>Sat, 08 May 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Si vous avez déjà touché un peu à l'univers Rasbperry Pi -et à électronique de manière générale-, vous avez
 probablement entendu parler de GPIO. Alors du coup, qu'est-ce-que c'est ? Ça se mange ça, GPIO ?]]></description>
-            <content:encoded><![CDATA[<p><em>Si vous avez déjà touché un peu à l'univers Rasbperry Pi -et à électronique de manière générale-, vous avez
-probablement entendu parler de <strong>GPIO</strong>. Alors du coup, qu'est-ce-que c'est ? Ça se mange ça, GPIO ?</em></p>
+            <content:encoded><![CDATA[*Si vous avez déjà touché un peu à l'univers Rasbperry Pi -et à électronique de manière générale-, vous avez
+probablement entendu parler de **GPIO**. Alors du coup, qu'est-ce-que c'est ? Ça se mange ça, GPIO ?*
 
-<h2 id="gpio-cest-quoi-">GPIO, c'est quoi ?</h2>
-<p><strong>GPIO</strong> ou <strong>Entrée/sortie à usage général</strong> (traduit de l'expression anglaise <strong>General Purpose Input/Output</strong>),
-est un ensemble de ports destinés à contrôler l'entrée et la sortie de données entre composants électroniques.</p>
-<p>Nous en avons notamment fait usage dans deux projets précédents : celui de
-<a href="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds/">l'horloge de matrices de LEDs</a>, et celui de
-<a href="https://framboise-pi.skyost.eu/article/construire-horloge-complotiste/">l'horloge du complotiste</a>.
+
+
+## GPIO, c'est quoi ?
+
+**GPIO** ou **Entrée/sortie à usage général** (traduit de l'expression anglaise **General Purpose Input/Output**),
+est un ensemble de ports destinés à contrôler l'entrée et la sortie de données entre composants électroniques.
+
+Nous en avons notamment fait usage dans deux projets précédents : celui de
+[l'horloge de matrices de LEDs](/article/creer-horloge-matrice-leds/), et celui de
+[l'horloge du complotiste](/article/construire-horloge-complotiste/).
 Dans le premier projet, nous avons utilisé les ports GPIO du Raspberry pour lui relier une matrice de LEDs et
 interagir avec (afficher des chiffres, des lettres, etc.). Dans le deuxième, nous avons fait pareil mais avec
-un affichage à encre électronique cette fois-ci.</p>
-<p>Tout ça pour dire que les possibilités qu'offrent les ports GPIO intégrés aux RPi sont nombreuses, il est possible de
+un affichage à encre électronique cette fois-ci.
+
+Tout ça pour dire que les possibilités qu'offrent les ports GPIO intégrés aux RPi sont nombreuses, il est possible de
 brancher à peu près n'importe quoi dessus, pour peu que cela soit compatible (un ventilateur, une LED, un écran
-tactile, ...).</p>
-<h2 id="connecteurs-broches-et-pinout">Connecteurs, broches et Pinout</h2>
-<p>Dans les modèles les plus récents, les Raspberry Pi sont munis de 40 <strong>broches</strong> (26 pour les premiers modèles).
-Cet ensemble de broches forme un <strong>connecteur</strong>. C'est à ces broches que l'on va venir relier nos composants électroniques.</p>
-<p>Attention cependant, on ne peut pas relier n'importe quel composant à n'importe quelle broche : chacune d'elles a une
+tactile, ...).
+
+## Connecteurs, broches et Pinout
+
+Dans les modèles les plus récents, les Raspberry Pi sont munis de 40 **broches** (26 pour les premiers modèles).
+Cet ensemble de broches forme un **connecteur**. C'est à ces broches que l'on va venir relier nos composants électroniques.
+
+Attention cependant, on ne peut pas relier n'importe quel composant à n'importe quelle broche : chacune d'elles a une
 utilité bien précise. Certains servent à donner du courant, d'autres sont des masses, d'autres encore servent à
 transmettre des données, ... C'est pour cela que chacune des broches porte un nom qui représente sa fonction.
-Pour connaître le nom donné à une broche en particulier, on se réfère au <strong>Pinout</strong>.
-Voici celui des modèles les plus récents :</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/qu-est-ce-que-gpio/gpio-pinout.png" alt="Pinout"></p>
-<p>Il est également accessible sur <a href="https://pinout.xyz/" target="_blank" rel="nofollow noopener noreferrer">ce petit site utilitaire</a> ainsi que sur le site officiel du
-<a href="https://www.raspberrypi.org/documentation/usage/gpio/" target="_blank" rel="nofollow noopener noreferrer">Raspberry Pi</a>. À noter une information très sympathique :
-il vous suffit d'entrer la commande <code>pinout</code> sur votre framboise pour voir son Pinout s'afficher (si vous êtes
-sous Raspberry Pi OS Desktop du moins).</p>
-<p>Certains modèles sont dépourvus de ports GPIO mais offrent cependant la possibilité de
-<a href="https://www.youtube.com/watch?v=gtCwC4VAQZo" target="_blank" rel="nofollow noopener noreferrer">les souder</a>. C'est par exemple le cas du Raspberry Pi Zero W,
-qui est moins cher que le modèle WH (mais ce dernier arrive avec les ports GPIO déjà soudés).</p>
-<h2 id="où-trouver-des-composants-gpio-">Où trouver des composants GPIO ?</h2>
-<p>Vous pouvez en trouver sur tous les sites web qui vendent des composants Raspberry Pi, mes recommandations personnelles
-étant :</p>
-<ul>
-<li><a href="https://shop.pimoroni.com/" target="_blank" rel="nofollow noopener noreferrer">Pimoroni</a>, mon choix du cœur ! Ils sont très créatifs et ont un large choix de composants
-(et de projets à faire avec). Beaucoup de leurs composants sont d'ailleurs réalisés par eux-mêmes et sont très qualitatifs.
-Notez cependant que le site est basé en Angleterre, et n'est disponible qu'en anglais.</li>
-<li><a href="https://thepihut.com/" target="_blank" rel="nofollow noopener noreferrer">The Pi Hut</a>, comme Pimoroni mais à l'aspect un peu moins &laquo; familial &raquo; (sans que ce soit
-péjoratif pour autant). Ils ont racheté ModMyPi en 2019, ce qui leur permet eux aussi de créer leurs propres composants.</li>
-<li><a href="https://www.kubii.fr/" target="_blank" rel="nofollow noopener noreferrer">Kubii</a>, distributeur français agréé par la fondation Raspberry Pi. Ils proposent pas mal
-de produits de qualité.</li>
-<li>Et bien sûr les incontournables <a href="https://fr.aliexpress.com/" target="_blank" rel="nofollow noopener noreferrer">AliExpress</a> et <a href="https://www.amazon.fr/" target="_blank" rel="nofollow noopener noreferrer">Amazon</a> (mais
-ils sont un peu hors catégorie étant donné que leur champ d'activité va bien au-delà du Raspberry Pi ; et de
-l'électronique en général).</li>
-</ul>
-<p>Nota Bene : généralement les instructions de connexion (à quelles broches relier celles du composant)
-sont fournies par le constructeur du composant en question.</p>
+Pour connaître le nom donné à une broche en particulier, on se réfère au **Pinout**.
+Voici celui des modèles les plus récents :
+
+![Pinout](/images/articles/qu-est-ce-que-gpio/gpio-pinout.png)
+
+Il est également accessible sur [ce petit site utilitaire](https://pinout.xyz/) ainsi que sur le site officiel du
+[Raspberry Pi](https://www.raspberrypi.org/documentation/usage/gpio/). À noter une information très sympathique :
+il vous suffit d'entrer la commande `pinout` sur votre framboise pour voir son Pinout s'afficher (si vous êtes
+sous Raspberry Pi OS Desktop du moins).
+
+Certains modèles sont dépourvus de ports GPIO mais offrent cependant la possibilité de
+[les souder](https://www.youtube.com/watch?v=gtCwC4VAQZo). C'est par exemple le cas du Raspberry Pi Zero W,
+qui est moins cher que le modèle WH (mais ce dernier arrive avec les ports GPIO déjà soudés).
+
+## Où trouver des composants GPIO ?
+
+Vous pouvez en trouver sur tous les sites web qui vendent des composants Raspberry Pi, mes recommandations personnelles
+étant :
+
+*   [Pimoroni](https://shop.pimoroni.com/), mon choix du cœur ! Ils sont très créatifs et ont un large choix de composants
+    (et de projets à faire avec). Beaucoup de leurs composants sont d'ailleurs réalisés par eux-mêmes et sont très qualitatifs.
+    Notez cependant que le site est basé en Angleterre, et n'est disponible qu'en anglais.
+*   [The Pi Hut](https://thepihut.com/), comme Pimoroni mais à l'aspect un peu moins &laquo; familial &raquo; (sans que ce soit
+    péjoratif pour autant). Ils ont racheté ModMyPi en 2019, ce qui leur permet eux aussi de créer leurs propres composants.
+*   [Kubii](https://www.kubii.fr/), distributeur français agréé par la fondation Raspberry Pi. Ils proposent pas mal
+    de produits de qualité.
+*   Et bien sûr les incontournables [AliExpress](https://fr.aliexpress.com/) et [Amazon](https://www.amazon.fr/) (mais
+    ils sont un peu hors catégorie étant donné que leur champ d'activité va bien au-delà du Raspberry Pi ; et de
+    l'électronique en général).
+
+Nota Bene : généralement les instructions de connexion (à quelles broches relier celles du composant)
+sont fournies par le constructeur du composant en question.
 ]]></content:encoded>
             <enclosure url="https://framboise-pi.skyost.eu/images/articles/qu-est-ce-que-gpio/preview.png" length="0" type="image/png"/>
         </item>
@@ -197,38 +238,63 @@ sont fournies par le constructeur du composant en question.</p>
             <pubDate>Thu, 22 Apr 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Il se peut, pour une raison quelconque, que vous souhaitiez (dés)activer les LEDs intégrées de votre Raspberry Pi
 (c'est-à-dire, les témoins d'activité et d'alimentation). Cet article va vous expliquer comment faire.]]></description>
-            <content:encoded><![CDATA[<p><em>Il se peut, pour une raison quelconque, que vous souhaitiez (dés)activer les LEDs intégrées de votre Raspberry Pi
-(c'est-à-dire, les témoins d'activité et d'alimentation). Cet article va vous expliquer comment faire.</em></p>
+            <content:encoded><![CDATA[*Il se peut, pour une raison quelconque, que vous souhaitiez (dés)activer les LEDs intégrées de votre Raspberry Pi
+(c'est-à-dire, les témoins d'activité et d'alimentation). Cet article va vous expliquer comment faire.*
 
-<p>Cela peut être utile, par exemple pour réduire la consommation globale de la bête,
-ou tout simplement pour faire moins de lumière.</p>
-<h2 id="choisir-quelle-led-contrôler">Choisir quelle LED contrôler</h2>
-<p>Si votre carte a deux LEDs (c'est le cas d'un Raspberry Pi 4 par exemple), voici les LEDs que vous pouvez contrôler :</p>
-<ul>
-<li><code>led0</code> qui désigne la LED ACT (LED d'activité).</li>
-<li><code>led1</code> qui désigne la LED PWR (LED d'alimentation). Attention, cela ne fonctionne que sur les modèles les plus récents.</li>
-</ul>
-<p>Si elle n'en possède qu'une seule (c'est le cas pour les Raspberry Pi Zero), votre seule possibilité est la <code>led0</code>.</p>
-<p>Choisissez la LED que vous souhaitez contrôler et rendez-vous dans l'étape suivante.</p>
-<h2 id="désactiver-la-led">(Dés)activer la LED</h2>
-<p>Commencez par <a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi/#se-connecter-en-ssh">vous connecter en SSH</a>.
-Tout d'abord, il va falloir modifier un petit peu le comportement par défaut de la LED choisie en entrant :</p>
-<pre><code class="language-shell">echo none >/sys/class/leds/led0/trigger
-</code></pre>
-<p>Ensuite pour désactiver la LED, entrez :</p>
-<pre><code class="language-shell">echo 0 >/sys/class/leds/led0/brightness
-</code></pre>
-<p>Si vous souhaitez la réactiver, remplacez simplement le <code>0</code> par <code>1</code> :</p>
-<pre><code class="language-shell">echo 1 >/sys/class/leds/led0/brightness
-</code></pre>
-<p>N'oubliez pas de remplacer <code>led0</code> par <code>led1</code> si vous préférez agir sur la LED PWR (si votre modèle la supporte).</p>
-<h2 id="revenir-au-comportement-par-défaut">Revenir au comportement par défaut</h2>
-<p>De même, pour revenir au comportement par défaut de la LED, il suffit d'entrer une seule petite commande :</p>
-<pre><code class="language-shell">echo mmc0 >/sys/class/leds/led0/trigger
-</code></pre>
-<p><strong>Bonus :</strong> Il y a beaucoup d'autres comportements disponibles pour votre LED (<code>heartbeat</code>, <code>timer</code>, et même
-manipulation par GPIO !), consultez <a href="https://gist.github.com/taktran/1b691c08216dd30b70bf" target="_blank" rel="nofollow noopener noreferrer">ce gist</a> si vous souhaitez
-un peu plus d'infos.</p>
+
+
+Cela peut être utile, par exemple pour réduire la consommation globale de la bête,
+ou tout simplement pour faire moins de lumière.
+
+## Choisir quelle LED contrôler
+
+Si votre carte a deux LEDs (c'est le cas d'un Raspberry Pi 4 par exemple), voici les LEDs que vous pouvez contrôler :
+
+*   `led0` qui désigne la LED ACT (LED d'activité).
+*   `led1` qui désigne la LED PWR (LED d'alimentation). Attention, cela ne fonctionne que sur les modèles les plus récents.
+
+Si elle n'en possède qu'une seule (c'est le cas pour les Raspberry Pi Zero), votre seule possibilité est la `led0`.
+
+Choisissez la LED que vous souhaitez contrôler et rendez-vous dans l'étape suivante.
+
+## (Dés)activer la LED
+
+Commencez par [vous connecter en SSH](/article/installation-minimale-raspberry-pi/#se-connecter-en-ssh).
+Tout d'abord, il va falloir modifier un petit peu le comportement par défaut de la LED choisie en entrant :
+
+```shell
+echo none | sudo tee /sys/class/leds/led0/trigger
+```
+
+Ensuite pour désactiver la LED, entrez :
+
+```shell
+echo 0 | sudo tee /sys/class/leds/led0/brightness
+```
+
+Si vous souhaitez la réactiver, remplacez simplement le `0` par `1` :
+
+```shell
+echo 1 | sudo tee /sys/class/leds/led0/brightness
+```
+
+N'oubliez pas de remplacer `led0` par `led1` si vous préférez agir sur la LED PWR (si votre modèle la supporte).
+D'ailleurs, il paraît que [les valeurs sont inversées pour un RPi Zero](https://mlagerberg.gitbooks.io/raspberry-pi/content/5.2-leds.html#pi-zero)
+(je ne suis cependant pas en mesure de tester cette affirmation).
+
+## Revenir au comportement par défaut
+
+De même, pour revenir au comportement par défaut de la LED, il suffit d'entrer une seule petite commande :
+
+```shell
+echo mmc0 | sudo tee /sys/class/leds/led0/trigger
+```
+
+Si vous avez modifié le comportement de la `led1`, remplacez plutôt `mmc0` par `input`.
+
+**Bonus :** Il y a beaucoup d'autres comportements disponibles pour votre LED (`heartbeat`, `timer`, et même
+manipulation par GPIO !), consultez [ce gist](https://gist.github.com/taktran/1b691c08216dd30b70bf) si vous souhaitez
+un peu plus d'infos.
 ]]></content:encoded>
             <enclosure url="https://framboise-pi.skyost.eu/images/articles/activer-desactiver-leds-raspberry-pi/preview.png" length="0" type="image/png"/>
         </item>
@@ -239,84 +305,124 @@ un peu plus d'infos.</p>
             <pubDate>Sun, 18 Apr 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Nouveau projet d'horloge originale utilisant cette fois un affichage à base d'encre électronique
 pour afficher l'heure sur un meme bien connu et plutôt sympathique !]]></description>
-            <content:encoded><![CDATA[<p><em>Nouveau projet d'horloge originale utilisant cette fois un affichage à base d'encre électronique
-pour afficher l'heure sur un meme bien connu et plutôt sympathique !</em></p>
+            <content:encoded><![CDATA[*Nouveau projet d'horloge originale utilisant cette fois un affichage à base d'encre électronique
+pour afficher l'heure sur un meme bien connu et plutôt sympathique !*
 
-<p>Voici donc ce que l'on va construire :</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/construire-horloge-complotiste/horloge.png" alt="Horloge"></p>
-<p>Vous aurez sans doute reconnu le meme &laquo; Wait, It's All Ohio ? &raquo; (cf.
-<a href="https://knowyourmeme.com/memes/wait-its-all-ohio-always-has-been" target="_blank" rel="nofollow noopener noreferrer">Know Your Meme</a> pour la référence). Le rendu
+
+
+Voici donc ce que l'on va construire :
+
+![Horloge](/images/articles/construire-horloge-complotiste/horloge.png)
+
+Vous aurez sans doute reconnu le meme &laquo; Wait, It's All Ohio ? &raquo; (cf.
+[Know Your Meme](https://knowyourmeme.com/memes/wait-its-all-ohio-always-has-been) pour la référence). Le rendu
 est plutôt sympathique, et a notamment pour avantage de ne pas produire de lumière et de ne pas consommer d'énergie
 (en dehors de la consommation du Raspberry) car la consommation d'un affichage à encre électronique est
-vraiment négligeable.</p>
-<h2 id="matériel-nécessaire">Matériel nécessaire</h2>
-<p>Voici le matériel dont nous aurons besoin :</p>
-<ul>
-<li>1 <strong>Raspberry Pi Zero WH</strong> [<a href="https://amzn.to/2RvB484" target="_blank" rel="nofollow noopener noreferrer">Amazon</a>,
-<a href="https://s.click.aliexpress.com/e/_A9UaSn" target="_blank" rel="nofollow noopener noreferrer">AliExpress</a>].</li>
-<li>1 <strong>Inky pHAT</strong> [<a href="https://amzn.to/3uY0kCb" target="_blank" rel="nofollow noopener noreferrer">Amazon</a>,
-<a href="https://shop.pimoroni.com/products/inky-phat?variant=12549254938707" target="_blank" rel="nofollow noopener noreferrer">Pimoroni</a>].</li>
-<li>1 <strong>Chargeur secteur USB</strong>.</li>
-<li>1 <strong>Câble d'alimentation USB - micro USB</strong>.</li>
-<li>1 <strong>Micro SD</strong> (prévoyez minimum 8Go pour n'importe quel projet).</li>
-<li>1 <strong>Adaptateur SD</strong>.</li>
-<li>1 <em>Boitier Pibow</em> [<a href="https://shop.pimoroni.com/products/pibow-zero-w" target="_blank" rel="nofollow noopener noreferrer">Pimoroni</a>] (facultatif).</li>
-</ul>
-<p>Tout cela pour un coût total d'environ 50€ (si vous ne possédez rien).</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/construire-horloge-complotiste/materiel.png" alt="Matériel"></p>
-<h2 id="flasher-los">Flasher l'OS</h2>
-<p>Insérez votre micro SD dans votre ordinateur à l'aide de l'adaptateur SD, et flashez Raspberry Pi OS Lite dessus
+vraiment négligeable.
+
+## Matériel nécessaire
+
+Voici le matériel dont nous aurons besoin :
+
+*   1 **Raspberry Pi Zero WH** \[[Amazon](https://amzn.to/2RvB484),
+    [AliExpress](https://s.click.aliexpress.com/e/\_A9UaSn)].
+*   1 **Inky pHAT** \[[Amazon](https://amzn.to/3uY0kCb),
+    [Pimoroni](https://shop.pimoroni.com/products/inky-phat?variant=12549254938707)].
+*   1 **Chargeur secteur USB**.
+*   1 **Câble d'alimentation USB - micro USB**.
+*   1 **Micro SD** (prévoyez minimum 8Go pour n'importe quel projet).
+*   1 **Adaptateur SD**.
+*   1 *Boitier Pibow* \[[Pimoroni](https://shop.pimoroni.com/products/pibow-zero-w)] (facultatif).
+
+Tout cela pour un coût total d'environ 50€ (si vous ne possédez rien).
+
+![Matériel](/images/articles/construire-horloge-complotiste/materiel.png)
+
+## Flasher l'OS
+
+Insérez votre micro SD dans votre ordinateur à l'aide de l'adaptateur SD, et flashez Raspberry Pi OS Lite dessus
 (pas besoin de la version standard qui est plus gourmande en ressources). Si vous ne savez pas comment faire,
-j'ai rédigé <a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi#t%C3%A9l%C3%A9charger-et-flasher-raspberry-os">un petit tutoriel</a> à
+j'ai rédigé [un petit tutoriel](/article/installation-minimale-raspberry-pi#télécharger-et-flasher-raspberry-os) à
 ce propos. Profitez-en pour configurer votre Wi-Fi et activer SSH (je vous renvoie toujours à
-<a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi#activer-ssh-et-se-connecter-au-wi-fi">ce même tutoriel</a>).</p>
-<p>Une fois fait, vous pouvez déconnecter votre micro SD de votre ordinateur et l'insérer dans votre Raspberry.</p>
-<h2 id="monter-le-boîtier-et-laffichage">Monter le boîtier et l'affichage</h2>
-<p>Si vous avez opté pour un boîtier Pibow, je vous renvoie vers
-<a href="https://learn.pimoroni.com/tutorial/sandyj/pibow-zero-assembly" target="_blank" rel="nofollow noopener noreferrer">le guide officiel</a> disponible sur le site de Pimoroni.
-Il est très explicite, et est facile à suivre (même pour les plus anglophobes d'entre vous 😁).</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/construire-horloge-complotiste/avec-pibow.png" alt="Avec Pibow"></p>
-<p>Une fois votre boitier monté, branchez votre Inky pHAT sur les ports GPIO de votre framboise. Il vous faudra sans doute
-appuyer un peu, mais cela ne devrait pas poser de problèmes.</p>
-<h2 id="configurer-lappareil">Configurer l'appareil</h2>
-<p>Mettez sous tension votre Raspberry, puis
-<a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi/#se-connecter-en-ssh">connectez-vous en SSH</a>.
-Commencez par entrer la commande suivante :</p>
-<pre><code class="language-shell">sudo raspi-config
-</code></pre>
-<p>Elle vous permettra de vous rendre dans <code>raspi-config</code>. Rendez-vous ensuite dans le menu <em>Interfaces</em>,
-puis activez <em>SPI</em> et <em>I2C</em> (sélectionnez l'option, puis validez avec <em>Yes</em>). Ensuite, dans le menu principal de
-l'utilitaire, sélectionnez <em>Localisation Options</em>, puis <em>Change Timezone</em> et choisissez <em>Europe (Paris)</em>.
-Une fois tout ceci effectué, vous pouvez redémarrer votre Pi.</p>
-<p>Pour continuer, il vous faudra d'abord vous assurer que la version de Python utilisée par défaut soit bien la
-version 3 :</p>
-<pre><code class="language-shell">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 2
-</code></pre>
-<p>La commande <code>python --version</code> doit maintenant vous renvoyer quelque chose comme <code>Python 3.7.x</code>.</p>
-<h2 id="installer-le-script">Installer le script</h2>
-<p>Comme pour <a href="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds">l'horloge de matrices LEDs</a>, j'ai créé un petit script pour vous
-faciliter l'installation de ce projet. Il va d'abord falloir installer la dépendance principale :</p>
-<pre><code class="language-shell">curl https://get.pimoroni.com/inky | bash
-</code></pre>
-<p>L'assistant d'installation vous proposera diverses options. Personnellement, je vous déconseille l'installation
+[ce même tutoriel](/article/installation-minimale-raspberry-pi#activer-ssh-et-se-connecter-au-wi-fi)).
+
+Une fois fait, vous pouvez déconnecter votre micro SD de votre ordinateur et l'insérer dans votre Raspberry.
+
+## Monter le boîtier et l'affichage
+
+Si vous avez opté pour un boîtier Pibow, je vous renvoie vers
+[le guide officiel](https://learn.pimoroni.com/tutorial/sandyj/pibow-zero-assembly) disponible sur le site de Pimoroni.
+Il est très explicite, et est facile à suivre (même pour les plus anglophobes d'entre vous 😁).
+
+![Avec Pibow](/images/articles/construire-horloge-complotiste/avec-pibow.png)
+
+Une fois votre boitier monté, branchez votre Inky pHAT sur les ports GPIO de votre framboise. Il vous faudra sans doute
+appuyer un peu, mais cela ne devrait pas poser de problèmes.
+
+## Configurer l'appareil
+
+Mettez sous tension votre Raspberry, puis
+[connectez-vous en SSH](/article/installation-minimale-raspberry-pi/#se-connecter-en-ssh).
+Commencez par entrer la commande suivante :
+
+```shell
+sudo raspi-config
+```
+
+Elle vous permettra de vous rendre dans `raspi-config`. Rendez-vous ensuite dans le menu *Interfaces*,
+puis activez *SPI* et *I2C* (sélectionnez l'option, puis validez avec *Yes*). Ensuite, dans le menu principal de
+l'utilitaire, sélectionnez *Localisation Options*, puis *Change Timezone* et choisissez *Europe (Paris)*.
+Une fois tout ceci effectué, vous pouvez redémarrer votre Pi.
+
+Pour continuer, il vous faudra d'abord vous assurer que la version de Python utilisée par défaut soit bien la
+version 3 :
+
+```shell
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 2
+```
+
+La commande `python --version` doit maintenant vous renvoyer quelque chose comme `Python 3.7.x`.
+
+## Installer le script
+
+Comme pour [l'horloge de matrices LEDs](/article/creer-horloge-matrice-leds), j'ai créé un petit script pour vous
+faciliter l'installation de ce projet. Il va d'abord falloir installer la dépendance principale :
+
+```shell
+curl https://get.pimoroni.com/inky | bash
+```
+
+L'assistant d'installation vous proposera diverses options. Personnellement, je vous déconseille l'installation
 complète (avec l'aide et les exemples) car elle prend plus de temps et de place.
 Les instructions complètes de l'installation de cette librairie sont disponibles sur
-<a href="https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-inky-phat" target="_blank" rel="nofollow noopener noreferrer">le site de Pimoroni</a>.</p>
-<p>Maintenant, on peut installer le script :</p>
-<pre><code class="language-shell">sudo apt install git
+[le site de Pimoroni](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-inky-phat).
+
+Maintenant, on peut installer le script :
+
+```shell
+sudo apt install git
 git clone https://github.com/Skyost/ComplotistClock.git
-</code></pre>
-<h2 id="lancer-le-script">Lancer le script</h2>
-<p>C'est presque terminé, allez dans le répertoire du script (en utilisant <code>cd ComplotistClock</code>).
-On va rendre exécutable le fichier <code>run.sh</code>. Pour cela, tapez simplement :</p>
-<pre><code class="language-shell">sudo chmod +x ./run.sh
-</code></pre>
-<p>Et c'est bon ! Pour lancer le script en arrière-plan, vous pouvez vous contenter de rentrer :</p>
-<pre><code class="language-shell">./run.sh
-</code></pre>
-<p>L'heure et l'illustration devraient apparaître sur votre affichage Inky. N'hésitez pas à personnaliser tout cela
-à votre guise en modifiant le script !</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/construire-horloge-complotiste/horloge-animation.gif" alt="Horloge animée"></p>
+```
+
+## Lancer le script
+
+C'est presque terminé, allez dans le répertoire du script (en utilisant `cd ComplotistClock`).
+On va rendre exécutable le fichier `run.sh`. Pour cela, tapez simplement :
+
+```shell
+sudo chmod +x ./run.sh
+```
+
+Et c'est bon ! Pour lancer le script en arrière-plan, vous pouvez vous contenter de rentrer :
+
+```shell
+./run.sh
+```
+
+L'heure et l'illustration devraient apparaître sur votre affichage Inky. N'hésitez pas à personnaliser tout cela
+à votre guise en modifiant le script !
+
+![Horloge animée](/images/articles/construire-horloge-complotiste/horloge-animation.gif)
 ]]></content:encoded>
             <enclosure url="https://framboise-pi.skyost.eu/images/articles/construire-horloge-complotiste/preview.png" length="0" type="image/png"/>
         </item>
@@ -328,61 +434,65 @@ On va rendre exécutable le fichier <code>run.sh</code>. Pour cela, tapez simple
             <description><![CDATA[Raspberry Pi Imager est un petit logiciel mis à disposition par la fondation Raspberry Pi. Mis à disposition des
 utilisateurs il y a un peu plus d'un an, ce programme représente la manière la plus directe et la plus simple de
 flasher une image pour votre framboise. Petit tour d'horizon.]]></description>
-            <content:encoded><![CDATA[<p><em>Raspberry Pi Imager est un petit logiciel mis à disposition par la fondation Raspberry Pi. Mis à disposition des
+            <content:encoded><![CDATA[*Raspberry Pi Imager est un petit logiciel mis à disposition par la fondation Raspberry Pi. Mis à disposition des
 utilisateurs il y a un peu plus d'un an, ce programme représente la manière la plus directe et la plus simple de
-flasher une image pour votre framboise. Petit tour d'horizon.</em></p>
+flasher une image pour votre framboise. Petit tour d'horizon.*
 
-<h2 id="installation">Installation</h2>
-<p>L'installation est plutôt rapide : rendez-vous sur
-<a href="https://www.raspberrypi.org/software/" target="_blank" rel="nofollow noopener noreferrer">la page officielle de Raspberry Pi OS</a>,
+
+
+## Installation
+
+L'installation est plutôt rapide : rendez-vous sur
+[la page officielle de Raspberry Pi OS](https://www.raspberrypi.org/software/),
 puis cliquez sur le lien correspondant à votre système d'exploitation. Pour vous faciliter la vie,
-je vous ai compilé lesdits liens :</p>
-<ul>
-<li><a href="https://downloads.raspberrypi.org/imager/imager_latest.exe" target="_blank" rel="nofollow noopener noreferrer">Windows</a>.</li>
-<li><a href="https://downloads.raspberrypi.org/imager/imager_latest.dmg" target="_blank" rel="nofollow noopener noreferrer">macOS</a>.</li>
-<li><a href="https://downloads.raspberrypi.org/imager/imager_latest_amd64.deb" target="_blank" rel="nofollow noopener noreferrer">Ubuntu x86</a>.</li>
-</ul>
-<p>Une fois l'installateur téléchargé, installez le logiciel en l'exécutant. Si vous êtes déjà sous Raspberry Pi OS,
-vous pouvez également installer Raspberry Pi Imager en exécutant la commande <code>sudo apt install rpi-imager</code>.</p>
-<h2 id="flasher-une-image">Flasher une image</h2>
-<p>Commencez par insérer votre micro SD dans votre ordinateur (à l'aide d'un
-<a href="https://amzn.to/3uLhnaB" target="_blank" rel="nofollow noopener noreferrer">adaptateur SD</a> par exemple).
-Puis, vous pouvez démarrer Raspberry Pi Imager.</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/maitriser-raspberry-pi-imager/raspberry-pi-imager.png" alt="Raspberry Pi Imager"></p>
-<p>Cliquez sur le bouton <em>Choisissez l'OS</em> et sélectionnez le système d'exploitation
+je vous ai compilé lesdits liens :
+
+*   [Windows](https://downloads.raspberrypi.org/imager/imager_latest.exe).
+*   [macOS](https://downloads.raspberrypi.org/imager/imager_latest.dmg).
+*   [Ubuntu x86](https://downloads.raspberrypi.org/imager/imager_latest_amd64.deb).
+
+Une fois l'installateur téléchargé, installez le logiciel en l'exécutant. Si vous êtes déjà sous Raspberry Pi OS,
+vous pouvez également installer Raspberry Pi Imager en exécutant la commande `sudo apt install rpi-imager`.
+
+## Flasher une image
+
+Commencez par insérer votre micro SD dans votre ordinateur (à l'aide d'un
+[adaptateur SD](https://amzn.to/3uLhnaB) par exemple).
+Puis, vous pouvez démarrer Raspberry Pi Imager.
+
+![Raspberry Pi Imager](/images/articles/maitriser-raspberry-pi-imager/raspberry-pi-imager.png)
+
+Cliquez sur le bouton *Choisissez l'OS* et sélectionnez le système d'exploitation
 que vous souhaitez installer (le choix le plus simple étant Raspberry Pi OS ; mais si vous n'avez pas besoin d'interface
 graphique vous pouvez vous contenter de Raspberry Pi OS Lite qui est, comme son nom l'indique, plus léger).
-Dans la partie <em>Stockage</em>, sélectionnez votre micro SD. Enfin, cliquez sur <em>Écrire</em>, et patientez quelques minutes
-(le temps d'attente dépend de <a href="https://fr.wikipedia.org/wiki/Carte_SD#D%C3%A9bit" target="_blank" rel="nofollow noopener noreferrer">la classe</a> de votre carte).</p>
-<p>Une fois les vérifications terminées, vous pouvez éjecter votre micro SD de votre ordinateur : le flash est terminé !</p>
-<h2 id="options-avancées">Options avancées</h2>
-<p>Depuis la version 1.6,
-le logiciel propose <a href="https://www.raspberrypi.org/blog/raspberry-pi-imager-update-to-v1-6/" target="_blank" rel="nofollow noopener noreferrer">des options avancées</a>.
-Pour les afficher, appuyez sur <strong>CTRL+Maj+X</strong>. Nous allons décortiquer tout cela ensemble (à date de cet article,
-les options ne sont pas encore traduites en français) :</p>
-<ul>
-<li><strong>Image customization options for this session only / to always use</strong> : choisissez si vous souhaitez sauvegarder les
-changements apportés aux options avancées ci-dessous pour des futurs usages ou non.
-<ul>
-<li><strong>Disable overscan</strong> : permet de désactiver le surbalayage (peut être utile si jamais des bandes noires apparaissent
-aux bordures de votre écran).</li>
-<li><strong>Set hostname</strong> : permet de changer le nom d'hôte de votre appareil (pour accès par réseau local).</li>
-<li><strong>Enable SSH</strong> : permet d'activer l'accès SSH ; les options dessous concernent les identifiants SSH.</li>
-<li><strong>Configure wifi</strong> : permet de configurer les paramètres Wi-Fi afin que votre framboise se connecte d'elle-même à votre
-réseau sans que vous n'ayez à entrer quoi que ce soit. Peut se révéler très utile si vous envisagez un accès SSH et
-que vous n'avez ni écran ni clavier.</li>
-<li><strong>Set locale settings</strong> : permet de configurer les paramètres locaux (fuseau horaire, agencement du clavier, ...).</li>
-</ul>
-</li>
-<li><strong>Persitent settings</strong> : les paramètres ci-dessous persistent entre chaque redémarrage de l'application.
-<ul>
-<li><strong>Play sound when finished</strong> : joue un son quand le flash est terminé.</li>
-<li><strong>Eject media when finished</strong> : éjecte la carte une fois le flash terminé.</li>
-<li><strong>Enable telemetry</strong> : active l'envoi de pings à <a href="https://raspberrypi.org" target="_blank" rel="nofollow noopener noreferrer">raspberrypi.org</a> à des fins statistiques.</li>
-</ul>
-</li>
-</ul>
-<p>Personnellement, je vous conseille d'activer SSH et de configurer votre Wi-Fi une bonne fois pour toutes.</p>
+Dans la partie *Stockage*, sélectionnez votre micro SD. Enfin, cliquez sur *Écrire*, et patientez quelques minutes
+(le temps d'attente dépend de [la classe](https://fr.wikipedia.org/wiki/Carte_SD#D%C3%A9bit) de votre carte).
+
+Une fois les vérifications terminées, vous pouvez éjecter votre micro SD de votre ordinateur : le flash est terminé !
+
+## Options avancées
+
+Depuis la version 1.6,
+le logiciel propose [des options avancées](https://www.raspberrypi.org/blog/raspberry-pi-imager-update-to-v1-6/).
+Pour les afficher, appuyez sur **CTRL+Maj+X**. Nous allons décortiquer tout cela ensemble (à date de cet article,
+les options ne sont pas encore traduites en français) :
+
+*   **Image customization options for this session only / to always use** : choisissez si vous souhaitez sauvegarder les
+    changements apportés aux options avancées ci-dessous pour des futurs usages ou non.
+    *   **Disable overscan** : permet de désactiver le surbalayage (peut être utile si jamais des bandes noires apparaissent
+        aux bordures de votre écran).
+    *   **Set hostname** : permet de changer le nom d'hôte de votre appareil (pour accès par réseau local).
+    *   **Enable SSH** : permet d'activer l'accès SSH ; les options dessous concernent les identifiants SSH.
+    *   **Configure wifi** : permet de configurer les paramètres Wi-Fi afin que votre framboise se connecte d'elle-même à votre
+        réseau sans que vous n'ayez à entrer quoi que ce soit. Peut se révéler très utile si vous envisagez un accès SSH et
+        que vous n'avez ni écran ni clavier.
+    *   **Set locale settings** : permet de configurer les paramètres locaux (fuseau horaire, agencement du clavier, ...).
+*   **Persitent settings** : les paramètres ci-dessous persistent entre chaque redémarrage de l'application.
+    *   **Play sound when finished** : joue un son quand le flash est terminé.
+    *   **Eject media when finished** : éjecte la carte une fois le flash terminé.
+    *   **Enable telemetry** : active l'envoi de pings à [raspberrypi.org](https://raspberrypi.org) à des fins statistiques.
+
+Personnellement, je vous conseille d'activer SSH et de configurer votre Wi-Fi une bonne fois pour toutes.
 ]]></content:encoded>
             <enclosure url="https://framboise-pi.skyost.eu/images/articles/maitriser-raspberry-pi-imager/preview.png" length="0" type="image/png"/>
         </item>
@@ -394,80 +504,104 @@ que vous n'avez ni écran ni clavier.</li>
             <description><![CDATA[Flasher une image, activer SSH, se connecter au Wi-Fi, afficher l'écran de votre Raspberry sur votre PC, ...
 Nous allons détailler dans cet article ces étapes fondamentales, mais néanmoins très simples qui vous
 permettront de (bien) débuter avec votre Raspberry.]]></description>
-            <content:encoded><![CDATA[<p><em>Flasher une image, activer SSH, se connecter au Wi-Fi, afficher l'écran de votre Raspberry sur votre PC, ...
+            <content:encoded><![CDATA[*Flasher une image, activer SSH, se connecter au Wi-Fi, afficher l'écran de votre Raspberry sur votre PC, ...
 Nous allons détailler dans cet article ces étapes fondamentales, mais néanmoins très simples qui vous
-permettront de (bien) débuter avec votre Raspberry.</em></p>
+permettront de (bien) débuter avec votre Raspberry.*
 
-<h2 id="télécharger-et-flasher-raspberry-os">Télécharger et flasher Raspberry OS</h2>
-<p>Commencez par télécharger et installer le logiciel <a href="https://www.raspberrypi.org/software/" target="_blank" rel="nofollow noopener noreferrer">Raspberry Pi Imager</a>
+
+
+## Télécharger et flasher Raspberry OS
+
+Commencez par télécharger et installer le logiciel [Raspberry Pi Imager](https://www.raspberrypi.org/software/)
 (cliquez sur le lien correspondant à votre système d'exploitation). Connectez votre micro SD à votre ordinateur, puis
-ouvrez le logiciel qui se présente comme suit :</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/installation-minimale-raspberry-pi/raspberry-pi-imager.png" alt="Raspberry Pi Imager"></p>
-<p>Cliquez sur le bouton <em>Choisissez l'OS</em>, puis sélectionnez <em>Raspberry Pi OS (32-bit)</em> dans la boîte de dialogue
-qui s'affiche. Maintenant, cliquez sur <em>Choisissez le stockage</em> et choisissez votre micro SD.
-Pour terminer, cliquez sur <em>Écrire</em>, patientez quelques instants, et voilà !</p>
-<p>Pour plus d'informations sur toutes les possibilités que vous offre Raspberry Pi Imager,
-je vous conseille la lecture de l'article &laquo; <a href="https://framboise-pi.skyost.eu/article/maitriser-raspberry-pi-imager">Maîtriser Raspberry Pi Imager</a> &raquo;
-disponible sur ce site 😉</p>
-<h2 id="activer-ssh-et-se-connecter-au-wi-fi">Activer SSH et se connecter au Wi-Fi</h2>
-<p>Pour activer le serveur SSH intégré à l'OS, il vous suffit de créer un fichier nommé <code>ssh</code> sur la partition boot de
-votre micro SD (la partition qui s'affiche lorsque vous connectez votre carte à votre ordinateur).</p>
-<p>Ce serveur SSH ne vous servira à rien s'il n'est pas connecté à votre réseau local. Pour remédier à cela, on va créer
-un fichier <code>wpa_supplicant.conf</code> ayant pour contenu :</p>
-<pre><code>country=fr
-update_config=1
-ctrl_interface=/var/run/wpa_supplicant
+ouvrez le logiciel qui se présente comme suit :
 
-network={
- scan_ssid=1
- ssid="ID_DE_VOTRE_RESEAU"
- psk="MOT_DE_PASSE_DE_VOTRE_RESEAU"
-}
-</code></pre>
-<p>N'oubliez pas de remplacer <code>ID_DE_VOTRE_RESEAU</code> et <code>MOT_DE_PASSE_DE_VOTRE_RESEAU</code> par leur valeur respective.
+![Raspberry Pi Imager](/images/articles/installation-minimale-raspberry-pi/raspberry-pi-imager.png)
+
+Cliquez sur le bouton *Choisissez l'OS*, puis sélectionnez *Raspberry Pi OS (32-bit)* dans la boîte de dialogue
+qui s'affiche. Maintenant, cliquez sur *Choisissez le stockage* et choisissez votre micro SD.
+Pour terminer, cliquez sur *Écrire*, patientez quelques instants, et voilà !
+
+Pour plus d'informations sur toutes les possibilités que vous offre Raspberry Pi Imager,
+je vous conseille la lecture de l'article &laquo; [Maîtriser Raspberry Pi Imager](/article/maitriser-raspberry-pi-imager) &raquo;
+disponible sur ce site 😉
+
+## Activer SSH et se connecter au Wi-Fi
+
+Pour activer le serveur SSH intégré à l'OS, il vous suffit de créer un fichier nommé `ssh` sur la partition boot de
+votre micro SD (la partition qui s'affiche lorsque vous connectez votre carte à votre ordinateur).
+
+Ce serveur SSH ne vous servira à rien s'il n'est pas connecté à votre réseau local. Pour remédier à cela, on va créer
+un fichier `wpa_supplicant.conf` ayant pour contenu :
+
+    country=fr
+    update_config=1
+    ctrl_interface=/var/run/wpa_supplicant
+
+    network={
+     scan_ssid=1
+     ssid="ID_DE_VOTRE_RESEAU"
+     psk="MOT_DE_PASSE_DE_VOTRE_RESEAU"
+    }
+
+N'oubliez pas de remplacer `ID_DE_VOTRE_RESEAU` et `MOT_DE_PASSE_DE_VOTRE_RESEAU` par leur valeur respective.
 Et voilà, vous pouvez retirer la micro SD de votre ordinateur pour la remettre dans votre Raspberry Pi et brancher
-celui-ci !</p>
-<h2 id="se-connecter-en-ssh">Se connecter en SSH</h2>
-<p>Vous aurez besoin d'un client SSH pour réaliser cette étape (si vous êtes sous Windows, je vous conseille
-<a href="https://www.putty.org/" target="_blank" rel="nofollow noopener noreferrer">PuTTY</a>). Vous aurez également besoin de connaître l'adresse IP locale de votre framboise.
+celui-ci !
+
+## Se connecter en SSH
+
+Vous aurez besoin d'un client SSH pour réaliser cette étape (si vous êtes sous Windows, je vous conseille
+[PuTTY](https://www.putty.org/)). Vous aurez également besoin de connaître l'adresse IP locale de votre framboise.
 Il y a beaucoup de façons d'arriver à cela (un article à ce sujet a même été rédigé
-<a href="https://www.raspberrypi.org/documentation/remote-access/ip-address.md" target="_blank" rel="nofollow noopener noreferrer">sur le site officiel</a> de la fondation
+[sur le site officiel](https://www.raspberrypi.org/documentation/remote-access/ip-address.md) de la fondation
 Raspberry Pi), la manière la plus simple étant d'utiliser l'interface web de votre routeur, couramment accessible
-en tapant <code>192.168.1.1</code> dans la barre d'URL de votre navigateur.</p>
-<p>Un petit exemple sur ma box SFR (en allant dans <em>État</em> > <em>Réseau local</em>) :</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/installation-minimale-raspberry-pi/reseau-local.png" alt="Raspberry Pi Imager"></p>
-<p>Petite astuce <a href="https://raspberrypi.stackexchange.com/a/100513" target="_blank" rel="nofollow noopener noreferrer">trouvée sur StackExchange</a> :
-les adresses MAC des Raspberry Pi commencent généralement par <code>B8:27:EB</code> ou par <code>DC:A6:32</code> pour les modèles les plus récents.
+en tapant `192.168.1.1` dans la barre d'URL de votre navigateur.
+
+Un petit exemple sur ma box SFR (en allant dans *État* > *Réseau local*) :
+
+![Raspberry Pi Imager](/images/articles/installation-minimale-raspberry-pi/reseau-local.png)
+
+Petite astuce [trouvée sur StackExchange](https://raspberrypi.stackexchange.com/a/100513) :
+les adresses MAC des Raspberry Pi commencent généralement par `B8:27:EB` ou par `DC:A6:32` pour les modèles les plus récents.
 Si vous ne trouvez pas votre appareil sur le réseau, il se peut que vous ayez fait une erreur dans la configuration du
-Wi-Fi lors de l'étape précédente.</p>
-<p>Une fois l'adresse IP en poche, entrez-la dans votre client SSH et connectez-vous. Par défaut, le nom d'utilisateur
-est <code>pi</code> et le mot de passe est <code>raspberry</code>. On pourrait s'arrêter là, mais tant que vous y êtes,
-profitez-en pour faire les mises à jour de votre appareil en exécutant les commandes suivantes :</p>
-<pre><code>sudo apt update
-sudo apt full-upgrade
-</code></pre>
-<p>Profitez-en également pour mettre à jour l'outil <code>raspi-config</code> ; ouvrez-le en tapant <code>sudo raspi-config</code> et sélectionnez
-l'option <em>Update</em>. Cet outil est très pratique et vous permet de modifier totalement la manière dont fonctionne
+Wi-Fi lors de l'étape précédente.
+
+Une fois l'adresse IP en poche, entrez-la dans votre client SSH et connectez-vous. Par défaut, le nom d'utilisateur
+est `pi` et le mot de passe est `raspberry`. On pourrait s'arrêter là, mais tant que vous y êtes,
+profitez-en pour faire les mises à jour de votre appareil en exécutant les commandes suivantes :
+
+    sudo apt update
+    sudo apt full-upgrade
+
+Profitez-en également pour mettre à jour l'outil `raspi-config` ; ouvrez-le en tapant `sudo raspi-config` et sélectionnez
+l'option *Update*. Cet outil est très pratique et vous permet de modifier totalement la manière dont fonctionne
 votre Raspberry (il permet notamment d'overclocker votre machine).
 Par exemple, si vous êtes intéressé, il est possible de changer les options de localisation à travers le menu
-<em>Localisation Options</em>.</p>
-<p>Pour terminer, notons qu'il existe une manière d'accéder aux fichiers situés sur votre Raspberry Pi à l'aide d'une
-interface graphique. Il vous suffit de télécharger un client sFTP (comme <a href="https://filezilla-project.org/" target="_blank" rel="nofollow noopener noreferrer">FileZilla</a>
+*Localisation Options*.
+
+Pour terminer, notons qu'il existe une manière d'accéder aux fichiers situés sur votre Raspberry Pi à l'aide d'une
+interface graphique. Il vous suffit de télécharger un client sFTP (comme [FileZilla](https://filezilla-project.org/)
 par exemple), et de vous connecter à l'adresse IP de votre Pi via le port 22, en utilisant les mêmes identifiants
-que pour la connexion par SSH.</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/installation-minimale-raspberry-pi/filezilla.png" alt="FileZilla"></p>
-<h2 id="afficher-lécran-de-votre-raspberry-pi-grâce-à-vnc">Afficher l'écran de votre Raspberry Pi grâce à VNC</h2>
-<p>Cette étape n'est clairement pas nécessaire, d'autant plus si vous ne souhaitez pas utiliser l'interface graphique
+que pour la connexion par SSH.
+
+![FileZilla](/images/articles/installation-minimale-raspberry-pi/filezilla.png)
+
+## Afficher l'écran de votre Raspberry Pi grâce à VNC
+
+Cette étape n'est clairement pas nécessaire, d'autant plus si vous ne souhaitez pas utiliser l'interface graphique
 de Raspberry Pi OS (ou si vous avez installé la version Lite). Cependant, dans certains cas, il peut s'avérer utile
-d'afficher l'écran de votre appareil et d'interagir directement dessus avec une interface graphique.</p>
-<p>Pour ce faire, nous allons activer le serveur VNC intégré à l'OS. Il suffit pour cela d'ouvrir l'outil <code>raspi-config</code> à
-l'aide de la commande <code>sudo raspi-config</code> et de sélectionner le menu <em>Interfacing Options</em>. Ensuite, on choisit <em>VNC</em>,
-puis <em>Yes</em>, et le tour est joué !</p>
-<p>Vous allez maintenant avoir besoin d'un client VNC pour vous y connecter. Si vous êtes sous Windows,
-<a href="https://www.realvnc.com/fr/connect/download/viewer/" target="_blank" rel="nofollow noopener noreferrer">VNC Viewer de RealVNC</a> est un bon choix.
+d'afficher l'écran de votre appareil et d'interagir directement dessus avec une interface graphique.
+
+Pour ce faire, nous allons activer le serveur VNC intégré à l'OS. Il suffit pour cela d'ouvrir l'outil `raspi-config` à
+l'aide de la commande `sudo raspi-config` et de sélectionner le menu *Interfacing Options*. Ensuite, on choisit *VNC*,
+puis *Yes*, et le tour est joué !
+
+Vous allez maintenant avoir besoin d'un client VNC pour vous y connecter. Si vous êtes sous Windows,
+[VNC Viewer de RealVNC](https://www.realvnc.com/fr/connect/download/viewer/) est un bon choix.
 Ouvrez votre client et entrez l'adresse IP de votre Raspberry. Par défaut, le nom d'utilisateur et le mot de passe
-du serveur VNC sont les mêmes que pour SSH (nom d'utilisateur <code>pi</code> et mot de passe <code>raspberry</code>).</p>
-<p>Et voilà, vous pouvez interagir librement avec votre appareil depuis votre PC !</p>
+du serveur VNC sont les mêmes que pour SSH (nom d'utilisateur `pi` et mot de passe `raspberry`).
+
+Et voilà, vous pouvez interagir librement avec votre appareil depuis votre PC !
 ]]></content:encoded>
             <enclosure url="https://framboise-pi.skyost.eu/images/articles/installation-minimale-raspberry-pi/preview.png" length="0" type="image/png"/>
         </item>
@@ -478,10 +612,12 @@ du serveur VNC sont les mêmes que pour SSH (nom d'utilisateur <code>pi</code> e
             <pubDate>Mon, 12 Apr 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
 qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.]]></description>
-            <content:encoded><![CDATA[<p><em>Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
-qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.</em></p>
+            <content:encoded><![CDATA[*Premier projet à voir le jour sur blog ! Nous allons voir ici comment créer une horloge abordable
+qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une matrice de LEDs.*
 
-<p><iframe width="640"
+
+
+<iframe width="640"
   height="360"
   src="https://www.youtube.com/embed/VBNRIcA_Ppg"
   title="YouTube video player"
@@ -489,166 +625,170 @@ qui se déclenche au toucher à l'aide d'un Raspberry Pi, d'un Touchpad et d'une
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
 ></iframe>
-<br><a href="https://www.youtube.com/watch?v=VBNRIcA_Ppg">Lien vers la vidéo YouTube</a>.</p>
-<h2 id="matériel-nécessaire">Matériel nécessaire</h2>
-<p>Le projet est très accessible mais nécessite pas mal de matériel. Vous aurez besoin de :</p>
-<ul>
-<li>1 <strong>Raspberry Pi Zero WH</strong> [<a href="https://amzn.to/2RvB484" target="_blank" rel="nofollow noopener noreferrer">Amazon</a>,
-<a href="https://s.click.aliexpress.com/e/_A9UaSn" target="_blank" rel="nofollow noopener noreferrer">AliExpress</a>]
-(n'importe quel Raspberry Pi muni de ports GPIO devrait suffire, mais cette solution me semble être la moins
-chère).</li>
-<li>1 <strong>Matrice de LEDs</strong> [<a href="https://amzn.to/3dTBa0U" target="_blank" rel="nofollow noopener noreferrer">Amazon</a>,
-<a href="https://s.click.aliexpress.com/e/_9zTnPl" target="_blank" rel="nofollow noopener noreferrer">AliExpress</a>] (je vous conseille celle d'AZ-Delivery,
-abordable et de bonne qualité).</li>
-<li>1 <strong>Touchpad USB</strong> [<a href="https://amzn.to/3wRrQmQ" target="_blank" rel="nofollow noopener noreferrer">Amazon</a>,
-<a href="https://fr.aliexpress.com/item/32981629578.html" target="_blank" rel="nofollow noopener noreferrer">AliExpress</a>] (cela a l'avantage d'être généralement moins couteux
-que l'achat d'un détecteur de mouvements et de boutons).</li>
-<li>1 <strong>Câble micro USB - USB OTG</strong> [<a href="https://amzn.to/3wP0QEr" target="_blank" rel="nofollow noopener noreferrer">Amazon</a>,
-<a href="https://s.click.aliexpress.com/e/_ABy4z9" target="_blank" rel="nofollow noopener noreferrer">AliExpress</a>].</li>
-<li>1 <strong>Chargeur secteur USB</strong>.</li>
-<li>1 <strong>Câble d'alimentation USB - micro USB</strong>.</li>
-<li>1 <strong>Micro SD</strong> (prévoyez minimum 8Go pour n'importe quel projet).</li>
-<li>1 <strong>Adaptateur SD</strong>.</li>
-</ul>
-<p>Tout cela pour un coût total d'environ 60€ (si vous ne possédez rien).</p>
-<h2 id="effectuer-les-branchements">Effectuer les branchements</h2>
-<p>On va effectuer les branchements à l'aide du tableau suivant :</p>
-<table>
-<thead>
-<tr>
-<th>Pin Matrice</th>
-<th>Nom</th>
-<th>Signification</th>
-<th>Pin RPi</th>
-<th>Fonction</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>VCC</td>
-<td>+5V Power</td>
-<td>2</td>
-<td>5V0</td>
-</tr>
-<tr>
-<td>2</td>
-<td>GND</td>
-<td>Ground</td>
-<td>6</td>
-<td>GND</td>
-</tr>
-<tr>
-<td>3</td>
-<td>DIN</td>
-<td>Data In</td>
-<td>19</td>
-<td>GPIO 10 (MOSI)</td>
-</tr>
-<tr>
-<td>4</td>
-<td>CS</td>
-<td>Chip Select</td>
-<td>24</td>
-<td>GPIO 8 (SPI CE0)</td>
-</tr>
-<tr>
-<td>5</td>
-<td>CLK</td>
-<td>Clock</td>
-<td>23</td>
-<td>GPIO 11 (SPI CLK)</td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://luma-led-matrix.readthedocs.io/en/latest/install.html#max7219-devices-spi" target="_blank" rel="nofollow noopener noreferrer">Source</a>.</p>
-<p>Chaque port de la matrice de LEDs doit être relié au port correspondant sur le Raspberry.
-Voici la carte des ports GPIO sur les modèles les plus récents :</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/creer-horloge-matrice-leds/gpio-pinout.png" alt="Carte des ports GPIO"></p>
-<p><a href="https://www.raspberrypi.org/documentation/usage/gpio/" target="_blank" rel="nofollow noopener noreferrer">Source</a>.</p>
-<p>Ce qui devrait vous donner quelque-chose comme ça :</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/creer-horloge-matrice-leds/branchements.png" alt="Branchements"></p>
-<p>Branchez ensuite le touchpad à l'aide du câble micro USB - USB.</p>
-<h2 id="mettre-en-place-le-script">Mettre en place le script</h2>
-<p>Insérez votre micro SD dans votre ordinateur et flashez Raspberry Pi OS dessus (un tutoriel a été rédigé à ce sujet,
-il est disponible <a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi#t%C3%A9l%C3%A9charger-et-flasher-raspberry-os">ici</a>). Activez SSH
+<br><a href="https://www.youtube.com/watch?v=VBNRIcA_Ppg">Lien vers la vidéo YouTube</a>.
+
+## Matériel nécessaire
+
+Le projet est très accessible mais nécessite pas mal de matériel. Vous aurez besoin de :
+
+*   1 **Raspberry Pi Zero WH** \[[Amazon](https://amzn.to/2RvB484),
+    [AliExpress](https://s.click.aliexpress.com/e/\_A9UaSn)]
+    (n'importe quel Raspberry Pi muni de ports GPIO devrait suffire, mais cette solution me semble être la moins
+    chère).
+*   1 **Matrice de LEDs** \[[Amazon](https://amzn.to/3dTBa0U),
+    [AliExpress](https://s.click.aliexpress.com/e/\_9zTnPl)] (je vous conseille celle d'AZ-Delivery,
+    abordable et de bonne qualité).
+*   1 **Touchpad USB** \[[Amazon](https://amzn.to/3wRrQmQ),
+    [AliExpress](https://fr.aliexpress.com/item/32981629578.html)] (cela a l'avantage d'être généralement moins couteux
+    que l'achat d'un détecteur de mouvements et de boutons).
+*   1 **Câble micro USB - USB OTG** \[[Amazon](https://amzn.to/3wP0QEr),
+    [AliExpress](https://s.click.aliexpress.com/e/\_ABy4z9)].
+*   1 **Chargeur secteur USB**.
+*   1 **Câble d'alimentation USB - micro USB**.
+*   1 **Micro SD** (prévoyez minimum 8Go pour n'importe quel projet).
+*   1 **Adaptateur SD**.
+
+Tout cela pour un coût total d'environ 60€ (si vous ne possédez rien).
+
+## Effectuer les branchements
+
+On va effectuer les branchements à l'aide du tableau suivant :
+
+| Pin Matrice | Nom | Signification | Pin RPi | Fonction          |
+|-------------|-----|---------------|---------|-------------------|
+| 1           | VCC | +5V Power     | 2       | 5V0               |
+| 2           | GND | Ground        | 6       | GND               |
+| 3           | DIN | Data In       | 19      | GPIO 10 (MOSI)    |
+| 4           | CS  | Chip Select   | 24      | GPIO 8 (SPI CE0)  |
+| 5           | CLK | Clock         | 23      | GPIO 11 (SPI CLK) |
+
+[Source](https://luma-led-matrix.readthedocs.io/en/latest/install.html#max7219-devices-spi).
+
+Chaque port de la matrice de LEDs doit être relié au port correspondant sur le Raspberry.
+Voici la carte des ports GPIO sur les modèles les plus récents :
+
+![Carte des ports GPIO](/images/articles/creer-horloge-matrice-leds/gpio-pinout.png)
+
+[Source](https://www.raspberrypi.org/documentation/usage/gpio/).
+
+Ce qui devrait vous donner quelque-chose comme ça :
+
+![Branchements](/images/articles/creer-horloge-matrice-leds/branchements.png)
+
+Branchez ensuite le touchpad à l'aide du câble micro USB - USB.
+
+## Mettre en place le script
+
+Insérez votre micro SD dans votre ordinateur et flashez Raspberry Pi OS dessus (un tutoriel a été rédigé à ce sujet,
+il est disponible [ici](/article/installation-minimale-raspberry-pi#télécharger-et-flasher-raspberry-os)). Activez SSH
 et la connexion à votre réseau Wi-Fi en suivant les étapes disponibles
-<a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi#activer-ssh-et-se-connecter-au-wi-fi">ici</a>.
-Enlevez votre carte de l'ordinateur, et insérez-la dans le Raspberry que vous pouvez désormais mettre sous tension.</p>
-<p>Commencez par vous <a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi/#se-connecter-en-ssh">connecter en SSH</a>.
-On va activer l'interface SPI en lançant l'utilitaire <code>raspi-config</code> (il suffit pour cela d'exécuter la
-commande <code>sudo raspi-config</code>). Sélectionnez <em>Interfacing Options</em>, puis <em>SPI</em>, et <em>Yes</em>.
+[ici](/article/installation-minimale-raspberry-pi#activer-ssh-et-se-connecter-au-wi-fi).
+Enlevez votre carte de l'ordinateur, et insérez-la dans le Raspberry que vous pouvez désormais mettre sous tension.
+
+Commencez par vous [connecter en SSH](/article/installation-minimale-raspberry-pi/#se-connecter-en-ssh).
+On va activer l'interface SPI en lançant l'utilitaire `raspi-config` (il suffit pour cela d'exécuter la
+commande `sudo raspi-config`). Sélectionnez *Interfacing Options*, puis *SPI*, et *Yes*.
 Tant qu'on y est, on va changer le fuseau horaire de votre Pi. Pour ce faire, sortez de ce menu et rendez-vous dans
-le menu <em>Localisation Options</em>. À partir de ce menu, sélectionnez <em>Change Timezone</em> et choisissez <em>Europe (Paris)</em>.</p>
-<p>Sortez de l'utilitaire et  redémarrez (si <code>raspi-config</code> ne vous propose pas de redémarrer,
-la commande <code>sudo reboot now</code> fera l'affaire).</p>
-<p>J'ai créé un petit script Python pour ce projet qui nécessite cependant quelques commandes pour fonctionner.
-Tout d'abord, il faut s'assurer que la version de Python utilisée par défaut soit la version 3 :</p>
-<pre><code class="language-shell">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 2
-</code></pre>
-<p>La commande <code>python --version</code> doit maintenant vous renvoyer <code>Python 3.7.x</code>. On va maintenant pouvoir installer les
-dépendances :</p>
-<pre><code class="language-shell">sudo usermod -a -G spi,gpio pi
+le menu *Localisation Options*. À partir de ce menu, sélectionnez *Change Timezone* et choisissez *Europe (Paris)*.
+
+Sortez de l'utilitaire et  redémarrez (si `raspi-config` ne vous propose pas de redémarrer,
+la commande `sudo reboot now` fera l'affaire).
+
+J'ai créé un petit script Python pour ce projet qui nécessite cependant quelques commandes pour fonctionner.
+Tout d'abord, il faut s'assurer que la version de Python utilisée par défaut soit la version 3 :
+
+```shell
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 2
+```
+
+La commande `python --version` doit maintenant vous renvoyer `Python 3.7.x`. On va maintenant pouvoir installer les
+dépendances :
+
+```shell
+sudo usermod -a -G spi,gpio pi
 sudo apt install build-essential libfreetype6-dev libjpeg-dev libopenjp2-7 libtiff5
 sudo pip3 install luma.led_matrix
 sudo apt install libsdl-dev libportmidi-dev libsdl-ttf2.0-dev libsdl-mixer1.2-dev libsdl-image1.2-dev
 sudo pip3 install pygame
 sudo pip3 install luma.emulator
 sudo pip3 install pynput
-</code></pre>
-<p>(Il s'agit d'un condensé des informations d'installation de
-<a href="https://luma-led-matrix.readthedocs.io/en/latest/install.html" target="_blank" rel="nofollow noopener noreferrer">Luma LED Matrix</a>,
-<a href="https://luma-emulator.readthedocs.io/en/latest/install.html" target="_blank" rel="nofollow noopener noreferrer">Luma Emulator</a>, et
-<a href="https://pypi.org/project/pynput/" target="_blank" rel="nofollow noopener noreferrer">Pynput</a>). Vous pouvez maintenant télécharger le script directement depuis Github :</p>
-<pre><code class="language-shell">sudo apt install git
+```
+
+(Il s'agit d'un condensé des informations d'installation de
+[Luma LED Matrix](https://luma-led-matrix.readthedocs.io/en/latest/install.html),
+[Luma Emulator](https://luma-emulator.readthedocs.io/en/latest/install.html), et
+[Pynput](https://pypi.org/project/pynput/)). Vous pouvez maintenant télécharger le script directement depuis Github :
+
+```shell
+sudo apt install git
 git clone https://github.com/Skyost/Anaclock.git
-</code></pre>
-<p>On va désactiver toutes les interactions possibles avec Raspberry Pi OS à la souris (pour éviter qu'un mauvais clic
-vienne éteindre le système, voire pire). Pour cela, on va éditer le fichier <code>~/.config/lxsession/LXDE-pi/autostart</code> à
-l'aide de Nano :</p>
-<pre><code class="language-shell">sudo nano ~/.config/lxsession/LXDE-pi/autostart
-</code></pre>
-<p>Cherchez la ligne commençant par <code>@lxpanel</code> et éditez le fichier comme suit :</p>
-<pre><code class="language-shell"># @lxpanel --profile LXDE-pi # Désactive lxpanel.
+```
+
+On va désactiver toutes les interactions possibles avec Raspberry Pi OS à la souris (pour éviter qu'un mauvais clic
+vienne éteindre le système, voire pire). Pour cela, on va éditer le fichier `~/.config/lxsession/LXDE-pi/autostart` à
+l'aide de Nano :
+
+```shell
+sudo nano ~/.config/lxsession/LXDE-pi/autostart
+```
+
+Cherchez la ligne commençant par `@lxpanel` et éditez le fichier comme suit :
+
+```shell
+# @lxpanel --profile LXDE-pi # Désactive lxpanel.
 # @pcmanfm --desktop --profile LXDE-pi # Désactive PCManFM.
 # @xscreensaver -no-splash # Désactive xscreensaver.
 @xset s off # Désactive l’économiseur d’écran.
 @xset -dpms # Désactive DPMS.
 @xset s noblank # Empêche l'écran de devenir blanc.
 @point-rpi # Positionne la souris sur le bouton du menu.
-</code></pre>
-<p>Faîtes <em>CTRL + X</em> pour enregistrer le fichier, puis <em>Y</em> pour valider. On va maintenant supprimer le menu contextuel
-d'OpenBox. Éditez le fichier <code>~/.config/openbox/lxde-pi-rc.xml</code> avec Nano :</p>
-<pre><code class="language-shell">sudo nano ~/.config/openbox/lxde-pi-rc.xml
-</code></pre>
-<p>Et supprimez les lignes qui sont responsables du clic droit :</p>
-<pre><code class="language-xml">&#x3C;!-- Supprimez ou commentez ce qui se trouve entre cette balise... -->
-&#x3C;mousebind button="Right" action="Press">
-  &#x3C;!-- ... -->
-&#x3C;/mousebind> 
-&#x3C;!-- ... Et cette balise. -->
-</code></pre>
-<p>Au lieu de faire tout cela, une autre possibilité aurait été de lancer Chromium en mode kiosk au démarrage
-(les étapes pour faire ceci sont disponibles <a href="https://gist.github.com/jongrover/6831346" target="_blank" rel="nofollow noopener noreferrer">ici</a>).
-De même, faîtes <em>CTRL + X</em> pour enregistrer le fichier, et validez avec <em>Y</em>. On peut maintenant redémarrer le système
-avec <code>sudo reboot now</code>.</p>
-<h2 id="faire-fonctionner-lhorloge">Faire fonctionner l'horloge</h2>
-<p>Une fois le système redémarré, on se dirige dans le répertoire du script, et on l'exécute en fond :</p>
-<pre><code class="language-shell">cd Anaclock
+```
+
+Faîtes *CTRL + X* pour enregistrer le fichier, puis *Y* pour valider. On va maintenant supprimer le menu contextuel
+d'OpenBox. Éditez le fichier `~/.config/openbox/lxde-pi-rc.xml` avec Nano :
+
+```shell
+sudo nano ~/.config/openbox/lxde-pi-rc.xml
+```
+
+Et supprimez les lignes qui sont responsables du clic droit :
+
+```xml
+
+<mousebind button="Right" action="Press">
+  
+</mousebind> 
+
+```
+
+Au lieu de faire tout cela, une autre possibilité aurait été de lancer Chromium en mode kiosk au démarrage
+(les étapes pour faire ceci sont disponibles [ici](https://gist.github.com/jongrover/6831346)).
+De même, faîtes *CTRL + X* pour enregistrer le fichier, et validez avec *Y*. On peut maintenant redémarrer le système
+avec `sudo reboot now`.
+
+## Faire fonctionner l'horloge
+
+Une fois le système redémarré, on se dirige dans le répertoire du script, et on l'exécute en fond :
+
+```shell
+cd Anaclock
 export DISPLAY=:0.0
-nohup python ./anaclock.py >/dev/null 2>&#x26;1 &#x26;
-</code></pre>
-<p>N'hésitez pas à mettre ceci dans un petit script qui se lance automatiquement, cela peut toujours faire gagner du temps.
+nohup python ./anaclock.py >/dev/null 2>&1 &
+```
+
+N'hésitez pas à mettre ceci dans un petit script qui se lance automatiquement, cela peut toujours faire gagner du temps.
 Et voilà, normalement si vous bougez la souris en effectuant un mouvement sur le touchpad... La matrice de LEDs
-devrait s'animer !</p>
-<p><img src="https://framboise-pi.skyost.eu/images/articles/creer-horloge-matrice-leds/resultat.gif" alt="Résultat"></p>
-<p>Voici les commandes programmées :</p>
-<ul>
-<li><strong>Clic gauche / mouvement</strong> : affiche l'heure.</li>
-<li><strong>Clic droit</strong> : affiche la date.</li>
-<li><strong>Appui consécutif d'au moins 5 secondes sur le clic gauche</strong> : éteint l'appareil.</li>
-</ul>
-<p>C'est terminé ! En espérant que ce petit projet vous ait plu, n'hésitez pas à m'envoyer vos retours 😉</p>
+devrait s'animer !
+
+![Résultat](/images/articles/creer-horloge-matrice-leds/resultat.gif)
+
+Voici les commandes programmées :
+
+*   **Clic gauche / mouvement** : affiche l'heure.
+*   **Clic droit** : affiche la date.
+*   **Appui consécutif d'au moins 5 secondes sur le clic gauche** : éteint l'appareil.
+
+C'est terminé ! En espérant que ce petit projet vous ait plu, n'hésitez pas à m'envoyer vos retours 😉
 ]]></content:encoded>
             <enclosure url="https://framboise-pi.skyost.eu/images/articles/creer-horloge-matrice-leds/preview.png" length="0" type="image/png"/>
         </item>
@@ -659,38 +799,49 @@ devrait s'animer !</p>
             <pubDate>Sun, 11 Apr 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Ceci est le premier billet de mon blog consacré au Raspberry Pi. Sobrement intitulé Framboise Pi, vous trouverez
 ici tout ce que je partagerai sur l'actualité du nano-ordinateur à 35€ de la fondation Raspberry Pi.]]></description>
-            <content:encoded><![CDATA[<p><em>Ceci est le premier billet de mon blog consacré au Raspberry Pi. Sobrement intitulé &laquo; Framboise Pi &raquo;, vous trouverez
-ici tout ce que je partagerai sur l'actualité du nano-ordinateur à 35€ de la fondation Raspberry Pi.</em></p>
+            <content:encoded><![CDATA[*Ceci est le premier billet de mon blog consacré au Raspberry Pi. Sobrement intitulé &laquo; Framboise Pi &raquo;, vous trouverez
+ici tout ce que je partagerai sur l'actualité du nano-ordinateur à 35€ de la fondation Raspberry Pi.*
 
-<h2 id="qui-suis-je-">Qui suis-je ?</h2>
-<p>Je m'appelle Hugo Delaunay, &laquo; Skyost &raquo; de mon pseudonyme fréquemment utilisé sur internet, et j'aime créer toutes sortes
-de petites choses sympa avec mon ordinateur.</p>
-<p>J'ai découvert le Raspberry Pi il y a quelque temps déjà, et je suis tout de suite tombé amoureux du concept.
+
+
+## Qui suis-je ?
+
+Je m'appelle Hugo Delaunay, &laquo; Skyost &raquo; de mon pseudonyme fréquemment utilisé sur internet, et j'aime créer toutes sortes
+de petites choses sympa avec mon ordinateur.
+
+J'ai découvert le Raspberry Pi il y a quelque temps déjà, et je suis tout de suite tombé amoureux du concept.
 Je trouvais (et trouve toujours d'ailleurs) l'idée incroyable : un ordinateur minimaliste et personnalisable à souhait ;
-le tout pour un prix canon.</p>
-<h2 id="pourquoi-ce-blog-">Pourquoi ce blog ?</h2>
-<p>Comme je l'ai dit, j'aime beaucoup m'amuser avec les nouvelles technologies, et le Raspberry Pi n'y fait pas exception.
-Je faisais mes petits projets dans mon coin, et l'idée m'est venue de partager tout cela avec les internautes français.</p>
-<p>Je sais pertinemment que de nombreuses références existent déjà sur le web à propos de la petite carte de la
-fondation Raspberry Pi (je conseille notamment le très bon <a href="https://www.framboise314.fr/" target="_blank" rel="nofollow noopener noreferrer">Framboise 314</a>).</p>
-<p>Le but n'est pas de &laquo; copier &raquo; le contenu que l'on peut trouver sur ces sites-là, mais bien d'apporter mes quelques
+le tout pour un prix canon.
+
+## Pourquoi ce blog ?
+
+Comme je l'ai dit, j'aime beaucoup m'amuser avec les nouvelles technologies, et le Raspberry Pi n'y fait pas exception.
+Je faisais mes petits projets dans mon coin, et l'idée m'est venue de partager tout cela avec les internautes français.
+
+Je sais pertinemment que de nombreuses références existent déjà sur le web à propos de la petite carte de la
+fondation Raspberry Pi (je conseille notamment le très bon [Framboise 314](https://www.framboise314.fr/)).
+
+Le but n'est pas de &laquo; copier &raquo; le contenu que l'on peut trouver sur ces sites-là, mais bien d'apporter mes quelques
 conseils et astuces à moi qui m'ont permis de bien me lancer (et qui me servent encore à ce jour), ainsi que de
 partager mes modestes créations et idées. Je souhaite également partager le plus possible les actualités autour du
-Raspberry Pi.</p>
-<p>Et tant que l'on parle du blog en lui-même, sachez qu'il est totalement open source, vous pouvez aller voir ceci
-de vous-même via <a href="https://github.com/Skyost/FramboisePi" target="_blank" rel="nofollow noopener noreferrer">Github</a>.</p>
-<h2 id="mot-de-la-fin">Mot de la fin</h2>
-<p>J'accompagne le lancement de ce blog de trois articles :</p>
-<ul>
-<li><a href="https://framboise-pi.skyost.eu/article/installation-minimale-raspberry-pi">Installation minimale d'un Raspberry Pi</a> : qui vous permettra notamment
-de flasher une image sur votre carte SD, de vous connecter au Wi-Fi ainsi que de mettre en place des serveurs SSH et VNC.</li>
-<li><a href="https://framboise-pi.skyost.eu/article/creer-horloge-matrice-leds">Créer une horloge avec une matrice de LEDs</a> : un petit projet d'horloge sympa
-et très minimaliste avec une matrice de LEDs.</li>
-<li><a href="https://framboise-pi.skyost.eu/article/maitriser-raspberry-pi-imager">Maîtriser Raspberry Pi Imager</a> : article entier consacré à la maîtrise
-du logiciel de flash édité par la fondation Raspberry Pi.</li>
-</ul>
-<p>J'ai beaucoup hésité avant de lancer ce blog. J'espère en tout cas que vous y trouverez votre bonheur autant que je
-trouve le mien à vous partager mes pensées. Je vous souhaite, de tout cœur, une <strong>bonne visite</strong>.</p>
+Raspberry Pi.
+
+Et tant que l'on parle du blog en lui-même, sachez qu'il est totalement open source, vous pouvez aller voir ceci
+de vous-même via [Github](https://github.com/Skyost/FramboisePi).
+
+## Mot de la fin
+
+J'accompagne le lancement de ce blog de trois articles :
+
+*   [Installation minimale d'un Raspberry Pi](/article/installation-minimale-raspberry-pi) : qui vous permettra notamment
+    de flasher une image sur votre carte SD, de vous connecter au Wi-Fi ainsi que de mettre en place des serveurs SSH et VNC.
+*   [Créer une horloge avec une matrice de LEDs](/article/creer-horloge-matrice-leds) : un petit projet d'horloge sympa
+    et très minimaliste avec une matrice de LEDs.
+*   [Maîtriser Raspberry Pi Imager](/article/maitriser-raspberry-pi-imager) : article entier consacré à la maîtrise
+    du logiciel de flash édité par la fondation Raspberry Pi.
+
+J'ai beaucoup hésité avant de lancer ce blog. J'espère en tout cas que vous y trouverez votre bonheur autant que je
+trouve le mien à vous partager mes pensées. Je vous souhaite, de tout cœur, une **bonne visite**.
 ]]></content:encoded>
             <enclosure url="https://framboise-pi.skyost.eu/images/articles/hello-world/preview.png" length="0" type="image/png"/>
         </item>

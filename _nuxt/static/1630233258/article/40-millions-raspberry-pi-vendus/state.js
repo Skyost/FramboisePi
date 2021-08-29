@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1630233258",layout:"default",error:a,serverRendered:true,routePath:"\u002Farticle\u002F40-millions-raspberry-pi-vendus",config:{_app:{basePath:"\u002F",assetsPath:"\u002F_nuxt\u002F",cdnURL:a},content:{dbHash:"3a884645"}}}}(null));
