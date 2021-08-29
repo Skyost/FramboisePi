@@ -2,7 +2,7 @@ import { parse } from 'node-html-parser'
 import { HOST_NAME, SITE_DESCRIPTION, SITE_NAME } from './site'
 import { getArticleAddress, getArticleAuthor, getArticleImage, getArticlePublicationDate } from './article'
 
-const remark = require('remark')
+const { remark } = require('remark')
 const remarkSqueezeParagraphs = require('remark-squeeze-paragraphs')
 const remarkSlug = require('remark-slug')
 const remarkAutolinkHeadings = require('remark-autolink-headings')

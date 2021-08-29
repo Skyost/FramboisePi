@@ -28,30 +28,34 @@ Commencez par [vous connecter en SSH](/article/installation-minimale-raspberry-p
 Tout d'abord, il va falloir modifier un petit peu le comportement par défaut de la LED choisie en entrant :
 
 ```shell
-echo none >/sys/class/leds/led0/trigger
+echo none | sudo tee /sys/class/leds/led0/trigger
 ```
 
 Ensuite pour désactiver la LED, entrez :
 
 ```shell
-echo 0 >/sys/class/leds/led0/brightness
+echo 0 | sudo tee /sys/class/leds/led0/brightness
 ```
 
 Si vous souhaitez la réactiver, remplacez simplement le `0` par `1` :
 
 ```shell
-echo 1 >/sys/class/leds/led0/brightness
+echo 1 | sudo tee /sys/class/leds/led0/brightness
 ```
 
 N'oubliez pas de remplacer `led0` par `led1` si vous préférez agir sur la LED PWR (si votre modèle la supporte).
+D'ailleurs, il paraît que [les valeurs sont inversées pour un RPi Zero](https://mlagerberg.gitbooks.io/raspberry-pi/content/5.2-leds.html#pi-zero)
+(je ne suis cependant pas en mesure de tester cette affirmation).
 
 ## Revenir au comportement par défaut
 
 De même, pour revenir au comportement par défaut de la LED, il suffit d'entrer une seule petite commande :
 
 ```shell
-echo mmc0 >/sys/class/leds/led0/trigger
+echo mmc0 | sudo tee /sys/class/leds/led0/trigger
 ```
+
+Si vous avez modifié le comportement de la `led1`, remplacez plutôt `mmc0` par `input`.
 
 **Bonus :** Il y a beaucoup d'autres comportements disponibles pour votre LED (`heartbeat`, `timer`, et même
 manipulation par GPIO !), consultez [ce gist](https://gist.github.com/taktran/1b691c08216dd30b70bf) si vous souhaitez
